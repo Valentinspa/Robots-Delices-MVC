@@ -5,7 +5,7 @@
 // Démarre une session PHP pour pouvoir accéder aux données de l'utilisateur connecté
 session_start();
 // Inclut le fichier de connexion à la base de données
-require_once '__DIR__';
+require_once __DIR__. '/service/connexionBDD.php';
 
 // Vérification si un utilisateur est connecté
 // $_SESSION['user_id'] contient l'ID de l'utilisateur connecté (défini lors du login)
@@ -40,15 +40,15 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./navbar.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
     <script src="api-favoris.js"defer></script>
     <title>Robots-Délices</title>
 </head>
 <body>
     <?php
-    require_once 'header.php';
+    require_once __DIR__. '/view/module/header.php';
     ?>
     <main>
         <div id="section-container">
