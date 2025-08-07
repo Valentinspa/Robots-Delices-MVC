@@ -1,9 +1,9 @@
-/* ========================================= */
-/* ===== BARRE DE NAVIGATION (NAVBAR) ===== */
-/* ========================================= */
+
+/* BARRE DE NAVIGATION (NAVBAR) */
+
 /* Ce fichier gère l'apparence et le comportement de la barre de navigation en haut de page */
 
-/* === RESET CSS === */
+/* RESET CSS */
 /* Supprime les marges et espacements par défaut de tous les éléments */
 * {
   margin: 0; /* Supprime toutes les marges extérieures */
@@ -11,7 +11,7 @@
   box-sizing: border-box; /* La largeur inclut les bordures et paddings */
 }
 
-/* === HEADER PRINCIPAL === */
+/* HEADER PRINCIPAL */
 /* La barre de navigation fixe en haut de l'écran */
 header {
   background: white; /* Fond blanc */
@@ -24,7 +24,7 @@ header {
   height: 100px; /* Hauteur fixe */
 }
 
-/* === CONTENEUR PRINCIPAL DE LA NAVBAR === */
+/* CONTENEUR PRINCIPAL DE LA NAVBAR */
 /* Organise les éléments à l'intérieur du header */
 #section {
   display: flex; /* Affiche les éléments sur la même ligne */
@@ -37,7 +37,7 @@ header {
   position: relative; /* Pour positionner des éléments à l'intérieur */
 }
 
-/* === ZONE DU LOGO === */
+/* ZONE DU LOGO */
 /* Contient le logo du site */
 #header-title {
   display: flex; /* Pour aligner le logo */
@@ -46,7 +46,7 @@ header {
   z-index: 2; /* Au-dessus des autres éléments */
 }
 
-/* === LIEN DU LOGO === */
+/* LIEN DU LOGO */
 /* Le lien cliquable autour du logo */
 #header-title a {
   display: flex; /* Pour aligner le logo */
@@ -55,30 +55,30 @@ header {
   transition: transform 0.2s ease; /* Animation douce */
 }
 
-/* === EFFET HOVER DU LOGO === */
+/* EFFET HOVER DU LOGO */
 /* Légère animation quand on survole le logo */
 #header-title a:hover {
   transform: scale(1.02); /* Agrandissement de 2% */
 }
 
-/* === IMAGE DU LOGO === */
+/* IMAGE DU LOGO */
 #logo {
   height: 80px; /* Hauteur fixe */
   width: auto; /* Largeur automatique pour garder les proportions */
 }
 
-/* ================================== */
-/* === SYSTÈME DE MENU BURGER ===== */
-/* ================================== */
+
+/* SYSTÈME DE MENU BURGER */
+
 /* Pour afficher le menu sur mobile sous forme de "hamburger" */
 
-/* === CHECKBOX INVISIBLE === */
+/* CHECKBOX INVISIBLE */
 /* Input caché qui contrôle l'ouverture/fermeture du menu mobile */
 #menu-toggle {
   display: none; /* Complètement invisible, sert juste à l'état ouvert/fermé */
 }
 
-/* === BOUTON BURGER PRINCIPAL === */
+/* BOUTON BURGER PRINCIPAL */
 /* L'icône "hamburger" avec 3 barres qui apparaît sur mobile */
 .burger-menu {
   /* VISIBILITÉ */
@@ -104,7 +104,7 @@ header {
   transition: all 0.3s ease; /* Animation fluide pour tous les changements */
 }
 
-/* === EFFET HOVER DU BURGER === */
+/* EFFET HOVER DU BURGER */
 /* Animation quand on survole le bouton burger */
 .burger-menu:hover {
   background: rgba(109, 180, 196, 0.2); /* Fond plus intense */
@@ -112,7 +112,7 @@ header {
   transform: scale(1.05); /* Légère augmentation de taille */
 }
 
-/* === BARRES DU BURGER === */
+/* BARRES DU BURGER */
 /* Les 3 lignes horizontales qui forment l'icône "hamburger" */
 .burger-line {
   /* DIMENSIONS */
@@ -133,7 +133,7 @@ header {
   transition: all 0.3s ease; /* Animation fluide pour la transformation en X */
 }
 
-/* === POSITION DES BARRES === */
+/* POSITION DES BARRES */
 /* Position verticale de chaque barre */
 
 /* Barre du haut */
@@ -151,25 +151,20 @@ header {
   top: 33px; /* 33px du haut (proche du bas) */
 }
 
-/* ========================================= */
-/* === TRANSFORMATION BURGER EN X ======== */
-/* ========================================= */
-/* Quand le menu est ouvert (checkbox cochée), le burger se transforme en X */
-
-/* === CHANGEMENT DE COULEUR DU BOUTON === */
+/* CHANGEMENT DE COULEUR DU BOUTON */
 /* Le bouton devient rouge quand le menu est ouvert */
 #menu-toggle:checked + .burger-menu {
   background: rgba(239, 68, 68, 0.1); /* Fond rouge très léger */
   border-color: rgba(239, 68, 68, 0.2); /* Bordure rouge */
 }
 
-/* === CHANGEMENT DE COULEUR DES BARRES === */
+/* CHANGEMENT DE COULEUR DES BARRES */
 /* Les barres deviennent rouges pour indiquer "fermer" */
 #menu-toggle:checked + .burger-menu .burger-line {
   background: linear-gradient(45deg, #ef4444, #dc2626); /* Dégradé rouge */
 }
 
-/* === TRANSFORMATION DE LA BARRE DU HAUT === */
+/* TRANSFORMATION DE LA BARRE DU HAUT */
 /* La barre du haut devient la partie haute du X */
 #menu-toggle:checked + .burger-menu .burger-line:nth-child(1) {
   top: 22.5px; /* Se déplace au centre du bouton */
@@ -177,14 +172,14 @@ header {
   transform-origin: center; /* Point de rotation au centre */
 }
 
-/* === DISPARITION DE LA BARRE DU MILIEU === */
+/* DISPARITION DE LA BARRE DU MILIEU */
 /* La barre du milieu disparaît complètement */
 #menu-toggle:checked + .burger-menu .burger-line:nth-child(2) {
   opacity: 0; /* Devient invisible */
   transform: translateX(-50%) scale(0); /* Rétrécit jusqu'à disparaître */
 }
 
-/* === TRANSFORMATION DE LA BARRE DU BAS === */
+/* TRANSFORMATION DE LA BARRE DU BAS */
 /* La barre du bas devient la partie basse du X */
 #menu-toggle:checked + .burger-menu .burger-line:nth-child(3) {
   top: 22.5px; /* Se déplace au centre du bouton */
@@ -192,12 +187,10 @@ header {
   transform-origin: center; /* Point de rotation au centre */
 }
 
-/* ===================================== */
-/* === MENU DE NAVIGATION (DESKTOP) === */
-/* ===================================== */
+/* MENU DE NAVIGATION (DESKTOP) */
 /* Le menu principal visible sur les écrans larges */
 
-/* === CONTENEUR DU MENU === */
+/* CONTENEUR DU MENU */
 /* Positionne le menu au centre du header */
 .nav-container {
   position: absolute; /* Positionné par rapport au header */
@@ -207,7 +200,7 @@ header {
   align-items: center; /* Aligne verticalement */
 }
 
-/* === LISTE DU MENU === */
+/* LISTE DU MENU */
 /* La liste <ul> qui contient tous les liens */
 .nav-menu {
   display: flex; /* Liens côte à côte */
@@ -218,9 +211,7 @@ header {
   align-items: center; /* Aligne tous les liens verticalement */
 }
 
-/* ================================== */
-/* === LIENS DE NAVIGATION NORMAUX === */
-/* ================================== */
+/* LIENS DE NAVIGATION NORMAUX */
 /* Les liens habituels : Accueil, Recettes, Catégories, etc. */
 
 .nav-menu li:nth-child(-n + 4) a {
@@ -246,16 +237,15 @@ header {
   position: relative; /* Pour d'éventuels effets */
 }
 
-/* === EFFET HOVER DES LIENS NORMAUX === */
+/* EFFET HOVER DES LIENS NORMAUX */
 .nav-menu li:nth-child(-n + 4) a:hover {
   color: #5dbea3; /* Vert au survol */
   background: rgba(93, 190, 163, 0.08); /* Fond vert très léger */
   transform: translateY(-1px); /* Légère élévation */
 }
 
-/* ================================ */
-/* === BOUTONS D'ACTION SPÉCIAUX === */
-/* ================================ */
+/* BOUTONS D'ACTION SPÉCIAUX */
+
 /* Les boutons de connexion/inscription en rouge */
 
 .nav-menu li.red-btn a {
@@ -335,7 +325,7 @@ header * {
   font-weight: 600;
 }
 
-/* ===== BREAKPOINTS OPTIMISÉS ===== */
+/* BREAKPOINTS OPTIMISÉS */
 
 /* BREAKPOINT SPÉCIAL: 1024px exact (transition critique) */
 @media screen and (max-width: 1024px) and (min-width: 1024px) {

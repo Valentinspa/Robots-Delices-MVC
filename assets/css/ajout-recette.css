@@ -1,16 +1,15 @@
-/* ===================================== */
-/* === PAGE D'AJOUT DE RECETTE ======== */
-/* ===================================== */
+
+/* PAGE D'AJOUT DE RECETTE */
 /* Styles pour le formulaire de création de nouvelles recettes */
 
-/* === RESET CSS === */
+/* RESET CSS */
 * {
     margin: 0; /* Supprime marges par défaut */
     padding: 0; /* Supprime espacements par défaut */
     box-sizing: border-box; /* Largeur inclut bordures et paddings */
 }
 
-/* === STYLE GÉNÉRAL === */
+/* STYLE GÉNÉRAL */
 body {
     font-family: 'Arial', sans-serif; /* Police cohérente avec le site */
     line-height: 1.6; /* Espacement confortable entre lignes */
@@ -18,14 +17,14 @@ body {
     background: #f8fafc; /* Fond gris très clair */
 }
 
-/* === CONTENU PRINCIPAL === */
+/* CONTENU PRINCIPAL */
 /* Zone qui contient tout le formulaire d'ajout de recette */
 main {
     padding-top: 120px; /* Espace pour le header fixe (100px header + 20px marge) */
     min-height: calc(100vh - 120px); /* Hauteur minimum pour remplir l'écran */
 }
 
-/* === CONTENEUR CENTRÉ === */
+/* CONTENEUR CENTRÉ */
 /* Plus étroit que les autres pages car c'est un formulaire */
 .container {
     max-width: 1000px; /* Plus étroit que la page d'accueil (1200px) */
@@ -33,12 +32,9 @@ main {
     padding: 0 20px; /* Espace sur les côtés */
 }
 
-/* ============================= */
-/* === FIL D'ARIANE =========== */
-/* ============================= */
 /* Navigation "Accueil > Ajouter une recette" */
 
-/* === CONTENEUR DU BREADCRUMB === */
+/* CONTENEUR DU BREADCRUMB */
 .breadcrumb {
     /* APPARENCE */
     background: white; /* Fond blanc */
@@ -54,8 +50,8 @@ main {
     font-family: 'Arial', sans-serif; /* Police cohérente */
 }
 
-/* === LIENS CLIQUABLES === */
-/* Les liens du fil d'ariane */
+/* LIENS CLIQUABLES */
+
 .breadcrumb a {
     color: #6db4c4; /* Bleu du thème */
     text-decoration: none; /* Pas de soulignement */
@@ -63,24 +59,21 @@ main {
     transition: color 0.3s ease; /* Animation au hover */
 }
 
-/* === EFFET HOVER === */
+/* EFFET HOVER */
 .breadcrumb a:hover {
     color: #5aa3b3; /* Bleu plus foncé au survol */
 }
 
-/* === SÉPARATEURS === */
+/* SÉPARATEURS */
 /* Les ">" entre les éléments */
 .breadcrumb span {
     color: #64748b; /* Gris moyen */
     margin: 0 10px; /* Espace autour */
 }
 
-/* ================================ */
-/* === BANNIÈRE D'INTRODUCTION === */
-/* ================================ */
 /* Section colorée qui présente la page d'ajout de recette */
 
-/* === CONTENEUR PRINCIPAL === */
+/* CONTENEUR PRINCIPAL */
 .add-recipe-hero {
     /* APPARENCE */
     background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%); /* Dégradé bleu cohérent */
@@ -100,7 +93,7 @@ main {
     overflow: hidden; /* Cache les débordements */
 }
 
-/* === TITRE PRINCIPAL === */
+/* TITRE PRINCIPAL */
 /* "Ajouter une nouvelle recette" */
 .add-recipe-hero h1 {
     font-size: 2.5rem; /* Grande taille (40px environ) */
@@ -110,7 +103,7 @@ main {
     letter-spacing: -0.5px; /* Lettres légèrement rapprochées */
 }
 
-/* === SOUS-TITRE EXPLICATIF === */
+/* SOUS-TITRE EXPLICATIF */
 /* Texte qui explique comment utiliser la page */
 .add-recipe-hero p {
     font-size: 1.1rem; /* Taille légèrement supérieure */
@@ -123,9 +116,7 @@ main {
     line-height: 1.6; /* Espacement confortable */
 }
 
-/* =============================== */
-/* === CONTENEUR DU FORMULAIRE === */
-/* =============================== */
+/* CONTENEUR DU FORMULAIRE */
 /* Boîte blanche qui contient tous les champs du formulaire */
 
 .form-container {
@@ -140,12 +131,12 @@ main {
     margin-bottom: 40px; /* Espace en dessous */
 }
 
-/* ============================= */
-/* === ORGANISATION DU FORMULAIRE === */
-/* ============================= */
+
+/* ORGANISATION DU FORMULAIRE */
+
 /* Structure en grille pour organiser les champs */
 
-/* === GRILLE PRINCIPALE === */
+/* GRILLE PRINCIPALE */
 .form-grid {
     display: grid; /* Utilise CSS Grid */
     grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
@@ -153,20 +144,20 @@ main {
     margin-bottom: 30px; /* Espace en dessous */
 }
 
-/* === SECTIONS DU FORMULAIRE === */
+/* SECTIONS DU FORMULAIRE */
 /* Chaque groupe de champs (Informations, Ingrédients, Instructions) */
 .form-section {
     display: flex; /* Utilise flexbox */
     flex-direction: column; /* Éléments empilés verticalement */
 }
 
-/* === SECTION PLEINE LARGEUR === */
+/* SECTION PLEINE LARGEUR */
 /* Pour les sections qui prennent les deux colonnes */
 .form-section.full-width {
     grid-column: 1 / -1; /* S'étend de la première à la dernière colonne */
 }
 
-/* === TITRES DES SECTIONS === */
+/* TITRES DES SECTIONS */
 /* Les titres "Informations générales", "Ingrédients", etc. */
 .form-section h3 {
     color: #6db4c4; /* Bleu du thème */
@@ -177,18 +168,18 @@ main {
     border-bottom: 2px solid rgba(109, 180, 196, 0.2); /* Ligne de séparation bleutée */
 }
 
-/* ================================ */
-/* === STYLES DES CHAMPS ========= */
-/* ================================ */
+
+/* STYLES DES CHAMPS */
+
 /* Apparence des inputs, textarea, select */
 
-/* === GROUPES DE CHAMPS === */
+/* GROUPES DE CHAMPS */
 /* Conteneur de chaque champ avec son label */
 .form-group {
     margin-bottom: 20px; /* Espace entre chaque champ */
 }
 
-/* === LABELS DES CHAMPS === */
+/* LABELS DES CHAMPS */
 /* Les étiquettes "Nom de la recette", "Description", etc. */
 .form-group label {
     display: block; /* Prend toute la largeur */
@@ -198,7 +189,7 @@ main {
     font-size: 14px; /* Taille standard */
 }
 
-/* === CHAMPS DE SAISIE === */
+/* CHAMPS DE SAISIE */
 /* Styles communs pour tous les types de champs */
 .form-group input,
 .form-group textarea,
@@ -221,7 +212,7 @@ main {
     transition: border-color 0.3s ease; /* Animation de la bordure */
 }
 
-/* === ÉTAT FOCUS DES CHAMPS === */
+/* ÉTAT FOCUS DES CHAMPS */
 /* Quand l'utilisateur clique dans un champ */
 .form-group input:focus,
 .form-group textarea:focus,
@@ -231,14 +222,14 @@ main {
     background-color: white; /* Fond blanc pour bien voir le texte */
 }
 
-/* === ZONES DE TEXTE === */
+/* ZONES DE TEXTE */
 /* Spécifications pour les textarea (descriptions, instructions) */
 .form-group textarea {
     resize: vertical; /* Permet seulement le redimensionnement vertical */
     min-height: 120px; /* Hauteur minimum */
 }
 
-/* === CHAMPS DE FICHIER === */
+/* CHAMPS DE FICHIER */
 /* Styling spécial pour l'upload d'image */
 .form-group input[type="file"] {
     padding: 15px; /* Espace intérieur */
@@ -256,7 +247,7 @@ main {
     border-color: #5aa3b3;
 }
 
-/* === DYNAMIC SECTIONS === */
+
 .dynamic-section {
     background: #f8fafc;
     border-radius: 12px;
@@ -324,7 +315,7 @@ main {
     transform: translateY(-1px);
 }
 
-/* === FORM ACTIONS === */
+
 .form-actions {
     display: flex;
     gap: 15px;
@@ -373,7 +364,6 @@ main {
     transform: translateY(-2px);
 }
 
-/* ===== BREAKPOINTS HARMONISÉS ===== */
 
 /* Desktop Large (1200px+) */
 /* Styles par défaut ci-dessus */

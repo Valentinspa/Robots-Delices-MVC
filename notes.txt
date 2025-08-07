@@ -1,0 +1,13 @@
+A faire
+
+Maquettage
+Page Profil
+Update
+mot de passe oublié
+MVC(model)
+js sur la page ajouter recettes
+js barre de recherche
+Page Categories
+Page liste recettes
+page mes recettes (Utilisateurs Connectée)
+Page Favoris

@@ -1,6 +1,3 @@
-/* ============================= */
-/* ===== PIED DE PAGE ========== */
-/* ============================= */
 /* Le footer qui apparaît en bas de chaque page */
 
 /* === STRUCTURE PRINCIPALE === */
@@ -19,10 +16,6 @@ footer {
     align-items: center; /* Centre verticalement */
     justify-content: center; /* Centre horizontalement */
     
-    /* EFFETS VISUELS */
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08); /* Ombre vers le haut */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Bordure fine en haut */
-    
     /* TYPOGRAPHIE */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Police système */
     font-size: 1rem; /* Taille de base */
@@ -31,7 +24,7 @@ footer {
 }
 
 /* === TEXTE DU FOOTER === */
-/* Le texte de copyright ou d'information */
+/* Le texte de copyright */
 footer p {
     color: white; /* Texte blanc sur fond bleu */
     font-size: 1rem; /* Taille normale */
@@ -40,8 +33,6 @@ footer p {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour lisibilité */
     letter-spacing: 0.025em; /* Espacement entre les lettres */
 }
-
-/* ===== BREAKPOINTS HARMONISÉS ===== */
 
 /* Desktop Large (1200px+) */
 /* Styles par défaut ci-dessus */
