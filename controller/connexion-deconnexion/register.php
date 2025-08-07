@@ -125,7 +125,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {            // Requête préparée pour insérer les données de façon sécurisé         
             $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");            
             $stmt->execute([$prenom, $nom, $email, $hashedPassword]);// Inscription réussie : redirection vers la page de connexion        
-            header('Location: login.php');        
+            header('Location: /connexion');        
             exit(); // Important : arrêter le script apres redirection    
             } catch (PDOException $e) {           // Gestion des erreurs d'insertion en base          
                 $error = "Erreur lors de l'inscription : " . $e->getMessage();       
@@ -140,9 +140,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/auth-pages.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/auth-pages.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
      <script src="https://www.google.com/recaptcha/api.js" defer></script>
       <script defer>
         function onSubmit(token) {
@@ -160,18 +160,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="section-container">
             <!-- Section gauche -->
             <div id="login-container">
-                <img alt="Logo Robots-Délices" id="logo" src="../../assets/img/logo_robots_delices.png"/>
+                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png"/>
                 <p>Rejoignez notre communauté de passionnés de cuisine et partagez vos meilleures recettes</p>
             </div>
             
             <!-- Section droite avec formulaire d'inscription -->
             <div class="right-section">
                 <div class="tabs-container">
-                    <a href="../connexion-deconnexion/login.php">Connexion</a>
-                    <a href="./register.php" class="active">Inscription</a>
+                    <a href="/connexion">Connexion</a>
+                    <a href="/inscription" class="active">Inscription</a>
                 </div>
                 <div id="form-container">
-                    <form id="register-form" action="./register.php" method="POST">
+                    <form id="register-form" action="/inscription" method="POST">
                         <div>
                             <label for="prenom">Prénom :</label>
                             <input type="text" id="prenom" name="prenom" required>
@@ -198,7 +198,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="hidden" name="csrf_token" value="<?php echo generateCsrfToken(); ?>">
                         <button type="submit" class="g-recaptcha" data-sitekey="<?php echo $_ENV['RECAPTCHA_SITE_KEY'] ?>" data-callback='onSubmit' data-action='submit'>S'inscrire</button>
                     </form>
-                    <p>Déjà inscrit ? <a href="../connexion-deconnexion/login.php">Se connecter</a></p>
+                    <p>Déjà inscrit ? <a href="/connexion">Se connecter</a></p>
                 </div>
             </div>
         </div>

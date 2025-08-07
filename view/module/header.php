@@ -20,7 +20,7 @@
             <!-- Section du logo - Cliquable pour retourner à l'accueil -->
             <div id="header-title">
                 <a href="/">
-                    <img id="logo" alt="Logo Robots-Délices" src="./assets/img/logo_robots_delices.png">
+                    <img id="logo" alt="Logo Robots-Délices" src="/assets/img/logo_robots_delices.png">
                 </a>
             </div>
             
@@ -37,8 +37,8 @@
                 <ul class="nav-menu">
                     <!-- Liens de navigation communs à tous les utilisateurs -->
                     <li class="li"><a href="/">Accueil</a></li>
-                    <li class="li"><a href="/#recettes">Recettes</a></li>
-                    <li class="li"><a href="/#categories">Catégories</a></li>
+                    <li class="li"><a href="/recettes">Recettes</a></li>
+                    <li class="li"><a href="/categories">Catégories</a></li>
                     
                     <?php
                     // LOGIQUE DE NAVIGATION CONDITIONNELLE
@@ -46,14 +46,14 @@
                     if (isset($_SESSION['user_id'])) {
                         // Menu pour les utilisateurs CONNECTÉS
                         // Ces liens sont uniquement disponibles pour les utilisateurs authentifiés
-                        echo '<li class="li"><a href="./favoris.php">Mes favoris</a></li>
-                        <li class="li red-btn"><a href="./ajout-recette.php" class="ajouter-btn">+ Ajouter une recette</a></li>
-                        <li class="li"><a href="./update.php">Mettre à jour mon compte</a></li>
-                        <li class="li red-btn"><a href="./logout.php" class="deconnexion-btn">Déconnexion</a></li>';
+                        echo '<li class="li"><a href="/favoris">Mes favoris</a></li>
+                        <li class="li red-btn"><a href="/ajouter-recette" class="ajouter-btn">+ Ajouter une recette</a></li>
+                        <li class="li"><a href="/profil">Mon Profil</a></li>
+                        <li class="li red-btn"><a href="/deconnexion" class="deconnexion-btn">Déconnexion</a></li>';
                     } else {
                         // Menu pour les utilisateurs NON CONNECTÉS
                         // Seul le lien de connexion est affiché
-                        echo '<li class="li red-btn"><a href="/../../controller\connexion-deconnexion\login.php" class="connexion-btn">Connexion</a></li>';
+                        echo '<li class="li red-btn"><a href="/connexion" class="connexion-btn">Connexion</a></li>';
                     }
                     ?>
                 </ul>

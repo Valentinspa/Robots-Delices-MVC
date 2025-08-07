@@ -33,7 +33,7 @@ session_destroy();
 // ÉTAPE 3 : Redirection vers la page de connexion
 // header('Location: ...') envoie une redirection HTTP 302 au navigateur
 // L'utilisateur sera automatiquement renvoyé vers login.php
-header('Location: login.php');
+header('Location: /connexion');
 
 // ÉTAPE 4 : Arrêt du script
 // exit() s'assure que aucun code supplémentaire ne sera exécuté après la redirection

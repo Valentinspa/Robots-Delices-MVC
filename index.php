@@ -113,8 +113,8 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                         <div class="recette-card">
                             <div class="recette-image">
                                 <!-- Lien vers la page détail de la recette avec son slug (nom simplifié pour URL) -->
-                                <a href="./recette.php?recette=<?php echo $recipe['slug']; ?>">
-                                    <img src="<?php echo $recipe['photo']; ?>" alt="<?php echo $recipe['title']; ?>" />
+                                <a href="/recette/<?php echo $recipe['slug']; ?>">
+                                    <img src="/<?php echo $recipe['photo']; ?>" alt="<?php echo $recipe['title']; ?>" />
                                 </a>
                             </div>
                             <div class="recettes-content">

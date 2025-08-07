@@ -1,3 +1,3 @@
 <?php
 
-echo 'PAGE NOT FOUND';
+echo 'PAGE 404';
