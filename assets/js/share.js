@@ -1,4 +1,4 @@
-// ==== SYSTÈME DE PARTAGE ====
+// SYSTÈME DE PARTAGE
 // Ce fichier gère le partage de recettes sur les réseaux sociaux ou par lien
 
 // 1. RECHERCHE DU BOUTON DE PARTAGE

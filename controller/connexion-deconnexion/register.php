@@ -120,15 +120,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Si aucune erreur de validation, procéder à la création du compte   
-    if (!isset($error)) {        // Hachage sécurisé du mot de passe      // password_hash() utilise un algorithme sécurisé (bcrypt par défaut)       // Le mot de passe n'est JAMAIS stocké en clair dans la base       
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);        // Insertion du nouvel utilisateur dans la base de données       
-        try {            // Requête préparée pour insérer les données de façon sécurisé         
-            $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");            
-            $stmt->execute([$prenom, $nom, $email, $hashedPassword]);// Inscription réussie : redirection vers la page de connexion        
-            header('Location: /connexion');        
+    if (!isset($error)) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);   
+        try {                     
+            $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");// Requête préparée pour insérer les données de façon sécurisé            
+            $stmt->execute([$prenom, $nom, $email, $hashedPassword]);        
+            header('Location: /connexion');// Inscription réussie : redirection vers la page de connexion        
             exit(); // Important : arrêter le script apres redirection    
-            } catch (PDOException $e) {           // Gestion des erreurs d'insertion en base          
-                $error = "Erreur lors de l'inscription : " . $e->getMessage();       
+            } catch (PDOException $e) {                     
+                $error = "Erreur lors de l'inscription : " . $e->getMessage();// Gestion des erreurs d'insertion en base       
             }    
         }
 }

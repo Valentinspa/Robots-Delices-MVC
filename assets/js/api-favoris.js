@@ -1,4 +1,4 @@
-// ==== SYSTÈME DE FAVORIS ====
+// SYSTÈME DE FAVORIS
 // Ce fichier gère l'ajout et la suppression de recettes dans les favoris
 
 // 1. SÉLECTION DES BOUTONS
