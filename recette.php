@@ -4,7 +4,7 @@
 
 // Démarrage de la session pour vérifier si l'utilisateur est connecté
 session_start();
-require_once 'service/connexionBDD.php'; 
+require_once 'service/connexionBDD.php';
 
 
 // Vérification de la présence du slug (injecté par le router)
@@ -42,12 +42,12 @@ $ingredients = explode(',', $recipe['ingredients']); // Sépare par virgules
 
 // Traitement des instructions de préparation
 // Conversion des différents types de retours à la ligne en \n standard
-$preparation = str_replace(["\r\n","\r"], "\n", $recipe['instructions']);
+$preparation = str_replace(["\r\n", "\r"], "\n", $recipe['instructions']);
 $preparation = explode("\n", $preparation); // Sépare chaque ligne
 $preparation = array_map('trim', $preparation); // Supprime espaces début/fin de chaque ligne
 
 // Supprime les lignes vides
-$preparation = array_filter($preparation, function($step) {
+$preparation = array_filter($preparation, function ($step) {
     return !empty($step); // Garde seulement les lignes non-vides
 });
 $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
@@ -55,6 +55,7 @@ $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +66,7 @@ $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
     <script src="/assets/js/share.js" defer></script>
     <title><?php echo htmlspecialchars($recipe['title']); ?> - Robots-Délices</title>
 </head>
+
 <body>
     <?php
     require_once 'view/module/header.php';
@@ -124,12 +126,12 @@ $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
                 <aside class="ingredients-sidebar">
                     <h2 class="ingredients-title">Ingrédients</h2>
                     <ul class="ingredients-list">
-                    <?php foreach ($ingredients as $ingredient): ?>
-                        <li class="ingredient-item">
-                            <div class="ingredient-checkbox"></div>
-                            <span><?php echo htmlspecialchars(trim($ingredient)); ?></span>
-                        </li>
-                    <?php endforeach; ?>
+                        <?php foreach ($ingredients as $ingredient): ?>
+                            <li class="ingredient-item">
+                                <div class="ingredient-checkbox"></div>
+                                <span><?php echo htmlspecialchars(trim($ingredient)); ?></span>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </aside>
 
@@ -170,4 +172,5 @@ $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

@@ -29,20 +29,21 @@
  * 
  * RETOUR : Le token CSRF sous forme de chaîne hexadécimale
  */
-function generateCsrfToken() {
+function generateCsrfToken()
+{
     // Vérification si une session est déjà active
     // PHP_SESSION_NONE indique qu'aucune session n'est en cours
     if (session_status() == PHP_SESSION_NONE) {
         session_start(); // Démarre une nouvelle session si nécessaire
     }
-    
+
     // Génère un nouveau token uniquement s'il n'en existe pas déjà un
     if (!isset($_SESSION['csrf_token'])) {
         // random_bytes(32) génère 32 bytes aléatoires cryptographiquement sécurisés
         // bin2hex() convertit ces bytes en représentation hexadécimale lisible
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     }
-    
+
     return $_SESSION['csrf_token'];
 }
 
@@ -56,15 +57,15 @@ function generateCsrfToken() {
  * PARAMÈTRE : $token - Le token à vérifier (généralement depuis $_POST)
  * RETOUR : true si le token est valide, false sinon
  */
-function verifyCsrfToken($token) {
+function verifyCsrfToken($token)
+{
     // Vérification si une session est active
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    
+
     // Vérification que le token existe dans la session ET qu'il correspond au token fourni
     // hash_equals() effectue une comparaison sécurisée qui prend toujours le même temps
     // Cela empêche les attaques par analyse temporelle
     return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
 }
-

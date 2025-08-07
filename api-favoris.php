@@ -42,18 +42,18 @@ header("Access-Control-Allow-Credentials: true");                            // 
 // 2. L'action doit être spécifiée ($_POST['action'])
 // 3. L'action doit être 'toggle_favorites'
 if (isset($_SESSION['user_id']) && isset($_POST['action']) && $_POST['action'] === 'toggle_favorites') {
-    
+
     // RÉCUPÉRATION ET VALIDATION DES DONNÉES
     $userId = $_SESSION['user_id'];                                          // ID de l'utilisateur connecté
     $recetteId = isset($_POST['recette_id']) ? (int)$_POST['recette_id'] : 0; // ID de la recette (conversion en entier)
-    
+
     // VALIDATION DE L'ID DE RECETTE
     // L'ID doit être un nombre positif valide
     if ($recetteId <= 0) {
-        echo json_encode(['status' => 'error','error' => 'Invalid recette ID']);
+        echo json_encode(['status' => 'error', 'error' => 'Invalid recette ID']);
         exit();
     }
-    
+
     // INTERACTION AVEC LA BASE DE DONNÉES
     try {
         // ÉTAPE 1 : Vérification si la recette est déjà en favoris
@@ -75,13 +75,11 @@ if (isset($_SESSION['user_id']) && isset($_POST['action']) && $_POST['action'] =
             // Réponse JSON indiquant que la recette a été ajoutée aux favoris
             echo json_encode(['status' => 'added']);
         }
-        
     } catch (PDOException $e) {
         // GESTION DES ERREURS DE BASE DE DONNÉES
         // Envoi d'une réponse d'erreur en cas de problème avec la base de données
-        echo json_encode(['status' => 'error','error' => 'Database error: ' . $e->getMessage()]);
+        echo json_encode(['status' => 'error', 'error' => 'Database error: ' . $e->getMessage()]);
     }
-    
 } else {
     // CAS D'ERREUR : Utilisateur non connecté ou paramètres manquants
     // Cette réponse est envoyée si l'utilisateur n'est pas authentifié

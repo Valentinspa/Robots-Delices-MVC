@@ -18,7 +18,7 @@ get('/mot-de-passe-oublie', 'controller/mot-de-passe-oublie/mdp-oublié.php');
 
 // RECETTES
 // Détail d'une recette par slug
-get('/recette/$slug', 'recette.php'); 
+get('/recette/$slug', 'recette.php');
 
 // Ajouter une recette
 get('/ajouter-recette', 'ajout-recette.php');
@@ -31,9 +31,8 @@ post('/api-favoris', 'api-favoris.php');
 get('/404', '404.php');
 
 // Route par défaut pour les pages non trouvées (DOIT ÊTRE EN DERNIER)
-any('$path', function($path) {
+any('$path', function ($path) {
     http_response_code(404);
     include_once __DIR__ . '/404.php';
     exit();
 });
-?>

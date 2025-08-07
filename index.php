@@ -5,19 +5,19 @@
 // Démarre une session PHP pour pouvoir accéder aux données de l'utilisateur connecté
 session_start();
 // Inclut le fichier de connexion à la base de données
-require_once __DIR__. '/service/connexionBDD.php';
+require_once __DIR__ . '/service/connexionBDD.php';
 
 // Vérification si un utilisateur est connecté
 // $_SESSION['user_id'] contient l'ID de l'utilisateur connecté (défini lors du login)
 if (isset($_SESSION['user_id'])) {
     // Si connecté, on récupère l'ID de l'utilisateur
     $userId = $_SESSION['user_id'];
-    
+
     // Prépare une requête SQL sécurisée pour récupérer les favoris de l'utilisateur
     // Le ? est un placeholder qui sera remplacé par $userId de façon sécurisée
     $stmt = $pdo->prepare("SELECT recipe_id FROM favorites WHERE user_id = ?");
     $stmt->execute([$userId]); // Exécute la requête avec l'ID utilisateur
-    
+
     // Récupère tous les IDs des recettes favorites sous forme de tableau simple
     // PDO::FETCH_COLUMN, 0 récupère seulement la première colonne (recipe_id)
     $favorites = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -37,18 +37,20 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
-    <script src="api-favoris.js"defer></script>
+    <script src="api-favoris.js" defer></script>
     <title>Robots-Délices</title>
 </head>
+
 <body>
     <?php
-    require_once __DIR__. '/view/module/header.php';
+    require_once __DIR__ . '/view/module/header.php';
     ?>
     <main>
         <div id="section-container">
@@ -58,7 +60,7 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                     <p>Découvrez et partagez des recettes délicieuses avec notre communauté passionnée</p>
                 </div>
                 <div id="search-bar">
-                    <input type="text" name="search" placeholder="Rechercher une recette, un ingrédient..."/>
+                    <input type="text" name="search" placeholder="Rechercher une recette, un ingrédient..." />
                     <button type="submit">Rechercher</button>
                 </div>
             </section>
@@ -97,7 +99,7 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                         <div class="categories-icons">⚡</div>
                         <h3>Rapide</h3>
                         <p> Moins de 30 minutes</p>
-                    </div>  
+                    </div>
                 </div>
             </section>
             <section id="recettes">
@@ -106,7 +108,7 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                     <p>Les favoris de notre communauté</p>
                 </div>
                 <div id="recettes-grid">
-                    <?php 
+                    <?php
                     // Boucle à travers chaque recette récupérée de la base de données
                     // $recipe contient toutes les informations d'une recette (titre, description, photo, etc.)
                     foreach ($recipes as $recipe): ?>
@@ -123,14 +125,14 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                                     <h3><?php echo $recipe['title']; ?></h3>
                                     <!-- Affiche la description courte de la recette -->
                                     <p><?php echo $recipe['description']; ?></p>
-                                    
+
                                     <!-- Bouton favoris : affiche un cœur rouge si la recette est en favoris, blanc sinon -->
                                     <!-- data-id contient l'ID de la recette pour le JavaScript -->
                                     <span class="bouton-favoris" data-id="<?php echo $recipe['id']; ?>">
-                                        <?php 
+                                        <?php
                                         // Vérifie si l'ID de cette recette est dans le tableau des favoris
                                         // Si oui : cœur rouge ❤️, sinon : cœur blanc 🤍
-                                        echo in_array($recipe['id'], $favorites) ? '❤️' : '🤍'; 
+                                        echo in_array($recipe['id'], $favorites) ? '❤️' : '🤍';
                                         ?>
                                     </span>
                                 </div>
@@ -142,7 +144,8 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; // Fin de la boucle ?>
+                    <?php endforeach; // Fin de la boucle 
+                    ?>
                 </div>
             </section>
         </div>
@@ -151,4 +154,5 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

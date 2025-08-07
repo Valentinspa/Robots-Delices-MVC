@@ -24,21 +24,20 @@ try {
     // dbname=$dbname : nom de la base de données à utiliser
     // charset=utf8mb4 : encodage pour supporter tous les caractères (emojis inclus)
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
-    
+
     // Configuration des attributs PDO pour un comportement sécurisé et prévisible
-    
+
     // ERRMODE_EXCEPTION : Lance des exceptions en cas d'erreur SQL (plutôt que des warnings)
     // Cela permet de gérer les erreurs avec try/catch
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // FETCH_ASSOC : Par défaut, récupère les résultats sous forme de tableau associatif
     // ['colonne' => 'valeur'] au lieu de [0 => 'valeur']
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
     // EMULATE_PREPARES false : Utilise les vraies requêtes préparées du serveur MySQL
     // Plus sécurisé contre les injections SQL
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    
 } catch (PDOException $e) {
     // Si la connexion échoue, arrête le script et affiche le message d'erreur
     // die() arrête complètement l'exécution du script

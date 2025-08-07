@@ -11,11 +11,11 @@ favoris.forEach((bouton) => {
   bouton.addEventListener("click", function (e) {
     // Empêche le comportement par défaut du lien (ne redirige pas)
     e.preventDefault();
-    
+
     // 3. RÉCUPÉRATION DES DONNÉES
     // Récupère l'ID de la recette depuis l'attribut "data-id" du bouton
     const recetteId = this.getAttribute("data-id");
-    
+
     // Crée un objet FormData pour envoyer les données au serveur
     const data = new FormData();
     data.append("recette_id", recetteId); // Ajoute l'ID de la recette
@@ -39,7 +39,7 @@ favoris.forEach((bouton) => {
       .then((data) => {
         // Récupère le texte à l'intérieur du bouton (si il y en a un)
         const spanText = this.querySelector("span");
-        
+
         // 6. MISE À JOUR DE L'INTERFACE selon la réponse du serveur
         switch (data.status) {
           case "added":
@@ -63,7 +63,7 @@ favoris.forEach((bouton) => {
             console.error("Statut inconnu:", data.status);
             alert("Une erreur inconnue est survenue.");
         }
-        
+
         // 7. RESTAURATION DU TEXTE
         // Si il y avait du texte dans le bouton, on le remet
         if (spanText) {

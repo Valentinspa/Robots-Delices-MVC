@@ -13,14 +13,14 @@ if (btn) {
   btn.addEventListener("click", async (e) => {
     // Empêche le comportement par défaut du lien
     e.preventDefault();
-    
+
     // 4. PRÉPARATION DES DONNÉES À PARTAGER
     // Crée un objet avec les informations de la page à partager
     const shareData = {
       title: document.title, // Le titre de la page (affiché dans l'onglet)
       url: window.location.href, // L'URL complète de la page actuelle
     };
-    
+
     // 5. TENTATIVE DE PARTAGE NATIF
     try {
       // Utilise l'API Web Share (disponible sur mobile principalement)
@@ -29,31 +29,31 @@ if (btn) {
     } catch (err) {
       // 6. SOLUTION DE REPLI : COPIE DANS LE PRESSE-PAPIERS
       // Si le partage natif ne fonctionne pas (PC ou navigateur non compatible)
-      
+
       // Copie l'URL dans le presse-papiers de l'utilisateur
       navigator.clipboard.writeText(shareData.url);
-      
+
       // 7. CRÉATION D'UN MESSAGE DE CONFIRMATION
       // Crée un élément HTML pour afficher un message
       const span = document.createElement("span");
       span.textContent = "Lien copié dans le presse-papiers !";
-      
+
       // 8. POSITIONNEMENT DU MESSAGE
       // Place le message à l'endroit où l'utilisateur a cliqué
       span.style.position = "fixed"; // Position fixe par rapport à la fenêtre
       span.style.top = e.clientY + "px"; // Position Y du clic
       span.style.left = e.clientX + "px"; // Position X du clic
-      
+
       // 9. STYLE DU MESSAGE
       span.style.backgroundColor = "#4CAF50"; // Fond vert
       span.style.color = "white"; // Texte blanc
       span.style.padding = "10px"; // Espacement intérieur
       span.style.borderRadius = "5px"; // Coins arrondis
-      
+
       // 10. AFFICHAGE DU MESSAGE
       // Ajoute le message à la page
       document.body.appendChild(span);
-      
+
       // 11. SUPPRESSION AUTOMATIQUE DU MESSAGE
       // Programme la suppression du message après 3 secondes
       setTimeout(() => {

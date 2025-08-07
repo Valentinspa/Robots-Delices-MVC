@@ -3,8 +3,8 @@
 // Inclut des protections contre le brute force et les attaques CSRF
 
 // Inclusion des fichiers nécessaires
-require_once __DIR__.'/../../service/connexionBDD.php'; // Connexion à la base de données
-require_once __DIR__."/../../service/csrf.php"; // Protection contre les attaques CSRF
+require_once __DIR__ . '/../../service/connexionBDD.php'; // Connexion à la base de données
+require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaques CSRF
 
 // Démarrage de la session pour gérer l'état de connexion
 session_start();
@@ -28,12 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("SELECT * FROM login_attempts WHERE email = ? AND attempt_time > NOW() - INTERVAL 15 MINUTE");
     $stmt->execute([$email]);
     $attempts = $stmt->fetchAll(); // Récupère toutes les tentatives récentes
-    
+
     // Si plus de 5 tentatives en 15 minutes, on bloque temporairement
     if (count($attempts) >= 5) {
         $error = "Trop de tentatives de connexion échouées. Veuillez réessayer plus tard.";
-    }
-    else {
+    } else {
         // Enregistrement de cette tentative de connexion dans la BDD
         // NOW() insère la date/heure actuelle
         $stmt = $pdo->prepare("INSERT INTO login_attempts (email, attempt_time) VALUES (?, NOW())");
@@ -43,15 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérification que les champs obligatoires ne sont pas vides
     if (empty($email) || empty($password)) {
         $error = "Tous les champs sont requis.";
-    } 
+    }
     // Vérification du token CSRF pour éviter les attaques cross-site
     // Le token CSRF est généré côté serveur et vérifié à chaque soumission
-    elseif(verifyCsrfToken($_POST['csrf_token']) === false)
-    {
+    elseif (verifyCsrfToken($_POST['csrf_token']) === false) {
         $error = "Token CSRF invalide. Veuillez réessayer.";
     }
     // Si pas d'erreur jusqu'ici, on procède à l'authentification
-    elseif(empty($error)) {
+    elseif (empty($error)) {
         // Tentative d'authentification avec gestion d'erreurs
         try {
             // Recherche de l'utilisateur dans la base de données par email
@@ -66,11 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Authentification réussie !
                 // On stocke l'ID de l'utilisateur dans la session
                 $_SESSION['user_id'] = $user['id'];
-                
+
                 // Nettoyage des tentatives de connexion échouées précédentes
                 $stmt = $pdo->prepare("DELETE FROM login_attempts WHERE email = ?");
                 $stmt->execute([$email]);
-                
+
                 // Redirection vers la page d'accueil
                 header('Location: /');
                 exit(); // Important : arrêter le script après redirection
@@ -89,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,18 +96,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/assets/css/footer.css">
     <title>Connexion - Robots-Délices</title>
 </head>
+
 <body class="login-page">
     <?php
-    require_once __DIR__ .'/../../view/module/header.php';
+    require_once __DIR__ . '/../../view/module/header.php';
     ?>
     <main>
         <div id="section-container">
             <!-- Section gauche avec logo et texte -->
             <div id="login-container">
-                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png"/>
+                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png" />
                 <p>Rejoignez notre communauté de passionnés de cuisine et partagez vos meilleures recettes</p>
             </div>
-            
+
             <!-- Section droite avec formulaire de connexion -->
             <div class="right-section">
                 <div class="tabs-container">
@@ -140,4 +140,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

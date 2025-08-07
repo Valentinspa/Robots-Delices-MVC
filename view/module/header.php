@@ -15,32 +15,32 @@
     - Aucune donnée utilisateur n'est affichée directement, ce qui évite les risques d'injection
 -->
 
-<header>
-        <div id="section">
-            <!-- Section du logo - Cliquable pour retourner à l'accueil -->
-            <div id="header-title">
-                <a href="/">
-                    <img id="logo" alt="Logo Robots-Délices" src="/assets/img/logo_robots_delices.png">
-                </a>
-            </div>
-            
-            <!-- Menu hamburger responsive - Case à cocher cachée pour gérer l'ouverture/fermeture -->
-            <input id="menu-toggle" type="checkbox" />
-            <label class="burger-menu" for="menu-toggle">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-            </label>
-            
-            <!-- Container de la navigation principale -->
-            <div id="nav-container" class="nav-container">
-                <ul class="nav-menu">
-                    <!-- Liens de navigation communs à tous les utilisateurs -->
-                    <li class="li"><a href="/">Accueil</a></li>
-                    <li class="li"><a href="/recettes">Recettes</a></li>
-                    <li class="li"><a href="/categories">Catégories</a></li>
-                    
-                    <?php
+ <header>
+     <div id="section">
+         <!-- Section du logo - Cliquable pour retourner à l'accueil -->
+         <div id="header-title">
+             <a href="/">
+                 <img id="logo" alt="Logo Robots-Délices" src="/assets/img/logo_robots_delices.png">
+             </a>
+         </div>
+
+         <!-- Menu hamburger responsive - Case à cocher cachée pour gérer l'ouverture/fermeture -->
+         <input id="menu-toggle" type="checkbox" />
+         <label class="burger-menu" for="menu-toggle">
+             <span class="burger-line"></span>
+             <span class="burger-line"></span>
+             <span class="burger-line"></span>
+         </label>
+
+         <!-- Container de la navigation principale -->
+         <div id="nav-container" class="nav-container">
+             <ul class="nav-menu">
+                 <!-- Liens de navigation communs à tous les utilisateurs -->
+                 <li class="li"><a href="/">Accueil</a></li>
+                 <li class="li"><a href="/recettes">Recettes</a></li>
+                 <li class="li"><a href="/categories">Catégories</a></li>
+
+                 <?php
                     // LOGIQUE DE NAVIGATION CONDITIONNELLE
                     // Vérification si l'utilisateur est connecté en vérifiant la présence de 'user_id' dans la session
                     if (isset($_SESSION['user_id'])) {
@@ -56,11 +56,11 @@
                         echo '<li class="li red-btn"><a href="/connexion" class="connexion-btn">Connexion</a></li>';
                     }
                     ?>
-                </ul>
-            </div>
-            
-            <!-- Overlay pour fermer le menu en cliquant à côté (mobile) -->
-            <div class="menu-overlay"></div>
-            
-        </div>
-    </header>
+             </ul>
+         </div>
+
+         <!-- Overlay pour fermer le menu en cliquant à côté (mobile) -->
+         <div class="menu-overlay"></div>
+
+     </div>
+ </header>

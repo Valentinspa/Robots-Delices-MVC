@@ -3,8 +3,8 @@
 // Inclut validation des données, vérification reCAPTCHA et protection CSRF
 
 // Inclusion des fichiers nécessaires
-require_once __DIR__.'/../../service/connexionBDD.php'; // Connexion à la base de données
-require_once __DIR__.'/../../service/csrf.php'; // Protection contre les attaques CSRF
+require_once __DIR__ . '/../../service/connexionBDD.php'; // Connexion à la base de données
+require_once __DIR__ . '/../../service/csrf.php'; // Protection contre les attaques CSRF
 
 // Démarrage de la session
 session_start();
@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
 }
 
 // Traitement du formulaire d'inscription (seulement en méthode POST)
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération et nettoyage des données du formulaire
     // htmlspecialchars() échappe les caractères HTML pour éviter les attaques XSS
     // trim() supprime les espaces en début et fin
@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $recaptchaResponse = $_POST['g-recaptcha-response']; // Token reçu du widget reCAPTCHA
     $secret = $_ENV['RECAPTCHA_SECRET_KEY']; // Clé secrète (dans variables d'environnement)
     $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify"; // URL de l'API Google
-    
+
     // Envoi d'une requête POST à l'API Google reCAPTCHA avec CURL
     $ch = curl_init(); // Initialise une session cURL
     curl_setopt($ch, CURLOPT_URL, $recaptchaUrl); // Définit l'URL de destination
@@ -52,34 +52,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Validation complète des données reçues du formulaire
     // Chaque condition vérifie un critère différent
-    
+
     // Vérification que tous les champs obligatoires sont remplis
     if (empty($prenom) || empty($nom) || empty($email) || empty($password) || empty($confirmPassword)) {
         $error = "Tous les champs sont requis.";
-    } 
+    }
     // Vérification que les deux mots de passe sont identiques
     elseif ($password !== $confirmPassword) {
         $error = "Les mots de passe ne correspondent pas.";
-    } 
+    }
     // Vérification de la longueur minimale du mot de passe
     elseif (strlen($password) < 8) {
         $error = "Le mot de passe doit contenir au moins 8 caractères.";
-    } 
+    }
     // Vérification présence d'au moins une majuscule avec regex
     // [A-Z] = n'importe quelle lettre majuscule
     elseif (!preg_match('/[A-Z]/', $password)) {
         $error = "Le mot de passe doit contenir au moins une majuscule.";
-    } 
+    }
     // Vérification présence d'au moins une minuscule
     // [a-z] = n'importe quelle lettre minuscule
     elseif (!preg_match('/[a-z]/', $password)) {
         $error = "Le mot de passe doit contenir au moins une minuscule.";
-    } 
+    }
     // Vérification présence d'au moins un chiffre
     // [0-9] = n'importe quel chiffre de 0 à 9
     elseif (!preg_match('/[0-9]/', $password)) {
         $error = "Le mot de passe doit contenir au moins un chiffre.";
-    } 
+    }
     // Vérification présence d'au moins un caractère spécial
     // [\W_] = tout caractère non-alphanumérique (ponctuation, symboles)
     elseif (!preg_match('/[\W_]/', $password)) {
@@ -88,12 +88,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérification longueur minimale du prénom et nom
     elseif (strlen($prenom) < 2 || strlen($nom) < 2) {
         $error = "Le prénom et le nom doivent contenir au moins 2 caractères.";
-    } 
+    }
     // Vérification que prénom et nom ne contiennent que des lettres/tirets
     // [a-zA-ZÀ-ÿ-] = lettres (avec accents) et tirets seulement
     elseif (!preg_match('/^[a-zA-ZÀ-ÿ-]+$/', $prenom) || !preg_match('/^[a-zA-ZÀ-ÿ-]+$/', $nom)) {
         $error = "Le prénom et le nom ne doivent contenir que des lettres ou des tirets.";
-    } 
+    }
     // Vérification du token CSRF pour éviter les attaques cross-site
     elseif (verifyCsrfToken($_POST['csrf_token']) === false) {
         $error = "Token CSRF invalide. Veuillez réessayer.";
@@ -118,33 +118,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Erreur lors de la vérification de l'email : " . $e->getMessage();
         }
     }
-    
+
     // Si aucune erreur de validation, procéder à la création du compte   
     if (!isset($error)) {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);   
-        try {                     
-            $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");// Requête préparée pour insérer les données de façon sécurisé            
-            $stmt->execute([$prenom, $nom, $email, $hashedPassword]);        
-            header('Location: /connexion');// Inscription réussie : redirection vers la page de connexion        
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        try {
+            $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)"); // Requête préparée pour insérer les données de façon sécurisé            
+            $stmt->execute([$prenom, $nom, $email, $hashedPassword]);
+            header('Location: /connexion'); // Inscription réussie : redirection vers la page de connexion        
             exit(); // Important : arrêter le script apres redirection    
-            } catch (PDOException $e) {                     
-                $error = "Erreur lors de l'inscription : " . $e->getMessage();// Gestion des erreurs d'insertion en base       
-            }    
+        } catch (PDOException $e) {
+            $error = "Erreur lors de l'inscription : " . $e->getMessage(); // Gestion des erreurs d'insertion en base       
         }
+    }
 }
 
 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/navbar.css">
     <link rel="stylesheet" href="/assets/css/auth-pages.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
-     <script src="https://www.google.com/recaptcha/api.js" defer></script>
-      <script defer>
+    <script src="https://www.google.com/recaptcha/api.js" defer></script>
+    <script defer>
         function onSubmit(token) {
             document.getElementById("register-form").submit();
         }
@@ -152,18 +153,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <title>Inscription - Robots-Délices</title>
 </head>
+
 <body class="register-page">
     <?php
-    require_once __DIR__.'/../../view/module/header.php';
+    require_once __DIR__ . '/../../view/module/header.php';
     ?>
     <main>
         <div id="section-container">
             <!-- Section gauche -->
             <div id="login-container">
-                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png"/>
+                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png" />
                 <p>Rejoignez notre communauté de passionnés de cuisine et partagez vos meilleures recettes</p>
             </div>
-            
+
             <!-- Section droite avec formulaire d'inscription -->
             <div class="right-section">
                 <div class="tabs-container">
@@ -207,4 +209,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

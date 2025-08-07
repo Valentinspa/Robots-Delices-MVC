@@ -11,8 +11,7 @@ $categories = $pdo->query("SELECT * FROM category")->fetchAll();
 // var_dump($categories); // Ligne de debug commentée
 
 // Traitement du formulaire d'ajout de recette (méthode POST)
-if($_SERVER['REQUEST_METHOD'] === 'POST') 
-{
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération et sécurisation des données du formulaire
     // htmlspecialchars() protège contre les attaques XSS
     // ?? '' définit une valeur par défaut si le champ est vide
@@ -24,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     $description = htmlspecialchars($_POST['description']) ?? ''; // Description courte
     $ingredients = htmlspecialchars($_POST['ingredients']) ?? ""; // Liste des ingrédients
     $instructions = htmlspecialchars($_POST['instructions']) ?? ""; // Étapes de préparation
-    
+
     // Génération du slug (URL-friendly) à partir du titre
     // Convertit en minuscules et remplace caractères spéciaux par _
     $slug = strtolower(trim(preg_replace("/[^A-Za-z0-9à-üÀ-Ü-]+/", '_', $titre)));
@@ -33,12 +32,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     // Compte combien de recettes ont un slug similaire
     $totalSameRecipes = $pdo->prepare("SELECT COUNT(*) FROM recipes WHERE slug LIKE ?");
     $totalSameRecipes->execute([$slug . '%']); // Recherche slugs commençant par notre slug
-    
+
     $count = $totalSameRecipes->fetchColumn(); // Nombre de slugs similaires trouvés
-    
+
     // Ajoute un numéro pour rendre le slug unique (ex: tarte-pommes_2)
     $slug .= '_' . ($count + 1);
-    
+
     // Handle file upload
     $photo_path = '';
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
@@ -49,11 +48,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     // Validate CSRF token
     if (!isset($_POST['csrf_token']) || !verifyCsrfToken($_POST['csrf_token'])) {
         $error = "Invalid CSRF token.";
-    }  else{
+    } else {
         // Insert recipe into database
         $stmt = $pdo->prepare("INSERT INTO recipes (slug, title, description, ingredients, instructions, cooking_time, number_persons, difficulty, category_id, photo, image_caption) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$slug, $titre, $description, $ingredients, $instructions, $temps_preparation, $portions, $difficulte, $categorie, $photo_path, 'Photo de la recette']);
-    
+
         // Redirect to the recipe page
         header("Location: /recette/" . urlencode($slug));
         exit();
@@ -63,6 +62,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,11 +71,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     <link rel="stylesheet" href="/assets/css/footer.css">
     <title>Ajouter une Recette - Robots-Délices</title>
 </head>
+
 <body>
     <?php
     require_once 'view/module/header.php';
     ?>
-    
+
     <main>
         <div class="container">
             <!-- Breadcrumb -->
@@ -98,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
                         <!-- Informations de base -->
                         <div class="form-section">
                             <h3>Informations de base</h3>
-                            
+
                             <div class="form-group">
                                 <label for="titre">Titre de la recette</label>
                                 <input type="text" id="titre" name="titre" required placeholder="Ex: Tarte aux pommes de grand-mère">
@@ -109,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
                                 <select id="categorie" name="categorie" required>
                                     <option value="">Choisir une catégorie</option>
                                     <?php foreach ($categories as $category): ?>
-                                        <option value="<?= $category['id']; ?>"><?= $category['category_logo'] . ' '. $category['category_name']; ?></option>
+                                        <option value="<?= $category['id']; ?>"><?= $category['category_logo'] . ' ' . $category['category_name']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -127,7 +128,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
                         <!-- Détails pratiques -->
                         <div class="form-section">
                             <h3>Détails pratiques</h3>
-                            
+
                             <div class="form-group">
                                 <label for="temps-preparation">Temps de préparation</label>
                                 <input type="text" id="temps-preparation" name="temps-preparation" placeholder="Ex: 30 min">
@@ -197,4 +198,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

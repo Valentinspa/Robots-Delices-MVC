@@ -1,4 +1,3 @@
-
 /* BARRE DE NAVIGATION (NAVBAR) */
 
 /* Ce fichier gère l'apparence et le comportement de la barre de navigation en haut de page */
@@ -67,7 +66,6 @@ header {
   width: auto; /* Largeur automatique pour garder les proportions */
 }
 
-
 /* SYSTÈME DE MENU BURGER */
 
 /* Pour afficher le menu sur mobile sous forme de "hamburger" */
@@ -83,23 +81,23 @@ header {
 .burger-menu {
   /* VISIBILITÉ */
   display: none; /* Caché par défaut (visible seulement sur mobile) */
-  
+
   /* DIMENSIONS */
   width: 48px; /* Largeur du bouton */
   height: 48px; /* Hauteur du bouton */
-  
+
   /* APPARENCE */
   background: rgba(109, 180, 196, 0.1); /* Fond bleu très léger */
   border: 2px solid transparent; /* Bordure transparente par défaut */
   border-radius: 12px; /* Coins arrondis */
-  
+
   /* INTERACTIVITÉ */
   cursor: pointer; /* Curseur de main */
-  
+
   /* POSITIONNEMENT */
   z-index: 1001; /* Au-dessus de tout (même du menu ouvert) */
   position: relative; /* Pour positionner les barres à l'intérieur */
-  
+
   /* ANIMATION */
   transition: all 0.3s ease; /* Animation fluide pour tous les changements */
 }
@@ -119,16 +117,16 @@ header {
   width: 26px; /* Largeur de chaque barre */
   height: 3px; /* Hauteur de chaque barre (fine) */
   border-radius: 2px; /* Coins légèrement arrondis */
-  
+
   /* APPARENCE */
   background: linear-gradient(45deg, #6db4c4, #5aa3b3); /* Dégradé bleu */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Petite ombre */
-  
+
   /* POSITIONNEMENT */
   position: absolute; /* Positionnées précisément dans le bouton */
   left: 50%; /* Centrées horizontalement */
   transform: translateX(-50%); /* Ajustement pour centrage parfait */
-  
+
   /* ANIMATION */
   transition: all 0.3s ease; /* Animation fluide pour la transformation en X */
 }
@@ -195,7 +193,9 @@ header {
 .nav-container {
   position: absolute; /* Positionné par rapport au header */
   left: 50%; /* Commence au centre */
-  transform: translateX(-50%); /* Décale de sa propre largeur pour être parfaitement centré */
+  transform: translateX(
+    -50%
+  ); /* Décale de sa propre largeur pour être parfaitement centré */
   display: flex; /* Utilise flexbox */
   align-items: center; /* Aligne verticalement */
 }
@@ -219,20 +219,20 @@ header {
   color: #374151; /* Gris foncé */
   background: transparent; /* Pas de fond par défaut */
   border-radius: 8px; /* Coins arrondis */
-  
+
   /* TYPOGRAPHIE */
   text-decoration: none; /* Pas de soulignement */
   font-weight: 600; /* Semi-gras */
   font-size: 1rem; /* Taille normale */
   white-space: nowrap; /* Pas de retour à la ligne */
-  
+
   /* ESPACEMENT */
   padding: 0.75rem 1rem; /* Espace intérieur pour zone cliquable */
-  
+
   /* INTERACTIVITÉ */
   cursor: pointer; /* Curseur de main */
   transition: all 0.2s ease; /* Animations rapides */
-  
+
   /* POSITIONNEMENT */
   position: relative; /* Pour d'éventuels effets */
 }
@@ -253,17 +253,17 @@ header {
   background: linear-gradient(135deg, #ef4444, #dc2626); /* Dégradé rouge */
   color: white; /* Texte blanc */
   border-radius: 8px; /* Coins arrondis */
-  
+
   /* TYPOGRAPHIE */
   text-decoration: none; /* Pas de soulignement */
   font-weight: 600; /* Semi-gras */
   font-size: 0.95rem; /* Légèrement plus petit */
   white-space: nowrap; /* Pas de retour à la ligne */
-  
+
   /* ESPACEMENT */
   padding: 0.75rem 1.5rem; /* Plus d'espace horizontal que les liens normaux */
   margin-left: 1.5rem; /* Espace à gauche pour séparer des autres liens */
-  
+
   /* INTERACTIVITÉ */
   cursor: pointer; /* Curseur de main */
   display: inline-block; /* Peut avoir des dimensions */
