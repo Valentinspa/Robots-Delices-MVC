@@ -161,10 +161,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div id="ingredients-container">
                                     <div class="ingredient-item">
                                         <input type="text" name="ingredients" placeholder="Séparez vos ingrédients d'une virgule. Ex: 500g de farine, 1kg de patate" required>
-                                        <button type="button" class="btn-remove">✕</button>
                                     </div>
                                 </div>
-                                <button type="button" class="btn-add">+ Ajouter un ingrédient</button>
                             </div>
                         </div>
 
@@ -175,10 +173,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div id="instructions-container">
                                     <div class="instruction-item">
                                         <textarea name="instructions" placeholder="Séparez chaque étape d'un saut à la ligne. Étape 1: Décrivez la première étape..." required></textarea>
-                                        <button type="button" class="btn-remove">✕</button>
                                     </div>
                                 </div>
-                                <button type="button" class="btn-add">+ Ajouter une étape</button>
                             </div>
                         </div>
                     </div>

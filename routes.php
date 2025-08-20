@@ -11,10 +11,14 @@ post('/connexion', 'controller/connexion-deconnexion/login.php');
 get('/inscription', 'controller/connexion-deconnexion/register.php');
 post('/inscription', 'controller/connexion-deconnexion/register.php');
 
-get('/deconnexion', 'controller/connexion-deconnexion/logout.php');
+get('/deconnexion', 'controller/profil/logout.php');
 
 // Mot de passe oublié
 get('/mot-de-passe-oublie', 'controller/mot-de-passe-oublie/mdp-oublié.php');
+
+// Profil
+get('/profil', 'controller/profil/profil.php');
+get('/mes-favoris', 'controller/profil/mes-favoris.php');
 
 // RECETTES
 // Détail d'une recette par slug

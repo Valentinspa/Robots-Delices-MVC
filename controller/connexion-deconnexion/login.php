@@ -64,6 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Authentification réussie !
                 // On stocke l'ID de l'utilisateur dans la session
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['firstname'] = $user['firstname']; // Prénom pour affichage navbar
+                $_SESSION['lastname'] = $user['lastname'];   // Nom pour affichage navbar
+                $_SESSION['email'] = $user['email'];         // Email
 
                 // Nettoyage des tentatives de connexion échouées précédentes
                 $stmt = $pdo->prepare("DELETE FROM login_attempts WHERE email = ?");
