@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             <div class="form-group">
                                 <label for="photo">Photo de la recette</label>
-                                <input type="file" id="photo" name="photo" accept="image/*">
+                                <input type="file" id="photo" name="photo" accept="assets/img/*">
                             </div>
                         </div>
 
