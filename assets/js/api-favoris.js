@@ -23,7 +23,7 @@ favoris.forEach((bouton) => {
 
     // 4. ENVOI DE LA REQUÊTE AU SERVEUR
     // Utilise fetch() pour envoyer une requête AJAX au fichier PHP
-    fetch("api-favoris.php", {
+    fetch("/api-favoris", {
       method: "POST", // Méthode HTTP POST pour envoyer des données
       body: data, // Les données à envoyer
       headers: {

@@ -6,6 +6,17 @@ session_start(); // Démarrage de la session
 require_once 'service/connexionBDD.php'; // Connexion à la base de données
 require_once "service/csrf.php"; // Protection contre les attaques CSRF
 
+// VÉRIFICATION DE LA CONNEXION UTILISATEUR
+// Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /connexion');
+    exit();
+}
+
+// Récupération de l'ID de l'utilisateur connecté
+$user_id = $_SESSION['user_id'];
+
+
 // Récupération de toutes les catégories disponibles pour le formulaire
 $categories = $pdo->query("SELECT * FROM category")->fetchAll();
 // var_dump($categories); // Ligne de debug commentée
@@ -50,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Invalid CSRF token.";
     } else {
         // Insert recipe into database
-        $stmt = $pdo->prepare("INSERT INTO recipes (slug, title, description, ingredients, instructions, cooking_time, number_persons, difficulty, category_id, photo, image_caption) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$slug, $titre, $description, $ingredients, $instructions, $temps_preparation, $portions, $difficulte, $categorie, $photo_path, 'Photo de la recette']);
+        $stmt = $pdo->prepare("INSERT INTO recipes (slug, user_id, title, description, ingredients, instructions, cooking_time, number_persons, difficulty, category_id, photo, image_caption) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$slug, $user_id, $titre, $description, $ingredients, $instructions, $temps_preparation, $portions, $difficulte, $categorie, $photo_path, 'Photo de la recette']);
 
         // Redirect to the recipe page
         header("Location: /recette/" . urlencode($slug));
