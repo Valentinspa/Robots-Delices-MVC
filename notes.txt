@@ -1,13 +1,11 @@
 A faire
 
 Maquettage
-Page Profil
-Update
+Page Profil (Paramètre) (Utilisateurs Connectée)
+Update (Utilisateurs Connectée)
 mot de passe oublié
 MVC(model)
-js sur la page ajouter recettes
-js barre de recherche
-Page Categories
-Page liste recettes
+barre de recherche (En cours)
+Pages Catégories
 page mes recettes (Utilisateurs Connectée)
-Page Favoris
+Page Favoris (Utilisateurs Connectée)

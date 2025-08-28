@@ -72,9 +72,17 @@
                                     <span class="submenu-icon">❤️</span>
                                     <span class="submenu-text">Mes Favoris</span>
                                 </a>
+                                <a href="/mes-recettes" class="submenu-link">
+                                    <span class="submenu-icon">📓</span>
+                                    <span class="submenu-text">Mes Recettes</span>
+                                </a>
                                 <a href="/ajouter-recette" class="submenu-link">
                                     <span class="submenu-icon">➕</span>
                                     <span class="submenu-text">Ajouter une Recette</span>
+                                </a>
+                                <a href="/profil" class="submenu-link">
+                                    <span class="submenu-icon">⚙️</span>
+                                    <span class="submenu-text">Paramètres</span>
                                 </a>
                                 <div class="dropdown-separator"></div>
                                 <a href="/deconnexion" class="submenu-link submenu-logout">
