@@ -43,6 +43,7 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <script src="./assets/js/api-favoris.js" defer></script>
     <title>Robots-Délices</title>
@@ -60,8 +61,10 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
                     <p>Découvrez et partagez des recettes délicieuses avec notre communauté passionnée</p>
                 </div>
                 <div id="search-bar">
-                    <input type="text" name="search" placeholder="Rechercher une recette, un ingrédient..." />
-                    <button type="submit">Rechercher</button>
+                    <form method="GET" action="/recherche">
+                        <input type="text" name="search" placeholder="Rechercher une recette, un ingrédient..." required />
+                        <button type="submit">Rechercher</button>
+                    </form>
                 </div>
             </section>
             <section id="categories">

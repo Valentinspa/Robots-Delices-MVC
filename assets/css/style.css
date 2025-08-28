@@ -136,8 +136,9 @@ main {
   border: none; /* Pas de bordure */
 
   /* DIMENSIONNEMENT */
-  padding: 16px 32px; /* Espacement intérieur généreux */
+  padding: 16px 40px; /* Plus d'espace horizontal pour décaler le bouton */
   border-radius: 50px; /* Bordures très arrondies */
+  margin-left: 8px; /* Petit espace entre l'input et le bouton */
 
   /* TYPOGRAPHIE */
   font-size: 1rem; /* Taille normale */
@@ -612,6 +613,15 @@ main {
   animation-delay: 0.3s;
 } /* 3ème carte : 0.3s */
 
+/* INTÉGRATION DU FORMULAIRE DE RECHERCHE */
+/* Styles pour que le formulaire s'intègre parfaitement dans la barre existante */
+
+#search-bar form {
+  display: flex;
+  width: 100%;
+  gap: 0;
+}
+
 /* Adaptations pour différentes tailles d'écran : mobile, tablette, desktop */
 
 /* Desktop Large (1200px+) */
@@ -951,11 +961,17 @@ main {
     gap: 6px;
   }
 
+  #search-bar form {
+    flex-direction: column;
+    gap: 6px;
+  }
+
   #search-bar input[type="text"] {
     padding: 10px 16px;
     font-size: 0.85rem;
     border-radius: 12px;
     text-align: center;
+    width: 100%;
   }
 
   #search-bar button {

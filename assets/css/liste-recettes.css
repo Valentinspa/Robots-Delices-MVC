@@ -1,0 +1,628 @@
+/* ================================
+   CSS COMPLET POUR LA PAGE LISTE RECETTES
+   Fichier autonome sans dépendance à style.css
+   ================================ */
+
+/* CONFIGURATION GLOBALE */
+#section-container,
+#accueil,
+#recettes {
+  font-family: "Arial", sans-serif;
+}
+
+/* STRUCTURE PRINCIPALE */
+main {
+  padding-top: 120px; /* Espace pour éviter que le header couvre le contenu */
+  min-height: calc(100vh - 120px);
+}
+
+/* ================================
+   SECTION HERO (ACCUEIL)
+   ================================ */
+
+#accueil {
+  /* ARRIÈRE-PLAN : Dégradé bleu */
+  background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+
+  /* ESPACEMENT */
+  padding: 60px 20px 60px;
+  height: 480px;
+
+  /* ALIGNEMENT DU CONTENU */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* POSITIONNEMENT */
+  position: relative;
+  overflow: hidden;
+  margin-top: -120px;
+  padding-top: 200px;
+}
+
+/* TITRE PRINCIPAL */
+#accueil h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* SOUS-TITRE */
+#accueil p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0 0 40px 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ================================
+   SECTION DES RECETTES
+   ================================ */
+
+/* CONTENEUR PRINCIPAL */
+#recettes {
+  background: white;
+  padding: 80px 20px;
+}
+
+/* EN-TÊTE DE SECTION */
+#recettes-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* TITRE "TOUTES NOS RECETTES" */
+#recettes-title h2 {
+  color: #6db4c4;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.5px;
+}
+
+/* SOUS-TITRE DE LA SECTION */
+#recettes-title p {
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* GRILLE DES CARTES RECETTES */
+#recettes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================================
+   CARTES DE RECETTES
+   ================================ */
+
+/* CARTES INDIVIDUELLES */
+.recette-card {
+  /* APPARENCE */
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  /* INTERACTIVITÉ */
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* POSITIONNEMENT */
+  position: relative;
+  overflow: hidden;
+}
+
+/* EFFET HOVER DES CARTES */
+.recette-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(109, 180, 196, 0.15);
+  border-color: rgba(109, 180, 196, 0.3);
+}
+
+/* IMAGES DES RECETTES */
+.recette-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.recette-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* EFFET ZOOM SUR L'IMAGE */
+.recette-card:hover .recette-image img {
+  transform: scale(1.05);
+}
+
+/* ================================
+   CONTENU DES CARTES
+   ================================ */
+
+/* CONTENEUR DU TEXTE */
+.recettes-content {
+  padding: 25px;
+}
+
+/* ZONE TITRE ET DESCRIPTION */
+.recette-summarize {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* BOUTON FAVORIS (COEUR) */
+.bouton-favoris {
+  /* POSITIONNEMENT */
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  /* APPARENCE */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+
+  /* DIMENSIONS */
+  width: 40px;
+  height: 40px;
+
+  /* CONTENU */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+
+  /* INTERACTIVITÉ */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* EFFET HOVER DU BOUTON FAVORIS */
+.bouton-favoris:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* TITRES DES RECETTES */
+.recette-summarize h3 {
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+  padding-right: 50px;
+}
+
+/* DESCRIPTIONS DES RECETTES */
+.recette-summarize p {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  padding-right: 50px;
+}
+
+/* ================================
+   MÉTADONNÉES DES RECETTES
+   ================================ */
+
+/* CONTENEUR DES MÉTADONNÉES */
+.recette-meta {
+  /* DISPOSITION */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  /* APPARENCE */
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+
+  /* ESPACEMENT */
+  padding-top: 20px;
+}
+
+/* ÉLÉMENTS INDIVIDUELS */
+.recette-meta span {
+  /* APPARENCE */
+  color: #64748b;
+  background: rgba(109, 180, 196, 0.1);
+  border-radius: 20px;
+
+  /* TYPOGRAPHIE */
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  /* DISPOSITION */
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  /* ESPACEMENT */
+  padding: 6px 12px;
+
+  /* ANIMATION */
+  transition: all 0.3s ease;
+}
+
+/* EFFET HOVER DES MÉTADONNÉES */
+.recette-meta span:hover {
+  background: rgba(109, 180, 196, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ================================
+   MESSAGE AUCUNE RECETTE
+   ================================ */
+
+.no-recipes {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.no-recipes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.no-recipes p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+/* ================================
+   ANIMATIONS D'APPARITION
+   ================================ */
+
+/* ANIMATION "FADE IN UP" */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ANIMATION "SLIDE IN UP" */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* APPLICATION DES ANIMATIONS */
+#accueil > div:first-child {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.recette-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* DÉLAIS SÉQUENTIELS POUR LES CARTES*/
+.recette-card:nth-child(1) { animation-delay: 0.1s; }
+.recette-card:nth-child(2) { animation-delay: 0.2s; }
+.recette-card:nth-child(3) { animation-delay: 0.3s; }
+.recette-card:nth-child(4) { animation-delay: 0.4s; }
+.recette-card:nth-child(5) { animation-delay: 0.5s; }
+.recette-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+/* Desktop Large (1200px+) */
+@media (min-width: 1200px) {
+  #recettes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+}
+
+/* Desktop Standard (1024px-1199px) */
+@media screen and (max-width: 1199px) and (min-width: 1024px) {
+  #recettes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  #recettes {
+    padding: 70px 15px;
+  }
+
+  #recettes-title h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Tablette (768px-1023px) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  /* Ajustement général du main */
+  main {
+    padding-top: 100px;
+    min-height: calc(100vh - 100px);
+  }
+
+  /* Section Accueil */
+  #accueil {
+    height: 420px;
+    padding: 50px 20px 50px;
+    margin-top: -100px;
+    padding-top: 160px;
+  }
+
+  #accueil h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  #accueil p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  /* Section Recettes */
+  #recettes {
+    padding: 60px 20px;
+  }
+
+  #recettes-title {
+    margin-bottom: 40px;
+  }
+
+  #recettes-title h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  #recettes-title p {
+    font-size: 1rem;
+  }
+
+  #recettes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .recette-image {
+    height: 200px;
+  }
+
+  .recettes-content {
+    padding: 20px;
+  }
+
+  .recette-summarize h3 {
+    font-size: 1.3rem;
+  }
+
+  .recette-meta {
+    padding-top: 15px;
+  }
+
+  .recette-meta span {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+}
+
+/* Mobile (767px et moins) */
+@media screen and (max-width: 767px) {
+  /* Ajustement général du main */
+  main {
+    padding-top: 100px;
+    min-height: calc(100vh - 100px);
+  }
+
+  /* Section Accueil */
+  #accueil {
+    height: 400px;
+    padding: 45px 20px 45px;
+    margin-top: -100px;
+    padding-top: 150px;
+  }
+
+  #accueil h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  #accueil p {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  /* Section Recettes */
+  #recettes {
+    padding: 50px 15px;
+  }
+
+  #recettes-title h2 {
+    font-size: 1.9rem;
+  }
+
+  #recettes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .recette-image {
+    height: 190px;
+  }
+
+  .recettes-content {
+    padding: 18px;
+  }
+
+  .recette-summarize h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .recette-summarize p {
+    font-size: 0.92rem;
+  }
+
+  .bouton-favoris {
+    width: 36px;
+    height: 36px;
+    font-size: 1.35rem;
+  }
+
+  .recette-meta {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .recette-meta span {
+    font-size: 0.82rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Petit Mobile (480px et moins) */
+@media screen and (max-width: 480px) {
+  /* Ajustement général du main */
+  main {
+    padding-top: 90px;
+    min-height: calc(100vh - 90px);
+  }
+
+  /* Section Accueil */
+  #accueil {
+    height: 380px;
+    padding: 40px 15px 40px;
+    margin-top: -90px;
+    padding-top: 130px;
+  }
+
+  #accueil h1 {
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  #accueil p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+
+  /* Section Recettes */
+  #recettes {
+    padding: 40px 15px;
+  }
+
+  #recettes-title h2 {
+    font-size: 1.8rem;
+  }
+
+  #recettes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .recette-image {
+    height: 180px;
+  }
+
+  .recettes-content {
+    padding: 15px;
+  }
+
+  .recette-summarize h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .recette-summarize p {
+    font-size: 0.9rem;
+  }
+
+  .bouton-favoris {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  .recette-meta {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .recette-meta span {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Très petit Mobile (320px et moins) */
+@media screen and (max-width: 320px) {
+  #accueil {
+    height: 360px;
+    padding: 35px 10px 35px;
+    padding-top: 120px;
+  }
+
+  #accueil h1 {
+    font-size: 1.5rem;
+  }
+
+  #accueil p {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+}

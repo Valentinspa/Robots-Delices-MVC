@@ -4,6 +4,9 @@ require_once __DIR__ . '/router.php';
 // Page d'accueil
 get('/', 'index.php');
 
+// Recherche de recettes
+get('/recherche', 'search.php');
+
 // AUTHENTIFICATION
 get('/connexion', 'controller/connexion-deconnexion/login.php');
 post('/connexion', 'controller/connexion-deconnexion/login.php');
@@ -23,6 +26,10 @@ get('/mes-favoris', 'controller/profil/mes-favoris.php');
 // RECETTES
 // Détail d'une recette par slug
 get('/recette/$slug', 'recette.php');
+
+// Liste des recettes
+get('/recettes', 'liste-recettes.php');
+
 
 // Ajouter une recette
 get('/ajouter-recette', 'ajout-recette.php');

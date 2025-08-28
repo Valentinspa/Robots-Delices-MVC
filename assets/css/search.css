@@ -1,0 +1,497 @@
+/* Styles spécifiques à la page de recherche - cohérent avec index.php */
+
+/* Layout principal de la page de recherche */
+#search-section {
+    padding: 0; /* Pas de padding pour coller au header */
+}
+
+/* Header de recherche avec le même style que la bannière d'accueil */
+.search-header {
+    /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil */
+    background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+    
+    /* ESPACEMENT */
+    padding: 80px 20px 60px;
+    
+    /* ALIGNEMENT DU CONTENU */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* POSITIONNEMENT */
+    position: relative;
+    overflow: hidden;
+    margin-top: -120px; /* Même valeur que l'accueil */
+    padding-top: 200px; /* 100px header + 100px espace */
+}
+
+.search-header h1 {
+    color: white; /* Texte blanc pour contraster avec le fond bleu */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Styles spécifiques pour la barre de recherche dans search.php UNIQUEMENT */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Utilise une classe spécifique pour éviter les conflits avec #search-bar de index.php */
+.search-form .search-input-container {
+    display: flex;
+    gap: 0;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search-form .search-input-container:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 24px;
+    font-size: 1rem;
+    border-radius: 50px;
+    background: transparent;
+    color: #333;
+}
+
+.search-form input[type="text"]::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.search-form button {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: white;
+    border: none;
+    padding: 16px 40px; /* Plus d'espace comme sur index */
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    margin-left: 8px; /* Espace entre input et bouton */
+}
+
+.search-form button:hover {
+    background: linear-gradient(45deg, #e67e22, #d68910);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+/* Section des résultats avec fond blanc */
+.search-results-section {
+    background: white;
+    padding: 60px 20px;
+    min-height: 50vh;
+}
+
+/* Résultats de recherche */
+.search-results h2 {
+    color: #6db4c4; /* Même couleur que les titres de sections */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.no-results p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.search-suggestions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.search-suggestions a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #6db4c4;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-suggestions a:hover {
+    background-color: #5aa3b3;
+}
+
+.search-placeholder {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.search-placeholder p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.search-tips {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.search-tips h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.search-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-tips li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.search-tips li:before {
+    content: "•";
+    color: #6db4c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive pour la page de recherche uniquement */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .search-header {
+        padding: 70px 20px 50px;
+        margin-top: -100px;
+        padding-top: 160px; /* 80px header + 80px espace */
+    }
+    
+    .search-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search-header {
+        padding: 60px 15px 45px;
+        margin-top: -100px;
+        padding-top: 150px; /* 80px header + 70px espace */
+    }
+    
+    .search-header h1 {
+        font-size: 1.9rem;
+    }
+    
+    .search-form .search-input-container {
+        flex-direction: column;
+        gap: 6px;
+        max-width: 350px;
+        border-radius: 15px;
+        padding: 6px;
+    }
+    
+    .search-form input[type="text"],
+    .search-form button {
+        border-radius: 12px;
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .search-form input[type="text"] {
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
+    .search-form button {
+        padding: 12px 20px;
+    }
+    
+    .search-results h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .search-placeholder {
+        padding: 2rem 1rem;
+    }
+    
+    .search-tips {
+        text-align: left;
+    }
+    
+    .search-suggestions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .search-results-section {
+        padding: 40px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-header {
+        padding: 50px 15px 40px;
+        margin-top: -90px;
+        padding-top: 130px; /* 70px header + 60px espace */
+    }
+    
+    .search-header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .search-form .search-input-container {
+        max-width: 280px;
+    }
+    
+    .search-form input[type="text"] {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .search-form button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search-header {
+        padding-top: 120px; /* 70px header + 50px espace */
+    }
+    
+    .search-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .search-form .search-input-container {
+        max-width: 260px;
+    }
+    
+    .search-form input[type="text"] {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .search-form button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Résultats de recherche */
+.search-results h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.no-results p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.search-suggestions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.search-suggestions a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #6db4c4;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-suggestions a:hover {
+    background-color: #5aa3b3;
+}
+
+.search-placeholder {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.search-placeholder p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.search-tips {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.search-tips h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.search-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-tips li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.search-tips li:before {
+    content: "•";
+    color: #6db4c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive pour la page de recherche uniquement */
+@media screen and (max-width: 767px) {
+    .search-form .search-input-container {
+        flex-direction: column;
+        gap: 6px;
+        max-width: 350px;
+        border-radius: 15px;
+        padding: 6px;
+    }
+    
+    .search-form input[type="text"],
+    .search-form button {
+        border-radius: 12px;
+        width: 100%;
+    }
+    
+    .search-form input[type="text"] {
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
+    .search-form button {
+        padding: 12px 20px;
+    }
+    
+    .search-header h1 {
+        font-size: 1.9rem;
+    }
+    
+    .search-results h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .search-placeholder {
+        padding: 2rem 1rem;
+    }
+    
+    .search-tips {
+        text-align: left;
+    }
+    
+    .search-suggestions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-form .search-input-container {
+        max-width: 280px;
+    }
+    
+    .search-form input[type="text"] {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .search-form button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .search-header h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search-form .search-input-container {
+        max-width: 260px;
+    }
+    
+    .search-form input[type="text"] {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .search-form button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
