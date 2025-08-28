@@ -24,6 +24,7 @@ get('/profil', 'controller/profil/profil.php');
 get('/mes-favoris', 'controller/profil/mes-favoris.php');
 
 // RECETTES
+
 // Détail d'une recette par slug
 get('/recette/$slug', 'recette.php');
 
