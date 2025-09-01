@@ -1,40 +1,3 @@
-<?php
-// Page d'accueil du site Robots-Délices
-// Affiche les recettes populaires et gère les favoris des utilisateurs connectés
-
-// Démarre une session PHP pour pouvoir accéder aux données de l'utilisateur connecté
-session_start();
-// Inclut le fichier de connexion à la base de données
-require_once __DIR__ . '/service/connexionBDD.php';
-
-// Vérification si un utilisateur est connecté
-// $_SESSION['user_id'] contient l'ID de l'utilisateur connecté (défini lors du login)
-if (isset($_SESSION['user_id'])) {
-    // Si connecté, on récupère l'ID de l'utilisateur
-    $userId = $_SESSION['user_id'];
-
-    // Prépare une requête SQL sécurisée pour récupérer les favoris de l'utilisateur
-    // Le ? est un placeholder qui sera remplacé par $userId de façon sécurisée
-    $stmt = $pdo->prepare("SELECT recipe_id FROM favorites WHERE user_id = ?");
-    $stmt->execute([$userId]); // Exécute la requête avec l'ID utilisateur
-
-    // Récupère tous les IDs des recettes favorites sous forme de tableau simple
-    // PDO::FETCH_COLUMN, 0 récupère seulement la première colonne (recipe_id)
-    $favorites = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
-} else {
-    // Si pas connecté, on initialise un tableau vide pour les favoris
-    $favorites = [];
-};
-
-// Récupération des recettes populaires à afficher sur la page d'accueil
-// WHERE popular = 1 : sélectionne seulement les recettes marquées comme populaires
-// ORDER BY created_at DESC : trie par date de création (plus récentes en premier)
-// LIMIT 3 : limite à 3 recettes maximum
-$stmt = $pdo->prepare("SELECT recipes.* FROM recipes WHERE popular = 1 ORDER BY created_at DESC LIMIT 3");
-$stmt->execute(); // Exécute la requête
-$recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans un tableau
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,7 +13,7 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
 
 <body>
     <?php
-    require_once __DIR__ . '/view/module/header.php';
+    require_once 'view/module/header.php';
     ?>
     <main>
         <div id="section-container">

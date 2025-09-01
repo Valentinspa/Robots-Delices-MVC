@@ -1,11 +1,9 @@
 A faire
 
 Maquettage
-Page Profil (Paramètre) (Utilisateurs Connectée)
-Update (Utilisateurs Connectée)
+Page Paramètre (updtate, delete) (Utilisateurs Connectée)
 mot de passe oublié
 MVC(model)
-barre de recherche (En cours)
 Pages Catégories
 page mes recettes (Utilisateurs Connectée)
 Page Favoris (Utilisateurs Connectée)

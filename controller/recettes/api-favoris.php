@@ -26,7 +26,7 @@
 session_start();
 
 // Inclusion de la connexion à la base de données
-require_once 'service/connexionBDD.php';
+require_once __DIR__ . '/../../model/favoris-model.php';
 
 // CONFIGURATION DES HEADERS HTTP
 // Ces headers configurent la réponse pour une API REST compatible avec AJAX
@@ -58,20 +58,13 @@ if (isset($_SESSION['user_id']) && isset($_POST['action']) && $_POST['action'] =
     try {
         // ÉTAPE 1 : Vérification si la recette est déjà en favoris
         // Cette requête cherche une entrée existante dans la table favorites
-        $stmt = $pdo->prepare("SELECT * FROM favorites WHERE user_id = ? AND recipe_id = ?");
-        $stmt->execute([$userId, $recetteId]);
-        $favoris = $stmt->fetch();
-
+          $favoris = getFavori($userId, $recetteId);
         if ($favoris) {
-            // CAS 1 : La recette est déjà en favoris → ON LA RETIRE
-            $stmt = $pdo->prepare("DELETE FROM favorites WHERE user_id = ? AND recipe_id = ?");
-            $stmt->execute([$userId, $recetteId]);
-            // Réponse JSON indiquant que la recette a été retirée des favoris
+            deleteFavori($userId, $recetteId);
             echo json_encode(['status' => 'removed']);
         } else {
             // CAS 2 : La recette n'est pas en favoris → ON L'AJOUTE
-            $stmt = $pdo->prepare("INSERT INTO favorites (user_id, recipe_id) VALUES (?, ?)");
-            $stmt->execute([$userId, $recetteId]);
+           addFavori($userId, $recetteId);
             // Réponse JSON indiquant que la recette a été ajoutée aux favoris
             echo json_encode(['status' => 'added']);
         }

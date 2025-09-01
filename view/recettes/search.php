@@ -1,44 +1,3 @@
-<?php
-// Page de recherche pour Robots-Délices
-// Permet de rechercher des recettes par titre, description ou ingrédients
-
-session_start();
-require_once __DIR__ . '/service/connexionBDD.php';
-
-// Récupération du terme de recherche
-$searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
-$recipes = [];
-$searchPerformed = false;
-
-// Vérification des favoris si utilisateur connecté
-$favorites = [];
-if (isset($_SESSION['user_id'])) {
-    $userId = $_SESSION['user_id'];
-    $stmt = $pdo->prepare("SELECT recipe_id FROM favorites WHERE user_id = ?");
-    $stmt->execute([$userId]);
-    $favorites = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
-}
-
-// Si une recherche a été effectuée
-if (!empty($searchTerm)) {
-    $searchPerformed = true;
-    
-    // Requête de recherche dans titre, description et ingrédients
-    $searchQuery = "SELECT recipes.*, category.category_name, category.category_logo 
-                   FROM recipes 
-                   LEFT JOIN category ON recipes.category_id = category.id 
-                   WHERE recipes.title LIKE ? 
-                   OR recipes.description LIKE ? 
-                   OR recipes.ingredients LIKE ? 
-                   ORDER BY recipes.created_at DESC";
-    
-    $searchPattern = '%' . $searchTerm . '%';
-    $stmt = $pdo->prepare($searchQuery);
-    $stmt->execute([$searchPattern, $searchPattern, $searchPattern]);
-    $recipes = $stmt->fetchAll();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,7 +12,7 @@ if (!empty($searchTerm)) {
 </head>
 
 <body>
-    <?php require_once __DIR__ . '/view/module/header.php'; ?>
+    <?php require_once 'view/module/header.php'; ?>
     
     <main>
         <div id="section-container">
