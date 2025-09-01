@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <?php require_once 'view/module/header.php'; ?>
+    <?php 
+    require_once 'view/module/header.php'; 
+    ?>
     
     <main>
         <div id="section-container">

@@ -8,11 +8,11 @@ get('/', '/controller/index.php');
 get('/recherche', '/controller/recettes/search.php');
 
 // AUTHENTIFICATION
-get('/connexion', '/controller/connexion-inscription/login.php');
-post('/connexion', '/controller/connexion-inscription/login.php');
+get('/connexion', '/controller/connexion-deconnexion/login.php');
+post('/connexion', '/controller/connexion-deconnexion/login.php');
 
-get('/inscription', '/controller/connexion-inscription/register.php');
-post('/inscription', '/controller/connexion-inscription/register.php');
+get('/inscription', '/controller/connexion-deconnexion/register.php');
+post('/inscription', '/controller/connexion-deconnexion/register.php');
 
 get('/deconnexion', '/controller/profil/logout.php');
 

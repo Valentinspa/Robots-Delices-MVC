@@ -123,17 +123,21 @@ Robots-Delices/
 ├── controller/                # Contrôleurs MVC
 │   ├── connexion-deconnexion/ # Authentification
 │   └── mot-de-passe-oublie/   # Reset password
+├── model/                     # Requêtes SQL
+│   ├── favoris-model.php      # Requêtes API favoris
+│   ├── login-model.php        # Requêtes login
+│   └── recettes-model.php     # Requêtes Recettes
 ├── service/                   # Services utilitaires
 │   ├── connexionBDD.php       # Connexion PDO
 │   └── csrf.php               # Protection CSRF
 ├── view/                      # Vues et composants
-│   └── module/                # Composants réutilisables
+│   ├── connexion-deconnexion/ # Authentification 
+│   ├── module/                # Composants réutilisables
+│   └── recettes/              # Affichage des recettes
 ├── routes.php                 # Configuration des routes
 ├── router.php                 # Système de routage
-├── index.php                  # Page d'accueil
-├── recette.php                # Détail d'une recette
-├── ajout-recette.php          # Formulaire d'ajout
-└── api-favoris.php            # API favoris
+└── index.php                  # Page d'accueil
+
 ```
 
 ### Patron MVC Simplifié

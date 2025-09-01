@@ -3,7 +3,7 @@ A faire
 Maquettage
 Page Paramètre (updtate, delete) (Utilisateurs Connectée)
 mot de passe oublié
-MVC(model)
+Model MVC (en cours)
 Pages Catégories
 page mes recettes (Utilisateurs Connectée)
 Page Favoris (Utilisateurs Connectée)
