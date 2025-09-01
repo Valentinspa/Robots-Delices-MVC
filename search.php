@@ -45,8 +45,8 @@ if (!empty($searchTerm)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/navbar.css">
-    <link rel="stylesheet" href="./assets/css/search.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <script src="./assets/js/api-favoris.js" defer></script>
     <title><?php echo $searchPerformed ? 'Recherche : ' . htmlspecialchars($searchTerm) : 'Recherche'; ?> - Robots-Délices</title>
@@ -62,7 +62,7 @@ if (!empty($searchTerm)) {
                     <h1>Recherche de recettes</h1>
                     
                     <!-- Formulaire de recherche -->
-                    <form method="GET" action="search.php" class="search-form">
+                    <form method="GET" action="/recherche" class="search-form">
                         <div class="search-input-container">
                             <input type="text" 
                                    name="search" 

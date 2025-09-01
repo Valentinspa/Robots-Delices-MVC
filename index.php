@@ -43,7 +43,6 @@ $recipes = $stmt->fetchAll(); // Récupère toutes les recettes trouvées dans u
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/search.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <script src="./assets/js/api-favoris.js" defer></script>
     <title>Robots-Délices</title>
