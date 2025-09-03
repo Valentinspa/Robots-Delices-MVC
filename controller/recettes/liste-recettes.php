@@ -6,8 +6,7 @@
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
 require_once __DIR__ . '/../../model/favoris-model.php'; // Modèle pour interagir avec les favoris
 require_once __DIR__. "/../../service/csrf.php"; // Protection contre les attaques CSRF
-// Démarrage de la session pour gérer l'état de connexion et les favoris
-session_start();
+
 
 // Vérification si un utilisateur est connecté pour gérer les favoris
 if (isset($_SESSION['user_id'])) {

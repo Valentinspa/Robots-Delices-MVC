@@ -22,8 +22,6 @@
     - Gestion d'erreurs sans exposition de données sensibles
 */
 
-// Démarrage de la session pour identifier l'utilisateur
-session_start();
 
 // Inclusion de la connexion à la base de données
 require_once __DIR__ . '/../../model/favoris-model.php';

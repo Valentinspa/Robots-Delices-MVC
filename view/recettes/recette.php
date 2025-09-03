@@ -18,14 +18,6 @@
     ?>
     <main>
         <div class="container">
-            <!-- Breadcrumb -->
-            <div class="breadcrumb">
-                <a href="/">← Accueil</a>
-                <span>/</span>
-                <a href="/categories"><?php echo htmlspecialchars($recipe['category_name']); ?></a>
-                <span>/</span>
-                <span><?php echo htmlspecialchars($recipe['title']); ?></span>
-            </div>
 
             <!-- Recipe Hero -->
             <section class="recipe-hero">

@@ -3,18 +3,13 @@
 // Inclut des protections contre le brute force et les attaques CSRF
 
 // Inclusion des fichiers nécessaires
-require_once __DIR__ . '/../../model/login-model.php'; // Modèle pour interagir avec les utilisateurs
+require_once __DIR__ . '/../../model/user-model.php'; // Modèle pour interagir avec les utilisateurs
 require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaques CSRF
 
-// Démarrage de la session pour gérer l'état de connexion
-session_start();
 
 // Vérification si l'utilisateur est déjà connecté
 // Si oui, on le redirige vers la page d'accueil (pas besoin de se reconnecter)
-if (isset($_SESSION['user_id'])) {
-    header('Location: /'); // Redirection HTTP vers index.php
-    exit(); // Arrête l'exécution du script après la redirection
-}
+handleAuthRedirect(false);
 // Traitement du formulaire seulement si la méthode est POST
 // $_SERVER['REQUEST_METHOD'] contient la méthode HTTP utilisée
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']); // Email saisi par l'utilisateur
     $password = trim($_POST['password']); // Mot de passe saisi
     // Protection contre les attaques par force brute
-    bruteForceProtection($email);
+    $attempts = bruteForceProtection($email);
 
     // Si plus de 5 tentatives en 15 minutes, on bloque temporairement
     if (count($attempts) >= 5) {
@@ -45,8 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     elseif (empty($error)) {
         // Tentative d'authentification avec gestion d'erreurs
         try {
-            getUserByEmail($email); // Récupère l'utilisateur par email
-
+            $user = getUserByEmail($email); // Récupère l'utilisateur par email
+            // var_dump($user, $password, password_verify($password, $user['password']));
+            // die;
             // Vérification de l'existence de l'utilisateur ET du mot de passe
             // password_verify() compare le mot de passe en clair avec le hash stocké
             if ($user && password_verify($password, $user['password'])) {
@@ -73,5 +69,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 // Inclusion de la vue (formulaire de connexion)
-include_once __DIR__ . '/../../view/connexion-deconnexion/login.php';
+include_once __DIR__ . '/../../view/connexion-inscription/login.php';
 ?>

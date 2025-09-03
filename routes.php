@@ -8,11 +8,11 @@ get('/', '/controller/index.php');
 get('/recherche', '/controller/recettes/search.php');
 
 // AUTHENTIFICATION
-get('/connexion', '/controller/connexion-deconnexion/login.php');
-post('/connexion', '/controller/connexion-deconnexion/login.php');
+get('/connexion', '/controller/connexion-inscription/login.php');
+post('/connexion', '/controller/connexion-inscription/login.php');
 
-get('/inscription', '/controller/connexion-deconnexion/register.php');
-post('/inscription', '/controller/connexion-deconnexion/register.php');
+get('/inscription', '/controller/connexion-inscription/register.php');
+post('/inscription', '/controller/connexion-inscription/register.php');
 
 get('/deconnexion', '/controller/profil/logout.php');
 
@@ -21,7 +21,9 @@ get('/mot-de-passe-oublie', '/controller/mot-de-passe-oublie/mdp-oublié.php');
 
 // Profil
 get('/profil', '/controller/profil/profil.php');
+post('/profil', '/controller/profil/profil.php');
 get('/mes-favoris', '/controller/profil/mes-favoris.php');
+get('/supprimer-compte', '/controller/profil/supprimer.php');
 
 // RECETTES
 
@@ -40,11 +42,4 @@ post('/ajouter-recette', '/controller/recettes/ajout-recette.php');
 post('/api-favoris', '/controller/recettes/api-favoris.php');
 
 // PAGE 404
-get('/404', '404.php');
-
-// Route par défaut pour les pages non trouvées (DOIT ÊTRE EN DERNIER)
-any('$path', function ($path) {
-    http_response_code(404);
-    include_once __DIR__ . '/404.php';
-    exit();
-});
+get('/404', '/view/404.php');

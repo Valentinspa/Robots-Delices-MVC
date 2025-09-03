@@ -2,9 +2,6 @@
 // Page de détail d'une recette - Affiche les informations complètes d'une recette
 
 
-// Démarrage de la session pour vérifier si l'utilisateur est connecté
-session_start();
-
 // Inclusion du modèle de recettes pour interagir avec la base de données
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
 

@@ -8,10 +8,7 @@ require_once __DIR__. "/../../service/csrf.php"; // Protection contre les attaqu
 
 // VÉRIFICATION DE LA CONNEXION UTILISATEUR
 // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-if (!isset($_SESSION['user_id'])) {
-    header('Location: /connexion');
-    exit();
-}
+handleAuthRedirect(true);
 
 // Récupération de l'ID de l'utilisateur connecté
 $user_id = $_SESSION['user_id'];

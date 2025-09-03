@@ -17,8 +17,6 @@
     - Utilisation d'exit() pour s'assurer que le script s'arrête après la redirection
 */
 
-// Démarrage de la session pour pouvoir la manipuler
-session_start();
 
 // ÉTAPE 1 : Suppression de toutes les variables de session
 // session_unset() efface toutes les variables stockées dans $_SESSION

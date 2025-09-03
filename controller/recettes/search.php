@@ -2,7 +2,6 @@
 // Page de recherche pour Robots-Délices
 // Permet de rechercher des recettes par titre, description ou ingrédients
 
-session_start();
 
 // require model favoris et recettes
 require_once __DIR__ . '/../../model/favoris-model.php';

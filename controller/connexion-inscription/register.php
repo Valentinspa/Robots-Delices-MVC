@@ -3,18 +3,12 @@
 // Inclut validation des données, vérification reCAPTCHA et protection CSRF
 
 // Inclusion des fichiers nécessaires
-require_once __DIR__ . '/../../service/connexionBDD.php'; // Connexion à la base de données
 require_once __DIR__ . '/../../service/csrf.php'; // Protection contre les attaques CSRF
-
-// Démarrage de la session
-session_start();
+require_once __DIR__ . '/../../model/user-model.php'; // Fonctions liées à la connexion
 
 // Vérification si l'utilisateur est déjà connecté
 // Si oui, pas besoin de s'inscrire, redirection vers l'accueil
-if (isset($_SESSION['user_id'])) {
-    header('Location: /'); // Redirection HTTP
-    exit(); // Arrête l'exécution
-}
+handleAuthRedirect(false);
 
 // Traitement du formulaire d'inscription (seulement en méthode POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -107,10 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Un utilisateur ne peut pas avoir le même email qu'un autre
         try {
             // Recherche d'un utilisateur avec cet email
-            $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-            $stmt->execute([$email]);
+            $user = getUserByEmail($email);
             // Si au moins un utilisateur existe avec cet email
-            if ($stmt->rowCount() > 0) {
+            if ($user) {
                 $error = "Un compte avec cette adresse e-mail existe déjà.";
             }
         } catch (PDOException $e) {
@@ -123,91 +116,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($error)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         try {
-            $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)"); // Requête préparée pour insérer les données de façon sécurisé            
-            $stmt->execute([$prenom, $nom, $email, $hashedPassword]);
-            header('Location: /connexion'); // Inscription réussie : redirection vers la page de connexion        
-            exit(); // Important : arrêter le script apres redirection    
+            $id = addUser($prenom, $nom, $email, $hashedPassword); // Ajout de l'utilisateur en base
+            if ($id === 0) {
+                $error = "Erreur lors de l'inscription. Veuillez réessayer.";
+            } else {
+                $_SESSION['user_id'] = $id;
+                $_SESSION['firstname'] = $prenom; // Prénom pour affichage navbar
+                $_SESSION['lastname'] = $nom;   // Nom pour affichage navbar
+                $_SESSION['email'] = $email;         // Email
+                header('Location: /connexion'); // Inscription réussie : redirection vers la page de connexion        
+                exit(); // Important : arrêter le script apres redirection    
+            }
         } catch (PDOException $e) {
             $error = "Erreur lors de l'inscription : " . $e->getMessage(); // Gestion des erreurs d'insertion en base       
         }
     }
 }
 
+require_once __DIR__ . '/../../view/connexion-inscription/register.php'; // Affichage du formulaire
 
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
-    <link rel="stylesheet" href="/assets/css/auth-pages.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <script src="https://www.google.com/recaptcha/api.js" defer></script>
-    <script defer>
-        function onSubmit(token) {
-            document.getElementById("register-form").submit();
-        }
-    </script>
-
-    <title>Inscription - Robots-Délices</title>
-</head>
-
-<body class="register-page">
-    <?php
-    require_once __DIR__ . '/../../view/module/header.php';
-    ?>
-    <main>
-        <div id="section-container">
-            <!-- Section gauche -->
-            <div id="login-container">
-                <img alt="Logo Robots-Délices" id="logo" src="/assets/img/logo_robots_delices.png" />
-                <p>Rejoignez notre communauté de passionnés de cuisine et partagez vos meilleures recettes</p>
-            </div>
-
-            <!-- Section droite avec formulaire d'inscription -->
-            <div class="right-section">
-                <div class="tabs-container">
-                    <a href="/connexion">Connexion</a>
-                    <a href="/inscription" class="active">Inscription</a>
-                </div>
-                <div id="form-container">
-                    <form id="register-form" action="/inscription" method="POST">
-                        <div>
-                            <label for="prenom">Prénom :</label>
-                            <input type="text" id="prenom" name="prenom" required>
-                        </div>
-                        <div>
-                            <label for="nom">Nom :</label>
-                            <input type="text" id="nom" name="nom" required>
-                        </div>
-                        <div>
-                            <label for="email">Email :</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div>
-                            <label for="password">Mot de passe :</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <div>
-                            <label for="confirm-password">Confirmer le mot de passe :</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required>
-                        </div>
-                        <?php if (isset($error)): ?>
-                            <p class="error-message"><?php echo $error; ?></p>
-                        <?php endif; ?>
-                        <input type="hidden" name="csrf_token" value="<?php echo generateCsrfToken(); ?>">
-                        <button type="submit" class="g-recaptcha" data-sitekey="<?php echo $_ENV['RECAPTCHA_SITE_KEY'] ?>" data-callback='onSubmit' data-action='submit'>S'inscrire</button>
-                    </form>
-                    <p>Déjà inscrit ? <a href="/connexion">Se connecter</a></p>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>© 2025 Robots-Délices. Tous droits réservés.</p>
-    </footer>
-</body>
-
-</html>

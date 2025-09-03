@@ -6,8 +6,6 @@
 require_once __DIR__ . '/../../service/connexionBDD.php'; // Connexion à la base de données
 require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaques CSRF
 
-// Démarrage de la session pour gérer l'état de connexion
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

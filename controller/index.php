@@ -2,8 +2,6 @@
 // Page d'accueil du site Robots-Délices
 // Affiche les recettes populaires et gère les favoris des utilisateurs connectés
 
-// Démarre une session PHP pour pouvoir accéder aux données de l'utilisateur connecté
-session_start();
 require_once __DIR__ . '/../model/recettes-model.php';
 require_once __DIR__ . '/../model/favoris-model.php';
 

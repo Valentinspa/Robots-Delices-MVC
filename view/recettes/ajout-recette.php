@@ -17,12 +17,6 @@
 
     <main>
         <div class="container">
-            <!-- Breadcrumb -->
-            <div class="breadcrumb">
-                <a href="/">← Accueil</a>
-                <span>/</span>
-                <span>Ajouter une recette</span>
-            </div>
 
             <!-- Hero Section -->
             <section class="add-recipe-hero">

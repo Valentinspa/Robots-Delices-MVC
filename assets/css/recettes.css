@@ -31,40 +31,6 @@ main {
   padding: 0 20px; /* Espace sur les côtés */
 }
 
-/* Navigation "Accueil > Recettes > Tarte aux pommes" */
-.breadcrumb {
-  /* APPARENCE */
-  background: white; /* Fond blanc */
-  border: 1px solid #f1f5f9; /* Bordure très légère */
-  border-radius: 8px; /* Coins arrondis */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
-
-  /* ESPACEMENT */
-  padding: 15px 25px; /* Espace intérieur */
-  margin-bottom: 30px; /* Espace en dessous */
-
-  /* TYPOGRAPHIE */
-  font-family: "Arial", sans-serif; /* Police cohérente */
-}
-
-/* Les liens cliquables (Accueil, Recettes...) */
-.breadcrumb a {
-  color: #6db4c4; /* Bleu du thème */
-  text-decoration: none; /* Pas de soulignement */
-  font-weight: 500; /* Semi-gras */
-  transition: color 0.3s ease; /* Animation douce au hover */
-}
-
-/* === EFFET HOVER DES LIENS === */
-.breadcrumb a:hover {
-  color: #5aa3b3; /* Bleu plus foncé au survol */
-}
-
-/* Les ">" ou "•" entre les éléments */
-.breadcrumb span {
-  color: #64748b; /* Gris moyen */
-  margin: 0 10px; /* Espace autour des séparateurs */
-}
 
 /* EN-TÊTE DE LA RECETTE */
 /* Bannière colorée avec le nom de la recette et sa description */
@@ -531,11 +497,6 @@ main {
     padding: 0 15px;
   }
 
-  .breadcrumb {
-    padding: 12px 20px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-  }
 
   .recipe-hero {
     padding: 40px 25px;
@@ -655,12 +616,6 @@ main {
 
   .container {
     padding: 0 10px;
-  }
-
-  .breadcrumb {
-    padding: 10px 15px;
-    font-size: 0.85rem;
-    margin-bottom: 15px;
   }
 
   .recipe-hero {

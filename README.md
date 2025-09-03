@@ -37,7 +37,6 @@
 - **Design responsive** compatible mobile/desktop
 - **Navigation intuitive** avec menu hamburger
 - **Pages dédiées** : accueil, détail recette, ajout, authentification
-- **Breadcrumbs** pour la navigation
 - **Messages d'erreur/succès** contextuels
 
 ### 🔧 Fonctionnalités Techniques

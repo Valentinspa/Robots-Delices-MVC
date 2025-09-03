@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+function handleAuthRedirect(bool $hasTobeLogged)
+{
+	if ($hasTobeLogged && !isset($_SESSION['user_id'])) {
+		header('Location: /connexion');
+		exit();
+	} elseif (!$hasTobeLogged && isset($_SESSION['user_id'])) {
+		header('Location: /');
+		exit();
+	}
+}
 
 function get($route, $path_to_include)
 {
