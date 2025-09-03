@@ -24,6 +24,12 @@
                     <h1>Toutes nos Recettes</h1>
                     <p>Découvrez notre collection complète de recettes délicieuses créées avec passion</p>
                 </div>
+                <div id="search-bar">
+                    <form method="GET" action="/recherche">
+                        <input type="text" name="search" placeholder="Rechercher une recette, un ingrédient..." required />
+                        <button type="submit">Rechercher</button>
+                    </form>
+                </div>
             </section>
 
             <!-- Section principale avec la grille de recettes -->

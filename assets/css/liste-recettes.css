@@ -1,7 +1,4 @@
-/* ================================
-   CSS COMPLET POUR LA PAGE LISTE RECETTES
-   Fichier autonome sans dépendance à style.css
-   ================================ */
+/* CSS POUR LA PAGE LISTE RECETTES */
 
 /* CONFIGURATION GLOBALE */
 #section-container,
@@ -16,9 +13,7 @@ main {
   min-height: calc(100vh - 120px);
 }
 
-/* ================================
-   SECTION HERO (ACCUEIL)
-   ================================ */
+/* SECTION HERO (ACCUEIL) */
 
 #accueil {
   /* ARRIÈRE-PLAN : Dégradé bleu */
@@ -63,9 +58,109 @@ main {
   line-height: 1.6;
 }
 
-/* ================================
-   SECTION DES RECETTES
-   ================================ */
+/* BARRE DE RECHERCHE */
+/* La zone de recherche au centre de la bannière d'accueil */
+
+#search-bar {
+  /* DISPOSITION */
+  display: flex; /* Affiche input et bouton côte à côte */
+
+  /* APPARENCE */
+  background: white; /* Fond blanc pour contraster avec le bleu */
+  border-radius: 50px; /* Bordures très arrondies (style "pill") */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre douce en dessous */
+
+  /* DIMENSIONNEMENT */
+  padding: 8px; /* Petit espace intérieur */
+  max-width: 500px; /* Largeur maximum */
+  width: 100%; /* Prend toute la largeur disponible (jusqu'à max-width) */
+  margin: 0 auto; /* Centré horizontalement */
+
+  /* ANIMATION */
+  transition: all 0.3s ease; /* Animation douce pour tous les changements */
+}
+
+/* EFFET HOVER DE LA BARRE */
+/* Animation quand on survole la barre de recherche */
+#search-bar:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* Ombre plus forte */
+  transform: translateY(-2px); /* Légère élévation */
+}
+
+/* FORMULAIRE DANS LA BARRE */
+#search-bar form {
+  display: flex; /* Affiche input et bouton côte à côte */
+  width: 100%; /* Prend toute la largeur */
+  gap: 0; /* Pas d'espace entre input et bouton */
+}
+
+/* CHAMP DE SAISIE */
+/* L'input où l'utilisateur tape sa recherche */
+#search-bar input[type="text"] {
+  flex: 1; /* Prend tout l'espace disponible */
+  border: none; /* Pas de bordure */
+  outline: none; /* Pas de contour bleu au focus */
+  padding: 16px 24px; /* Espacement intérieur confortable */
+  font-size: 1rem; /* Taille de texte normale */
+  border-radius: 50px; /* Bordures arrondies comme le parent */
+  background: transparent; /* Fond transparent */
+  color: #333; /* Texte gris foncé */
+}
+
+/* TEXTE D'AIDE (PLACEHOLDER) */
+/* Le texte qui disparaît quand on écrit */
+#search-bar input[type="text"]::placeholder {
+  color: #999; /* Gris plus clair que le texte normal */
+  font-weight: 400; /* Texte fin */
+}
+
+/* FOCUS SUR L'INPUT */
+/* Quand on clique dans le champ de recherche */
+#search-bar input[type="text"]:focus {
+  outline: none; /* Supprime le contour bleu par défaut */
+}
+
+/* BOUTON DE RECHERCHE */
+/* Le bouton orange "Rechercher" */
+#search-bar button {
+  /* APPARENCE */
+  background: linear-gradient(45deg, #f39c12, #e67e22); /* Dégradé orange */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+
+  /* DIMENSIONNEMENT */
+  padding: 16px 40px; /* Plus d'espace horizontal pour décaler le bouton */
+  border-radius: 50px; /* Bordures très arrondies */
+  margin-left: 8px; /* Petit espace entre l'input et le bouton */
+
+  /* TYPOGRAPHIE */
+  font-size: 1rem; /* Taille normale */
+  font-weight: 600; /* Texte semi-gras */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+
+  /* INTERACTIVITÉ */
+  cursor: pointer; /* Curseur de main au survol */
+  transition: all 0.3s ease; /* Animation douce pour tous les changements */
+
+  /* OMBRE */
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); /* Ombre orange douce */
+}
+
+/* EFFET HOVER DU BOUTON */
+/* Animation quand on survole le bouton */
+#search-bar button:hover {
+  background: linear-gradient(45deg, #e67e22, #d68910); /* Dégradé plus foncé */
+  transform: translateY(-1px); /* Légère élévation */
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4); /* Ombre plus forte */
+}
+
+/* EFFET CLIC DU BOUTON */
+/* Animation quand on clique sur le bouton */
+#search-bar button:active {
+  transform: translateY(0); /* Revient à sa position normale */
+}
+
+/* SECTION DES RECETTES */
 
 /* CONTENEUR PRINCIPAL */
 #recettes {
@@ -108,9 +203,7 @@ main {
   padding: 0 20px;
 }
 
-/* ================================
-   CARTES DE RECETTES
-   ================================ */
+/* CARTES DE RECETTES */
 
 /* CARTES INDIVIDUELLES */
 .recette-card {
@@ -156,9 +249,7 @@ main {
   transform: scale(1.05);
 }
 
-/* ================================
-   CONTENU DES CARTES
-   ================================ */
+/* CONTENU DES CARTES */
 
 /* CONTENEUR DU TEXTE */
 .recettes-content {
@@ -225,9 +316,7 @@ main {
   padding-right: 50px;
 }
 
-/* ================================
-   MÉTADONNÉES DES RECETTES
-   ================================ */
+/* MÉTADONNÉES DES RECETTES */
 
 /* CONTENEUR DES MÉTADONNÉES */
 .recette-meta {
@@ -274,9 +363,7 @@ main {
   transform: translateY(-1px);
 }
 
-/* ================================
-   MESSAGE AUCUNE RECETTE
-   ================================ */
+/* MESSAGE AUCUNE RECETTE */
 
 .no-recipes {
   grid-column: 1 / -1;
@@ -311,9 +398,7 @@ main {
   transform: translateY(-2px);
 }
 
-/* ================================
-   ANIMATIONS D'APPARITION
-   ================================ */
+/* ANIMATIONS D'APPARITION */
 
 /* ANIMATION "FADE IN UP" */
 @keyframes fadeInUp {
@@ -344,6 +429,10 @@ main {
   animation: fadeInUp 0.8s ease-out;
 }
 
+#search-bar {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
 .recette-card {
   animation: slideInUp 0.6s ease-out;
 }
@@ -356,9 +445,9 @@ main {
 .recette-card:nth-child(5) { animation-delay: 0.5s; }
 .recette-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* ================================
-   RESPONSIVE DESIGN
-   ================================ */
+
+/* RESPONSIVE DESIGN */
+
 
 /* Desktop Large (1200px+) */
 @media (min-width: 1200px) {
@@ -382,6 +471,22 @@ main {
 
   #recettes-title h2 {
     font-size: 2.2rem;
+  }
+
+  /* Search bar responsive desktop standard */
+  #search-bar {
+    max-width: 450px;
+    padding: 7px;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  #search-bar button {
+    padding: 14px 32px;
+    font-size: 0.95rem;
   }
 }
 
@@ -409,6 +514,22 @@ main {
   #accueil p {
     font-size: 1rem;
     margin-bottom: 30px;
+  }
+
+  /* Search bar responsive tablette */
+  #search-bar {
+    max-width: 400px;
+    padding: 6px;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+
+  #search-bar button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
   }
 
   /* Section Recettes */
@@ -481,6 +602,22 @@ main {
   #accueil p {
     font-size: 0.95rem;
     margin-bottom: 30px;
+  }
+
+  /* Search bar responsive mobile */
+  #search-bar {
+    max-width: 350px;
+    padding: 6px;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+
+  #search-bar button {
+    padding: 14px 26px;
+    font-size: 0.9rem;
   }
 
   /* Section Recettes */
@@ -560,6 +697,36 @@ main {
     padding: 0 10px;
   }
 
+  /* Search bar responsive petit mobile */
+  #search-bar {
+    flex-direction: column;
+    max-width: 280px;
+    padding: 6px;
+    border-radius: 15px;
+    gap: 6px;
+  }
+
+  #search-bar form {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  #search-bar button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+    width: 100%;
+    margin-left: 0;
+  }
+
   /* Section Recettes */
   #recettes {
     padding: 40px 15px;
@@ -624,5 +791,20 @@ main {
   #accueil p {
     font-size: 0.85rem;
     margin-bottom: 20px;
+  }
+
+  /* Search bar responsive très petit mobile */
+  #search-bar {
+    max-width: 260px;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  #search-bar button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
 }
