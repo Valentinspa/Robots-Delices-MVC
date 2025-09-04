@@ -8,14 +8,6 @@
   box-sizing: border-box; /* Largeur inclut bordures et paddings */
 }
 
-/* STYLE GÉNÉRAL */
-body {
-  font-family: "Arial", sans-serif; /* Police cohérente avec le site */
-  line-height: 1.6; /* Espacement confortable entre lignes */
-  color: #333; /* Texte gris foncé pour bonne lisibilité */
-  background: #f8fafc; /* Fond gris très clair */
-}
-
 /* CONTENU PRINCIPAL */
 /* Zone qui contient tout le formulaire d'ajout de recette */
 main {
@@ -38,8 +30,8 @@ main {
   /* APPARENCE */
   background: linear-gradient(
     135deg,
-    #6db4c4 0%,
-    #5aa3b3 100%
+    var(--color-primary)0%,
+    var(--color-secondary) 100%
   ); /* Dégradé bleu cohérent */
   color: white; /* Texte blanc sur fond coloré */
   border-radius: 20px; /* Coins arrondis */
@@ -206,7 +198,7 @@ main {
 
 .form-group input[type="file"]:hover {
   background: rgba(109, 180, 196, 0.05);
-  border-color: #5aa3b3;
+  border-color: var(--color-secondary);
 }
 
 .dynamic-section {
@@ -250,7 +242,7 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #6db4c4, #5aa3b3);
+  background: linear-gradient(135deg, #6db4c4, var(--color-secondary));
   color: white;
   border: none;
   padding: 15px 40px;
@@ -263,7 +255,7 @@ main {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #5aa3b3, #4a929f);
+  background: linear-gradient(135deg, var(--color-secondary), #4a929f);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(109, 180, 196, 0.4);
 }

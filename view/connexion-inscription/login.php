@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/auth-pages.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
+    
     <title>Connexion - Robots-Délices</title>
 </head>
 
@@ -29,6 +29,12 @@
                     <a href="/inscription">Inscription</a>
                 </div>
                 <div id="form-container">
+                    <?php // Affiche un message flash s'il existe
+                    if (isset($_SESSION["flash_message"])): ?>
+                        <p class="flash-message"><?php echo $_SESSION["flash_message"]; ?></p>
+                    <?php
+                        unset($_SESSION["flash_message"]); // Supprime le message après l'affichage
+                    endif; ?>
                     <form id="login-form" action="/connexion" method="POST">
                         <div>
                             <label for="email">Email :</label>

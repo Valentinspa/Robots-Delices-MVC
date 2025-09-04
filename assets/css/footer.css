@@ -3,7 +3,7 @@
 /* === STRUCTURE PRINCIPALE === */
 footer {
   /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil pour cohérence */
-  background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
 
   /* ESPACEMENT ET DIMENSIONS */
   padding: 1.5rem 3rem; /* Espace intérieur : haut/bas + gauche/droite */

@@ -4,7 +4,7 @@
 #section-container,
 #accueil,
 #recettes {
-  font-family: "Arial", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 /* STRUCTURE PRINCIPALE */
@@ -17,7 +17,7 @@ main {
 
 #accueil {
   /* ARRIÈRE-PLAN : Dégradé bleu */
-  background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
 
   /* ESPACEMENT */
   padding: 60px 20px 60px;
@@ -385,7 +385,7 @@ main {
 
 .btn-primary {
   display: inline-block;
-  background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 25px;

@@ -83,3 +83,29 @@ function deleteUser($id): void
     $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?"); // Requête préparée pour insérer les données de façon sécurisé            
     $stmt->execute([$id]);
 }
+
+function updatePasswordToken($email, $token): void
+{
+    $pdo = connexionBDD(); // Établit la connexion à la base de données
+    // Mise à jour du token de réinitialisation du mot de passe pour l'utilisateur
+    $stmt = $pdo->prepare("UPDATE users SET reset_token = ?, token_expiry = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE email = ?"); // Requête préparée pour insérer les données de façon sécurisé            
+    $stmt->execute([$token, $email]);
+}
+
+function getUserByResetToken($token)
+{
+    $pdo = connexionBDD(); // Établit la connexion à la base de données
+    // Recherche de l'utilisateur dans la base de données par token de réinitialisation
+    // On utilise une requête préparée pour éviter les injections SQL
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE reset_token = ? AND token_expiry > NOW()");
+    $stmt->execute([$token]);
+    return $stmt->fetch(); // Récupère l'utilisateur ou false si non trouvé
+}
+
+function updateUserPassword($id, $hashedPassword): void
+{
+    $pdo = connexionBDD(); // Établit la connexion à la base de données
+    // Mise à jour du mot de passe de l'utilisateur dans la base de données
+    $stmt = $pdo->prepare("UPDATE users SET password = ?, reset_token = NULL, token_expiry = NULL WHERE id = ?"); // Requête préparée pour insérer les données de façon sécurisé            
+    $stmt->execute([$hashedPassword, $id]);
+}

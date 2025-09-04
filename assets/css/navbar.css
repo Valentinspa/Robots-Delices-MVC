@@ -2,13 +2,6 @@
 
 /* Ce fichier gère l'apparence et le comportement de la barre de navigation en haut de page */
 
-/* RESET CSS */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 /* HEADER PRINCIPAL */
 
@@ -135,7 +128,7 @@ header {
   border-radius: 2px;
   
   /* APPARENCE */
-  background: linear-gradient(45deg, #6db4c4, #5aa3b3);
+  background: linear-gradient(45deg, #6db4c4, var(--color-secondary));
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   
   /* POSITIONNEMENT */
@@ -298,7 +291,7 @@ header {
 .dropdown.profil-dropdown:hover .dropdown-toggle::after,
 .dropdown.profil-dropdown:focus-within .dropdown-toggle::after {
   transform: translateY(-1px) rotate(180deg);
-  color: #5aa3b3;
+  color: var(--color-secondary);
 }
 
 
@@ -856,7 +849,7 @@ header * {
 
   /* Bouton rouge mobile */
   .nav-menu li.red-btn a {
-    background: linear-gradient(135deg, #6db4c4, #5aa3b3);
+    background: linear-gradient(135deg, #6db4c4, var(--color-secondary));
     color: white;
     font-weight: 600;
     margin: 1.5rem 0 0 0;
@@ -870,7 +863,7 @@ header * {
 
   .nav-menu li.red-btn a:hover,
   .nav-menu li.red-btn a:active {
-    background: linear-gradient(135deg, #5aa3b3, #4a929f);
+    background: linear-gradient(135deg, var(--color-secondary), #4a929f);
     transform: translateX(8px) translateY(-2px);
     box-shadow: 0 6px 20px rgba(109, 180, 196, 0.4);
   }

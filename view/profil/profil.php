@@ -5,11 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/profil.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <link rel="stylesheet" href="/assets/css/modale-supprimer.css">
-    <script src="/assets/js/supprimer.js" defer></script>
+    
+    <script src="/assets/js/confirmer-suppression.js" defer></script>
     <title>Mon Profil - Robots-Délices</title>
 </head>
 <body>

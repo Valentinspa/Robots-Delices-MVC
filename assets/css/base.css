@@ -1,0 +1,18 @@
+* {
+  margin: 0; /* Supprime marges par défaut */
+  padding: 0; /* Supprime espacements par défaut */
+  box-sizing: border-box; /* Largeur inclut bordures et paddings */
+}
+
+/* STYLE GÉNÉRAL */
+body {
+  font-family: var(--font-family-primary); /* Police cohérente avec le site */
+  line-height: 1.6; /* Espacement confortable entre lignes */
+  color: #333; /* Texte gris foncé pour bonne lisibilité */
+  background: #f8fafc; /* Fond gris très clair */
+}
+
+main {
+  padding-top: 120px; /* Espace pour le header fixe (100px header + 20px marge) */
+  min-height: calc(100vh - 120px); /* Hauteur minimum pour remplir l'écran */
+}

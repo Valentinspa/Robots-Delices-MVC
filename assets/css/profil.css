@@ -1,27 +1,10 @@
 /* PAGE DE PROFIL UTILISATEUR */
 /* Styles pour la gestion du profil et modification des informations personnelles */
 
-/* RESET CSS */
-* {
-  margin: 0; /* Supprime marges par défaut */
-  padding: 0; /* Supprime espacements par défaut */
-  box-sizing: border-box; /* Largeur inclut bordures et paddings */
-}
-
-/* STYLE GÉNÉRAL */
-body {
-  font-family: "Arial", sans-serif; /* Police cohérente avec le site */
-  line-height: 1.6; /* Espacement confortable entre lignes */
-  color: #333; /* Texte gris foncé pour bonne lisibilité */
-  background: #f8fafc; /* Fond gris très clair */
-}
 
 /* CONTENU PRINCIPAL */
 /* Zone qui contient tout le formulaire de profil */
-main {
-  padding-top: 120px; /* Espace pour le header fixe (100px header + 20px marge) */
-  min-height: calc(100vh - 120px); /* Hauteur minimum pour remplir l'écran */
-}
+
 
 /* CONTENEUR CENTRÉ */
 /* Plus étroit que les autres pages car c'est un formulaire */
@@ -38,8 +21,8 @@ main {
   /* APPARENCE */
   background: linear-gradient(
     135deg,
-    #6db4c4 0%,
-    #5aa3b3 100%
+    var(--color-primary)0%,
+    var(--color-secondary) 100%
   ); /* Dégradé bleu cohérent */
   color: white; /* Texte blanc sur fond coloré */
   border-radius: 20px; /* Coins arrondis */
@@ -249,13 +232,13 @@ main {
 /* BOUTON MODIFIER */
 /* Bouton principal de modification */
 .btn-modifier {
-  background: linear-gradient(135deg, #6db4c4, #5aa3b3); /* Dégradé bleu du thème */
+  background: linear-gradient(135deg, #6db4c4, var(--color-secondary)); /* Dégradé bleu du thème */
   color: white; /* Texte blanc */
   box-shadow: 0 4px 15px rgba(109, 180, 196, 0.3); /* Ombre bleutée */
 }
 
 .btn-modifier:hover {
-  background: linear-gradient(135deg, #5aa3b3, #4a929f); /* Dégradé plus foncé */
+  background: linear-gradient(135deg, var(--color-secondary), #4a929f); /* Dégradé plus foncé */
   transform: translateY(-2px); /* Légère élévation */
   box-shadow: 0 6px 20px rgba(109, 180, 196, 0.4); /* Ombre plus prononcée */
 }

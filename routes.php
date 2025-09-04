@@ -17,7 +17,10 @@ post('/inscription', '/controller/connexion-inscription/register.php');
 get('/deconnexion', '/controller/profil/logout.php');
 
 // Mot de passe oublié
-get('/mot-de-passe-oublie', '/controller/mot-de-passe-oublie/mdp-oublié.php');
+get('/mot-de-passe-oublie', '/controller/mot-de-passe-oublie/mdp-oublie.php');
+post('/mot-de-passe-oublie', '/controller/mot-de-passe-oublie/mdp-oublie.php');
+get('/reinitialiser-mdp', '/controller/mot-de-passe-oublie/mdp-reinitialiser.php');
+post('/reinitialiser-mdp', '/controller/mot-de-passe-oublie/mdp-reinitialiser.php');
 
 // Profil
 get('/profil', '/controller/profil/profil.php');
@@ -42,4 +45,4 @@ post('/ajouter-recette', '/controller/recettes/ajout-recette.php');
 post('/api-favoris', '/controller/recettes/api-favoris.php');
 
 // PAGE 404
-get('/404', '/view/404.php');
+any('/404', '/view/404.php');

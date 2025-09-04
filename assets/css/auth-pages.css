@@ -29,7 +29,7 @@ main {
 #section-container,
 #login-container,
 .right-section {
-  font-family: "Arial", sans-serif; /* Police cohérente avec le site */
+  font-family: var(--font-family-primary); /* Police cohérente avec le site */
 }
 
 /* BOÎTE DE CONNEXION */
@@ -61,8 +61,8 @@ main {
   /* APPARENCE */
   background: linear-gradient(
     135deg,
-    #6db4c4 0%,
-    #5aa3b3 100%
+    var(--color-primary)0%,
+    var(--color-secondary) 100%
   ); /* Dégradé bleu du thème */
   color: white; /* Texte blanc */
 
@@ -229,8 +229,8 @@ form button {
   /* APPARENCE */
   background: linear-gradient(
     135deg,
-    #6db4c4 0%,
-    #5aa3b3 100%
+    var(--color-primary)0%,
+    var(--color-secondary) 100%
   ); /* Dégradé bleu */
   color: white; /* Texte blanc */
   border: none; /* Pas de bordure */
@@ -253,7 +253,7 @@ form button {
 form button:hover {
   background: linear-gradient(
     135deg,
-    #5aa3b3 0%,
+    var(--color-secondary) 0%,
     #4a929f 100%
   ); /* Dégradé plus foncé */
   transform: translateY(-2px); /* Élévation */
@@ -316,7 +316,7 @@ form button:active {
 
 #form-container > a:hover,
 #form-container > p a:hover {
-  color: #5aa3b3;
+  color: var(--color-secondary);
   text-decoration: underline;
 }
 

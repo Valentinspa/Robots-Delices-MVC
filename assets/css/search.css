@@ -8,7 +8,7 @@
 /* Header de recherche avec le même style que la bannière d'accueil */
 .search-header {
     /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil */
-    background: linear-gradient(135deg, #6db4c4 0%, #5aa3b3 100%);
+    background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
     
     /* ESPACEMENT */
     padding: 80px 20px 60px;
@@ -154,7 +154,7 @@
 }
 
 .search-suggestions a:hover {
-    background-color: #5aa3b3;
+    background-color: var(--color-secondary);
 }
 
 .search-placeholder {
