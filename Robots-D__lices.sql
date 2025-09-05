@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 07 août 2025 à 10:24
--- Version du serveur : 9.3.0
--- Version de PHP : 8.2.28
+-- Généré le : ven. 05 sep. 2025 à 12:00
+-- Version du serveur : 9.4.0
+-- Version de PHP : 8.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,6 +74,13 @@ CREATE TABLE `favorites` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `favorites`
+--
+
+INSERT INTO `favorites` (`user_id`, `recipe_id`, `created_at`) VALUES
+(12, 3, '2025-09-01 09:44:40');
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +107,11 @@ INSERT INTO `login_attempts` (`id`, `email`, `attempt_time`) VALUES
 (8, 'valentin7@gmail.com', '2025-08-07 00:43:31'),
 (9, 'valentin7@gmail.com', '2025-08-07 01:06:05'),
 (10, 'valentin7@gmail.com', '2025-08-07 10:00:22'),
-(11, 'valentin7@gmail.com', '2025-08-07 10:19:05');
+(11, 'valentin7@gmail.com', '2025-08-07 10:19:05'),
+(12, 'valentin9@gmail.com', '2025-08-20 10:56:52'),
+(13, 'valentin9@gmail.com', '2025-08-20 10:57:14'),
+(20, 'valentin12@gmail.com', '2025-08-28 09:37:29'),
+(36, 'admin@robots-delices.fr', '2025-09-03 13:05:04');
 
 -- --------------------------------------------------------
 
@@ -134,9 +145,10 @@ INSERT INTO `recipes` (`id`, `slug`, `user_id`, `title`, `description`, `ingredi
 (1, 'tarte_aux_pommes_traditionnelle_1', 0, 'Tarte aux Pommes Traditionnelle', 'Une délicieuse tarte aux pommes comme grand-mère la faisait, avec une pâte croustillante et des pommes fondantes parfumées à la cannelle', '1 pâte brisée, 6 pommes Golden, 80g de sucre en poudre, 50g de beurre, 2 œufs,\r\n20cl de crème fraîche, \r\n1 sachet de sucre vanillé, 1 pincée de cannelle', 'Préchauffez le four à 180°C (thermostat 6). Beurrez et farinez un moule à tarte de 28 cm de diamètre.\r\n\r\nÉtalez la pâte brisée dans le moule en la faisant bien adhérer aux bords. Piquez le fond avec une fourchette. \r\n\r\nÉpluchez les pommes et coupez-les en quartiers fins et réguliers. Retirez le cœur et les pépins.\r\n\r\nDisposez les quartiers de pommes sur la pâte en rosace, en les faisant se chevaucher légèrement. \r\n\r\nSaupoudrez les pommes de sucre en poudre et de cannelle selon votre goût. \r\n\r\nDans un bol, battez les œufs avec la crème fraîche et le sucre vanillé jusqu\'à obtenir un mélange homogène. \r\n\r\nVersez délicatement ce mélange sur les pommes, en veillant à ce qu\'il se répartisse bien. \r\n\r\nEnfournez pour 35 à 40 minutes jusqu\'à ce que le dessus soit bien doré et que la crème soit prise. \r\n\r\nLaissez refroidir 10 minutes avant de démouler. Servez tiède ou froid selon vos préférences. ', '45 min', '6', 'Facile', 3, 'assets/img/tarte_aux_pommes.jpg', 'Une tarte aux pommes parfaitement dorée avec sa garniture fondante', '2025-07-01 11:37:02', 1),
 (2, 'salade_cesar_1', 0, 'Salade César', 'Une salade César complète et gourmande avec des morceaux de poulet grillé, des croûtons dorés et des oignons rouges pour une touche de couleur et de croquant. Parfaite comme plat principal équilibré', '2 blancs de poulet, 2 cœurs de laitue romaine, 1 petit oignon rouge, 100g de parmesan, 4 tranches de pain, 2 cuillères à soupe d\'huile d\'olive, 1 gousse d\'ail, 2 jaunes d\'œufs, 2 gousses d\'ail, 6 filets d\'anchois, 1 cuillère à soupe de moutarde, 3 cuillères à soupe de jus de citron, 120ml d\'huile d\'olive, 50g de parmesan râpé, Sel et poivre', 'Assaisonnez les blancs de poulet avec sel et poivre.\r\n\r\nFaites-les griller à la poêle 6-8 minutes de chaque côté.\r\n\r\nLaissez refroidir et coupez en lamelles.\r\n\r\nHachez finement l\'ail et écrasez les anchois.\r\n\r\nMélangez les jaunes d\'œufs avec la moutarde.\r\n\r\nAjoutez l\'ail, les anchois et le jus de citron.\r\n\r\nVersez l\'huile en filet en fouettant.\r\n\r\nIncorporez le parmesan râpé, salez et poivrez.\r\n\r\nCoupez le pain en cubes.\r\n\r\nFrottez avec l\'ail et arrosez d\'huile.\r\n\r\nFaites dorer au four 10 minutes à 180°C.\r\n\r\nLavez et coupez la salade en morceaux.\r\n\r\nÉmincez finement l\'oignon rouge.\r\n\r\nMélangez la salade avec une partie de la sauce.\r\n\r\nAjoutez le poulet, les croûtons et l\'oignon rouge.\r\n\r\nParsemez de copeaux de parmesan.\r\n\r\nServez avec le reste de sauce à côté.', '35 min', '4', 'Moyen', 1, 'assets/img/salade_cesar.jpg', 'Une appétissante salade César au poulet, garnie de croûtons dorés croustillants, de lamelles d\'oignons rouges, de morceaux de poulet grillé et de feuilles de salade verte, accompagnée d\'une sauce crémeuse servie à côté', '2025-07-03 13:51:31', 1),
 (3, 'spaghetti_carbonara_traditionnelle_1', 0, 'Spaghetti Carbonara Traditionnelle', 'La vraie recette de la carbonara romaine dans sa version la plus authentique. Un plat crémeux sans crème, où la magie opère avec seulement des œufs, du pecorino, du guanciale et du poivre noir. Simple et délicieux !', '400g de spaghetti, 150g de guanciale (ou pancetta/lardons), 4 œufs entiers + 2 jaunes supplémentaires, 100g de pecorino romano râpé (ou parmesan), Poivre noir fraîchement moulu, Sel pour l\'eau des pâtes, Quelques feuilles de basilic frais', 'Coupez le guanciale en petits lardons.\r\n\r\nBattez les œufs avec les jaunes dans un bol.\r\n\r\nAjoutez le pecorino râpé et beaucoup de poivre noir.\r\n\r\nMélangez bien pour obtenir une crème homogène.\r\n\r\nFaites bouillir une grande casserole d\'eau salée.\r\n\r\nPendant ce temps, faites revenir les lardons dans une poêle sans matière grasse jusqu\'à ce qu\'ils soient dorés et croustillants.\r\n\r\nCuisez les spaghetti al dente selon les instructions du paquet.\r\n\r\nRéservez un verre d\'eau de cuisson des pâtes avant d\'égoutter.\r\n\r\nAjoutez les spaghetti égouttés dans la poêle avec les lardons.\r\n\r\nRetirez du feu et laissez tiédir 1 minute.\r\n\r\nVersez le mélange œufs-fromage et mélangez rapidement.\r\n\r\nAjoutez un peu d\'eau de cuisson si nécessaire pour obtenir une consistance crémeuse.\r\n\r\nServez immédiatement avec un jaune d\'œuf au centre si désiré.\r\n\r\nDisposez dans les assiettes chaudes\r\nAjoutez un jaune d\'œuf cru au centre (optionnel).\r\n\r\nParsemez de poivre noir et de pecorino.\r\n\r\nDécorez avec quelques feuilles de basilic frais.', '20 min', '4', 'Facile', 6, 'assets/img/spaghetti_carbonara.jpg', 'Un plat de spaghetti carbonara, garni de lardons croustillants, d\'un jaune d\'œuf coulant au centre et de feuilles de basilic frais, avec une main qui ajoute délicatement une feuille de basilic sur le dessus', '2025-07-07 12:57:55', 1),
-(4, 'banane_flambée_1', NULL, 'Banane flambée', 'Ce sont des bananes et elles sont flambées', 'des bananes, du rhum', 'coupez les bananes en long\r\nnoyez les dans le rhum\r\nAllumez le feu !', '15min', '1', 'moyen', 3, 'assets/img/bananes-flambees-1.jpg', 'Photo de la recette', '2025-07-07 14:02:02', 0),
-(5, 'banane_flambée_2', NULL, 'Banane flambée', 'Chaussette !', 'des bananes, du rhum, du chocolat', 'Brulez tout !!!!!', '15min', '1', 'facile', 3, 'assets/img/bananes-flambees-1.jpg', 'Photo de la recette', '2025-07-07 14:13:13', 0),
-(6, 'banane_flambée_3', NULL, 'Banane flambée', 'bla bla bla', 'des bananes, du rhum, du chocolat', 'faite cuir et faite pas chier', '15min', '1', 'difficile', 4, 'assets/img/bananes-flambees-1.jpg', 'Photo de la recette', '2025-07-17 08:59:10', 0);
+(4, 'banane_flambee_1', NULL, 'Banane flambée', 'Ce sont des bananes et elles sont flambées', 'des bananes, du rhum', 'coupez les bananes en long\r\nnoyez les dans le rhum\r\nAllumez le feu !', '15min', '1', 'moyen', 3, 'assets/img/bananes-flambees-1.jpg', 'Photo de la recette', '2025-07-07 14:02:02', 0),
+(9, 'mousse_au_chocolat_1', NULL, 'Mousse au chocolat', 'Un dessert chocolaté pour petits et grands', '200gr de chocolat noir, 2 œufs, 50cl de lait, 100gr de beurre', 'Faire fondre le chocolat au bain marie avec le beurre.\r\n\r\nCasser les œufs.\r\n\r\nRajouter le lait.\r\n\r\nLaisser reposer 1h au frigo.', '20 min', '4', 'facile', 3, 'assets/img/mousse-au-chocolat.jpg', 'Photo de la recette', '2025-08-21 10:52:49', 0),
+(10, 'poire__1', 12, 'Poire ', 'Poire', '1 poire', 'Acheter une poire.\r\n\r\nManger la.', '2 min', '1', 'facile', 3, 'assets/img/poire.jpg', 'Photo de la recette', '2025-08-21 12:04:14', 0),
+(11, 'poire_2', 12, 'Poire', 'Une bonne poire pour le gouter', '1 poire', 'Acheter une poire\r\n\r\nMangez là\r\n\r\nBon appétit', '5 min', '1', 'facile', 3, 'assets/img/poire.jpg', 'Photo de la recette', '2025-09-01 08:59:16', 0);
 
 -- --------------------------------------------------------
 
@@ -150,22 +162,25 @@ CREATE TABLE `users` (
   `lastname` varchar(50) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `reset_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `token_expiry` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `created_at`) VALUES
-(0, 'Admin', 'Admin', 'admin@robots-delices.fr', 'admin', '2025-07-03 14:06:29'),
-(4, 'Valentin', 'Spatafora', 'valentin@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28'),
-(6, 'Valentin', 'Spatafora', 'valentin2@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28'),
-(7, 'Valentin', 'Spatafora', 'valentin7@gmail.com', '$2y$12$MqxSK210hK4aPJHVdiaYfOnKFnd2jf0BWJ3dQaeOuWHwnk04JJQo6', '2025-07-10 11:50:28'),
-(8, 'Valentin', 'Spatafora', 'valentin4@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28'),
-(9, 'Valentin', 'Spatafora', 'valentin5@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28'),
-(10, 'Valentin', 'Spatafora', 'valentin9@gmail.com', '$2y$12$RjJa4jm6ZryvtJIHvXZB6.PsafM0v7SJuVzhtQurDtps3LrIE1ZjC', '2025-07-17 09:20:54'),
-(11, 'Valentin', 'Spatafora', 'valentin8@gmail.com', '$2y$12$jdEc895wVY54HFeQ1Rfn.uZPLjkOpLd4xCtI0paHQvCWjAkHVGGjC', '2025-07-17 09:33:19');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `created_at`, `reset_token`, `token_expiry`) VALUES
+(0, 'Admin', 'Admin', 'admin@robots-delices.fr', 'admin', '2025-07-03 14:06:29', NULL, NULL),
+(4, 'Valentin', 'Spatafora', 'valentin@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28', NULL, NULL),
+(6, 'Valentin', 'Spatafora', 'valentin2@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28', NULL, NULL),
+(7, 'Valentin', 'Spatafora', 'valentin7@gmail.com', '$2y$12$MqxSK210hK4aPJHVdiaYfOnKFnd2jf0BWJ3dQaeOuWHwnk04JJQo6', '2025-07-10 11:50:28', NULL, NULL),
+(8, 'Valentin', 'Spatafora', 'valentin4@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28', NULL, NULL),
+(9, 'Valentin', 'Spatafora', 'valentin5@gmail.com', '$2y$12$o3M1Z0L9hmqA0G6WRZ5At.qppzCBjVLRfA7vB6ktwRx26IhiL96NC', '2025-07-10 11:50:28', NULL, NULL),
+(10, 'Valentin', 'Spatafora', 'valentin9@gmail.com', '$2y$12$RjJa4jm6ZryvtJIHvXZB6.PsafM0v7SJuVzhtQurDtps3LrIE1ZjC', '2025-07-17 09:20:54', NULL, NULL),
+(11, 'Valentin', 'Spatafora', 'valentin8@gmail.com', '$2y$12$jdEc895wVY54HFeQ1Rfn.uZPLjkOpLd4xCtI0paHQvCWjAkHVGGjC', '2025-07-17 09:33:19', NULL, NULL),
+(12, 'Valentin', 'SPATAFORA', 'valentin10@gmail.com', '$2y$12$bYsvYsaDdPSV7JVhemwG..Q652orlCJ1Ge5fdxdGvZmeJ1VsbLuUq', '2025-08-20 10:58:05', NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -215,7 +230,8 @@ ALTER TABLE `recipes`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `reset_token` (`reset_token`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -237,19 +253,19 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT pour la table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT pour la table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Contraintes pour les tables déchargées

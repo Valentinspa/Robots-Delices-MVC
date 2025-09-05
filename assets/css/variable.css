@@ -1,6 +1,19 @@
+
+
 :root{
+    /* couleur */
     --color-primary: #6db4c4;
     --color-secondary: #5aa3b3;
+
+
+
+
+
+    /* Police */
     --font-family-primary: 'Arial', sans-serif;
+
+
+    /* Taille */
+
     
 }

@@ -1,20 +1,6 @@
 /* PAGE DE RECETTE INDIVIDUELLE */
 /* Styles pour afficher une recette spécifique avec ses détails */
 
-/* RESET CSS */
-* {
-  margin: 0; /* Supprime marges par défaut */
-  padding: 0; /* Supprime espacements par défaut */
-  box-sizing: border-box; /* Largeur inclut bordures et paddings */
-}
-
-
-/* CONTENU PRINCIPAL */
-/* Zone principale qui contient toute la page de recette */
-main {
-  padding-top: 120px; /* Espace pour le header fixe (100px header + 20px marge) */
-  min-height: calc(100vh - 120px); /* Hauteur minimum pour remplir l'écran */
-}
 
 /* CONTENEUR CENTRÉ */
 /* Limite la largeur du contenu et le centre */

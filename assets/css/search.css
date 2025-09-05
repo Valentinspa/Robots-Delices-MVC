@@ -1,5 +1,5 @@
 /* Styles spécifiques à la page de recherche - cohérent avec index.php */
-
+@import url("./accueil.css");
 /* Layout principal de la page de recherche */
 #search-section {
     padding: 0; /* Pas de padding pour coller au header */
