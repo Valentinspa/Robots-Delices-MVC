@@ -66,7 +66,8 @@
                         echo '
                         <!-- MENU PROFIL AVEC SOUS-MENU COMPLET -->
                         <li class="dropdown profil-dropdown">
-                            <span class="dropdown-toggle">👤 ' . $nomComplet . '</span>
+                            <label for="dropdown-menu" class="dropdown-toggle">👤 ' . $nomComplet . '</label>
+                            <input type="checkbox" id="dropdown-menu" class="dropdown-checkbox" />
                             <div class="dropdown-menu profil-submenu">
                                 <a href="/mes-favoris" class="submenu-link">
                                     <span class="submenu-icon">❤️</span>

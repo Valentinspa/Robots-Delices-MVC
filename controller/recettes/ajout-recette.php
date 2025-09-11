@@ -2,7 +2,6 @@
 // Page d'ajout de recette - Permet aux utilisateurs connectés d'ajouter une nouvelle recette
 // Inclut validation des données, upload d'image et protection CSRF
 
-session_start(); // Démarrage de la session
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
 require_once __DIR__. "/../../service/csrf.php"; // Protection contre les attaques CSRF
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/search.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/assets/css/style.css">
     
     <script src="./assets/js/api-favoris.js" defer></script>
     <title><?php echo $searchPerformed ? 'Recherche : ' . htmlspecialchars($searchTerm) : 'Recherche'; ?> - Robots-Délices</title>

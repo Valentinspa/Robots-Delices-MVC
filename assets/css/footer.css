@@ -1,37 +1,37 @@
+@charset "UTF-8";
 /* Le footer qui apparaît en bas de chaque page */
 
 /* === STRUCTURE PRINCIPALE === */
 footer {
   /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil pour cohérence */
-  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
+  background: var(--gradient-primary);
 
   /* ESPACEMENT ET DIMENSIONS */
-  padding: 1.5rem 3rem; /* Espace intérieur : haut/bas + gauche/droite */
-  height: 120px; /* Hauteur fixe */
-  width: 100%; /* Prend toute la largeur */
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  height: var(--footer-height);
+  width: 100%;
 
   /* ALIGNEMENT DU CONTENU */
-  text-align: center; /* Texte centré */
-  display: flex; /* Utilise flexbox */
-  align-items: center; /* Centre verticalement */
-  justify-content: center; /* Centre horizontalement */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   /* TYPOGRAPHIE */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police système */
-  font-size: 1rem; /* Taille de base */
-  line-height: 1.6; /* Espacement entre lignes */
-  font-weight: 600; /* Texte semi-gras */
+  font-family: var(--font-family-system);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* === TEXTE DU FOOTER === */
-/* Le texte de copyright */
 footer p {
-  color: white; /* Texte blanc sur fond bleu */
-  font-size: 1rem; /* Taille normale */
-  font-weight: 600; /* Semi-gras */
-  margin: 0; /* Pas de marge */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour lisibilité */
-  letter-spacing: 0.025em; /* Espacement entre les lettres */
+  color: var(--bg-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.025em;
 }
 
 /* Desktop Large (1200px+) */
@@ -52,7 +52,7 @@ footer p {
 /* Tablette (768px-1023px) */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   footer {
-    padding: 1.2rem 2rem;
+    padding: 1.2rem var(--spacing-xl);
     height: 100px;
   }
 
@@ -64,7 +64,7 @@ footer p {
 /* Mobile (767px et moins) */
 @media screen and (max-width: 767px) {
   footer {
-    padding: 1rem 1.5rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     height: auto;
     min-height: 80px;
   }
@@ -77,8 +77,8 @@ footer p {
 /* Petit Mobile (480px et moins) */
 @media screen and (max-width: 480px) {
   footer {
-    padding: 0.75rem 1rem;
-    min-height: 70px;
+    padding: 0.75rem var(--spacing-md);
+    min-height: var(--header-height-small);
   }
 
   footer p {

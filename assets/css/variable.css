@@ -1,19 +1,158 @@
-
-
-:root{
-    /* couleur */
+@charset "UTF-8";
+:root {
+    /* === COULEURS === */
     --color-primary: #6db4c4;
     --color-secondary: #5aa3b3;
-
-
-
-
-
-    /* Police */
-    --font-family-primary: 'Arial', sans-serif;
-
-
-    /* Taille */
-
+    --color-tertiary: #4a929f;
     
-}
+    /* Couleurs de texte */
+    --text-primary: #333;
+    --text-secondary: #64748b;
+    --text-tertiary: #1e293b;
+    --text-light: #374151;
+    --text-muted: #999;
+    
+    /* Couleurs de fond */
+    --bg-primary: #f8fafc;
+    --bg-secondary: white;
+    --bg-light: #f8f9fa;
+    --bg-card: rgba(109, 180, 196, 0.05);
+    
+    /* Couleurs d'état */
+    --success-color: #10b981;
+    --success-color-dark: #059669;
+    --error-color: #ef4444;
+    --error-color-dark: #dc2626;
+    --error-color-darker: #b91c1c;
+    --warning-color: #f39c12;
+    --warning-color-dark: #e67e22;
+    --warning-color-darker: #d68910;
+    
+    /* Couleurs avec opacité */
+    --overlay-color: rgba(0, 0, 0, 0.5);
+    --border-light: rgba(109, 180, 196, 0.1);
+    --border-medium: rgba(109, 180, 196, 0.2);
+    --border-strong: rgba(109, 180, 196, 0.3);
+    --border-gray: #e0e0e0;
+    --border-gray-light: #e2e8f0;
+    --border-separator: rgba(226, 232, 240, 0.8);
+    
+    /* === TYPOGRAPHIE === */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Tailles de police */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.8rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.2rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.8rem;
+    --font-size-4xl: 2rem;
+    --font-size-5xl: 2.5rem;
+    
+    /* Poids de police */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Hauteur de ligne */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.6;
+    
+    /* === ESPACEMENTS === */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 5rem;
+    
+    /* === BORDURES === */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 15px;
+    --border-radius-2xl: 20px;
+    --border-radius-full: 50px;
+    --border-radius-circle: 50%;
+    
+    /* === OMBRES === */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-2xl: 0 10px 30px rgba(109, 180, 196, 0.2);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.08);
+    
+    /* Ombres colorées */
+    --shadow-primary: 0 4px 15px rgba(109, 180, 196, 0.3);
+    --shadow-primary-strong: 0 6px 20px rgba(109, 180, 196, 0.4);
+    --shadow-success: 0 4px 15px rgba(16, 185, 129, 0.2);
+    --shadow-error: 0 4px 15px rgba(239, 68, 68, 0.3);
+    --shadow-warning: 0 4px 15px rgba(243, 156, 18, 0.3);
+    
+    /* === TRANSITIONS === */
+    --transition-fast: 0.1s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+    
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-in-out: ease;
+    
+    /* === DIMENSIONS === */
+    --header-height-desktop: 100px;
+    --header-height-tablet: 80px;
+    --header-height-mobile: 80px;
+    --header-height-small: 70px;
+    --footer-height: 120px;
+    
+    /* Largeurs maximales */
+    --container-sm: 600px;
+    --container-md: 900px;
+    --container-lg: 1000px;
+    --container-xl: 1200px;
+    --container-2xl: 1400px;
+    
+    /* === HAUTEURS CALCULÉES (CRITIQUES) === */
+    --main-content-top: calc(var(--header-height-desktop) + var(--spacing-xl));
+    --main-content-top-tablet: calc(var(--header-height-tablet) + var(--spacing-xl));
+    --main-content-top-mobile: calc(var(--header-height-mobile) + var(--spacing-xl));
+    --main-content-top-small: calc(var(--header-height-small) + var(--spacing-xl));
+    
+    /* Offsets pour sections hero */
+    --hero-margin-top: calc(-1 * var(--header-height-desktop));
+    --hero-margin-top-tablet: calc(-1 * var(--header-height-tablet));
+    --hero-margin-top-mobile: calc(-1 * var(--header-height-mobile));
+    --hero-margin-top-small: calc(-1 * var(--header-height-small));
+    
+    --hero-padding-top: calc(var(--header-height-desktop) + 100px);
+    --hero-padding-top-tablet: calc(var(--header-height-tablet) + 80px);
+    --hero-padding-top-mobile: calc(var(--header-height-mobile) + 70px);
+    --hero-padding-top-small: calc(var(--header-height-small) + 60px);
+    
+    /* === DÉGRADÉS === */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    --gradient-success: linear-gradient(135deg, var(--success-color), var(--success-color-dark));
+    --gradient-error: linear-gradient(135deg, var(--error-color), var(--error-color-dark));
+    --gradient-warning: linear-gradient(45deg, var(--warning-color), var(--warning-color-dark));
+    --gradient-orange: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    
+    /* === Z-INDEX === */
+    --z-dropdown: 1000;
+    --z-overlay: 999;
+    --z-header: 1000;
+    --z-modal: 1001;
+    
+    /* === GAPS GRILLES === */
+    --grid-gap-large: 30px;
+    --grid-gap-medium: 20px;
+    --grid-gap-small: 15px;
+}   

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* CSS POUR LA PAGE LISTE RECETTES */
 
 /* CONFIGURATION GLOBALE */
@@ -7,391 +8,295 @@
   font-family: var(--font-family-primary);
 }
 
-/* STRUCTURE PRINCIPALE */
-main {
-  padding-top: 120px; /* Espace pour éviter que le header couvre le contenu */
-  min-height: calc(100vh - 120px);
-}
-
 /* SECTION HERO (ACCUEIL) */
-
 #accueil {
-  /* ARRIÈRE-PLAN : Dégradé bleu */
-  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
-
-  /* ESPACEMENT */
-  padding: 60px 20px 60px;
+  background: var(--gradient-primary);
+  padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-3xl);
   height: 480px;
-
-  /* ALIGNEMENT DU CONTENU */
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* POSITIONNEMENT */
   position: relative;
   overflow: hidden;
-  margin-top: -120px;
-  padding-top: 200px;
+  margin-top: var(--hero-margin-top);
+  padding-top: var(--hero-padding-top);
 }
 
-/* TITRE PRINCIPAL */
 #accueil h1 {
-  color: white;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 15px 0;
+  color: var(--bg-secondary);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-lg) 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: -0.5px;
-  line-height: 1.2;
+  line-height: var(--line-height-tight);
 }
 
-/* SOUS-TITRE */
 #accueil p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin: 0 0 40px 0;
-  max-width: 600px;
-  line-height: 1.6;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
+  margin: 0 0 var(--spacing-2xl) 0;
+  max-width: var(--container-sm);
+  line-height: var(--line-height-relaxed);
 }
 
 /* BARRE DE RECHERCHE */
-/* La zone de recherche au centre de la bannière d'accueil */
-
 #search-bar {
-  /* DISPOSITION */
-  display: flex; /* Affiche input et bouton côte à côte */
-
-  /* APPARENCE */
-  background: white; /* Fond blanc pour contraster avec le bleu */
-  border-radius: 50px; /* Bordures très arrondies (style "pill") */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre douce en dessous */
-
-  /* DIMENSIONNEMENT */
-  padding: 8px; /* Petit espace intérieur */
-  max-width: 500px; /* Largeur maximum */
-  width: 100%; /* Prend toute la largeur disponible (jusqu'à max-width) */
-  margin: 0 auto; /* Centré horizontalement */
-
-  /* ANIMATION */
-  transition: all 0.3s ease; /* Animation douce pour tous les changements */
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-full);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-sm);
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all var(--transition-normal) var(--ease-in-out);
 }
 
-/* EFFET HOVER DE LA BARRE */
-/* Animation quand on survole la barre de recherche */
 #search-bar:hover {
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* Ombre plus forte */
-  transform: translateY(-2px); /* Légère élévation */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-/* FORMULAIRE DANS LA BARRE */
 #search-bar form {
-  display: flex; /* Affiche input et bouton côte à côte */
-  width: 100%; /* Prend toute la largeur */
-  gap: 0; /* Pas d'espace entre input et bouton */
+  display: flex;
+  width: 100%;
+  gap: 0;
 }
 
-/* CHAMP DE SAISIE */
-/* L'input où l'utilisateur tape sa recherche */
 #search-bar input[type="text"] {
-  flex: 1; /* Prend tout l'espace disponible */
-  border: none; /* Pas de bordure */
-  outline: none; /* Pas de contour bleu au focus */
-  padding: 16px 24px; /* Espacement intérieur confortable */
-  font-size: 1rem; /* Taille de texte normale */
-  border-radius: 50px; /* Bordures arrondies comme le parent */
-  background: transparent; /* Fond transparent */
-  color: #333; /* Texte gris foncé */
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  color: var(--text-primary);
 }
 
-/* TEXTE D'AIDE (PLACEHOLDER) */
-/* Le texte qui disparaît quand on écrit */
 #search-bar input[type="text"]::placeholder {
-  color: #999; /* Gris plus clair que le texte normal */
-  font-weight: 400; /* Texte fin */
+  color: var(--text-muted);
+  font-weight: var(--font-weight-normal);
 }
 
-/* FOCUS SUR L'INPUT */
-/* Quand on clique dans le champ de recherche */
 #search-bar input[type="text"]:focus {
-  outline: none; /* Supprime le contour bleu par défaut */
+  outline: none;
 }
 
-/* BOUTON DE RECHERCHE */
-/* Le bouton orange "Rechercher" */
 #search-bar button {
-  /* APPARENCE */
-  background: linear-gradient(45deg, #f39c12, #e67e22); /* Dégradé orange */
-  color: white; /* Texte blanc */
-  border: none; /* Pas de bordure */
-
-  /* DIMENSIONNEMENT */
-  padding: 16px 40px; /* Plus d'espace horizontal pour décaler le bouton */
-  border-radius: 50px; /* Bordures très arrondies */
-  margin-left: 8px; /* Petit espace entre l'input et le bouton */
-
-  /* TYPOGRAPHIE */
-  font-size: 1rem; /* Taille normale */
-  font-weight: 600; /* Texte semi-gras */
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
-
-  /* INTERACTIVITÉ */
-  cursor: pointer; /* Curseur de main au survol */
-  transition: all 0.3s ease; /* Animation douce pour tous les changements */
-
-  /* OMBRE */
-  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); /* Ombre orange douce */
+  background: var(--gradient-warning);
+  color: var(--bg-secondary);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--border-radius-full);
+  margin-left: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-normal) var(--ease-in-out);
+  box-shadow: var(--shadow-warning);
 }
 
-/* EFFET HOVER DU BOUTON */
-/* Animation quand on survole le bouton */
 #search-bar button:hover {
-  background: linear-gradient(45deg, #e67e22, #d68910); /* Dégradé plus foncé */
-  transform: translateY(-1px); /* Légère élévation */
-  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4); /* Ombre plus forte */
+  background: linear-gradient(45deg, var(--warning-color-dark), var(--warning-color-darker));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
 }
 
-/* EFFET CLIC DU BOUTON */
-/* Animation quand on clique sur le bouton */
 #search-bar button:active {
-  transform: translateY(0); /* Revient à sa position normale */
+  transform: translateY(0);
 }
 
 /* SECTION DES RECETTES */
-
-/* CONTENEUR PRINCIPAL */
 #recettes {
-  background: white;
-  padding: 80px 20px;
+  background: var(--bg-secondary);
+  padding: var(--spacing-4xl) var(--spacing-xl);
 }
 
-/* EN-TÊTE DE SECTION */
 #recettes-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-3xl);
 }
 
-/* TITRE "TOUTES NOS RECETTES" */
 #recettes-title h2 {
-  color: #6db4c4;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 15px 0;
+  color: var(--color-primary);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-lg) 0;
   letter-spacing: -0.5px;
 }
 
-/* SOUS-TITRE DE LA SECTION */
 #recettes-title p {
-  color: #64748b;
-  font-size: 1.1rem;
-  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
   margin: 0;
-  max-width: 600px;
+  max-width: var(--container-sm);
   margin: 0 auto;
 }
 
-/* GRILLE DES CARTES RECETTES */
 #recettes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  gap: var(--spacing-2xl);
+  max-width: var(--container-xl);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--spacing-xl);
 }
 
 /* CARTES DE RECETTES */
-
-/* CARTES INDIVIDUELLES */
 .recette-card {
-  /* APPARENCE */
-  background: white;
-  border-radius: 20px;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-  /* INTERACTIVITÉ */
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-2xl);
+  border: 1px solid var(--border-separator);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
-  transition: all 0.3s ease;
-
-  /* POSITIONNEMENT */
+  transition: all var(--transition-normal) var(--ease-in-out);
   position: relative;
   overflow: hidden;
 }
 
-/* EFFET HOVER DES CARTES */
 .recette-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(109, 180, 196, 0.15);
-  border-color: rgba(109, 180, 196, 0.3);
+  box-shadow: 0 12px 40px var(--border-strong);
+  border-color: var(--border-strong);
 }
 
-/* IMAGES DES RECETTES */
 .recette-image {
   position: relative;
   height: 220px;
   overflow: hidden;
-  border-radius: 20px 20px 0 0;
+  border-radius: var(--border-radius-2xl) var(--border-radius-2xl) 0 0;
 }
 
 .recette-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-normal) var(--ease-in-out);
 }
 
-/* EFFET ZOOM SUR L'IMAGE */
 .recette-card:hover .recette-image img {
   transform: scale(1.05);
 }
 
 /* CONTENU DES CARTES */
-
-/* CONTENEUR DU TEXTE */
 .recettes-content {
-  padding: 25px;
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
-/* ZONE TITRE ET DESCRIPTION */
 .recette-summarize {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-xl);
 }
 
-/* BOUTON FAVORIS (COEUR) */
 .bouton-favoris {
-  /* POSITIONNEMENT */
   position: absolute;
   top: 0;
   right: 0;
-
-  /* APPARENCE */
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
+  border-radius: var(--border-radius-circle);
   backdrop-filter: blur(4px);
-
-  /* DIMENSIONS */
   width: 40px;
   height: 40px;
-
-  /* CONTENU */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-
-  /* INTERACTIVITÉ */
+  font-size: var(--font-size-2xl);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal) var(--ease-in-out);
   user-select: none;
 }
 
-/* EFFET HOVER DU BOUTON FAVORIS */
 .bouton-favoris:hover {
   transform: scale(1.1);
   background: rgba(255, 255, 255, 1);
 }
 
-/* TITRES DES RECETTES */
 .recette-summarize h3 {
-  color: #1e293b;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
+  color: var(--text-tertiary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-md) 0;
   line-height: 1.3;
   padding-right: 50px;
 }
 
-/* DESCRIPTIONS DES RECETTES */
 .recette-summarize p {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.95rem;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   margin: 0;
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
   padding-right: 50px;
 }
 
 /* MÉTADONNÉES DES RECETTES */
-
-/* CONTENEUR DES MÉTADONNÉES */
 .recette-meta {
-  /* DISPOSITION */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-
-  /* APPARENCE */
-  border-top: 1px solid rgba(226, 232, 240, 0.8);
-
-  /* ESPACEMENT */
-  padding-top: 20px;
+  border-top: 1px solid var(--border-separator);
+  padding-top: var(--spacing-xl);
 }
 
-/* ÉLÉMENTS INDIVIDUELS */
 .recette-meta span {
-  /* APPARENCE */
-  color: #64748b;
-  background: rgba(109, 180, 196, 0.1);
-  border-radius: 20px;
-
-  /* TYPOGRAPHIE */
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border-radius: var(--border-radius-2xl);
   font-size: 0.9rem;
-  font-weight: 500;
-
-  /* DISPOSITION */
+  font-weight: var(--font-weight-medium);
+  text-wrap: nowrap;
   display: flex;
-  gap: 5px;
+  gap: var(--spacing-xs);
   align-items: center;
-
-  /* ESPACEMENT */
-  padding: 6px 12px;
-
-  /* ANIMATION */
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal) var(--ease-in-out);
+  padding: var(--spacing-xs);
 }
 
-/* EFFET HOVER DES MÉTADONNÉES */
 .recette-meta span:hover {
   background: rgba(109, 180, 196, 0.2);
   transform: translateY(-1px);
 }
 
 /* MESSAGE AUCUNE RECETTE */
-
 .no-recipes {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: var(--spacing-3xl) var(--spacing-xl);
   color: #666;
 }
 
 .no-recipes h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #333;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
 }
 
 .no-recipes p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
 .btn-primary {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
+  background: var(--gradient-primary);
+  color: var(--bg-secondary);
+  padding: 0.8rem var(--spacing-lg);
+  border-radius: var(--border-radius-xl);
   text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.3s ease;
+  font-weight: var(--font-weight-medium);
+  transition: transform var(--transition-normal) var(--ease-in-out);
 }
 
 .btn-primary:hover {
@@ -399,8 +304,6 @@ main {
 }
 
 /* ANIMATIONS D'APPARITION */
-
-/* ANIMATION "FADE IN UP" */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -412,7 +315,6 @@ main {
   }
 }
 
-/* ANIMATION "SLIDE IN UP" */
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -424,7 +326,6 @@ main {
   }
 }
 
-/* APPLICATION DES ANIMATIONS */
 #accueil > div:first-child {
   animation: fadeInUp 0.8s ease-out;
 }
@@ -434,10 +335,11 @@ main {
 }
 
 .recette-card {
+  display: flex;
+  flex-direction: column;
   animation: slideInUp 0.6s ease-out;
 }
 
-/* DÉLAIS SÉQUENTIELS POUR LES CARTES*/
 .recette-card:nth-child(1) { animation-delay: 0.1s; }
 .recette-card:nth-child(2) { animation-delay: 0.2s; }
 .recette-card:nth-child(3) { animation-delay: 0.3s; }
@@ -445,15 +347,13 @@ main {
 .recette-card:nth-child(5) { animation-delay: 0.5s; }
 .recette-card:nth-child(6) { animation-delay: 0.6s; }
 
-
 /* RESPONSIVE DESIGN */
-
 
 /* Desktop Large (1200px+) */
 @media (min-width: 1200px) {
   #recettes-grid {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1200px;
+    max-width: var(--container-xl);
   }
 }
 
@@ -461,26 +361,25 @@ main {
 @media screen and (max-width: 1199px) and (min-width: 1024px) {
   #recettes-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 0 15px;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
   }
 
   #recettes {
-    padding: 70px 15px;
+    padding: var(--spacing-3xl) var(--spacing-lg);
   }
 
   #recettes-title h2 {
     font-size: 2.2rem;
   }
 
-  /* Search bar responsive desktop standard */
   #search-bar {
     max-width: 450px;
     padding: 7px;
   }
 
   #search-bar input[type="text"] {
-    padding: 14px 20px;
+    padding: 14px var(--spacing-xl);
     font-size: 0.95rem;
   }
 
@@ -492,68 +391,59 @@ main {
 
 /* Tablette (768px-1023px) */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
-  /* Ajustement général du main */
-  main {
-    padding-top: 100px;
-    min-height: calc(100vh - 100px);
-  }
-
-  /* Section Accueil */
   #accueil {
     height: 420px;
-    padding: 50px 20px 50px;
-    margin-top: -100px;
-    padding-top: 160px;
+    padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-3xl);
+    margin-top: var(--hero-margin-top-tablet);
+    padding-top: calc(var(--header-height-tablet) + 80px);
   }
 
   #accueil h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
   }
 
   #accueil p {
-    font-size: 1rem;
-    margin-bottom: 30px;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
   }
 
-  /* Search bar responsive tablette */
   #search-bar {
     max-width: 400px;
     padding: 6px;
   }
 
   #search-bar input[type="text"] {
-    padding: 12px 18px;
+    padding: var(--spacing-lg) 18px;
     font-size: 0.9rem;
   }
 
   #search-bar button {
-    padding: 12px 24px;
+    padding: var(--spacing-lg) var(--spacing-lg);
     font-size: 0.9rem;
   }
 
-  /* Section Recettes */
   #recettes {
-    padding: 60px 20px;
+    padding: var(--spacing-3xl) var(--spacing-xl);
   }
 
   #recettes-title {
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-2xl);
   }
 
   #recettes-title h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
   }
 
   #recettes-title p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   #recettes-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 0 10px;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
   }
 
   .recette-image {
@@ -561,7 +451,7 @@ main {
   }
 
   .recettes-content {
-    padding: 20px;
+    padding: var(--spacing-xl);
   }
 
   .recette-summarize h3 {
@@ -569,49 +459,40 @@ main {
   }
 
   .recette-meta {
-    padding-top: 15px;
+    padding-top: var(--spacing-lg);
   }
 
   .recette-meta span {
     font-size: 0.85rem;
-    padding: 5px 10px;
+    padding: var(--spacing-xs) var(--spacing-md);
   }
 }
 
 /* Mobile (767px et moins) */
 @media screen and (max-width: 767px) {
-  /* Ajustement général du main */
-  main {
-    padding-top: 100px;
-    min-height: calc(100vh - 100px);
-  }
-
-  /* Section Accueil */
   #accueil {
-    height: 400px;
-    padding: 45px 20px 45px;
-    margin-top: -100px;
-    padding-top: 150px;
+    padding: 45px var(--spacing-xl) 45px;
+    margin-top: var(--hero-margin-top-mobile);
+    padding-top: calc(var(--header-height-mobile) + 70px);
   }
 
   #accueil h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
   }
 
   #accueil p {
     font-size: 0.95rem;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-2xl);
   }
 
-  /* Search bar responsive mobile */
   #search-bar {
     max-width: 350px;
     padding: 6px;
   }
 
   #search-bar input[type="text"] {
-    padding: 14px 20px;
+    padding: 14px var(--spacing-xl);
     font-size: 0.9rem;
   }
 
@@ -620,9 +501,8 @@ main {
     font-size: 0.9rem;
   }
 
-  /* Section Recettes */
   #recettes {
-    padding: 50px 15px;
+    padding: var(--spacing-3xl) var(--spacing-lg);
   }
 
   #recettes-title h2 {
@@ -631,7 +511,7 @@ main {
 
   #recettes-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: var(--spacing-lg);
     padding: 0;
   }
 
@@ -645,7 +525,7 @@ main {
 
   .recette-summarize h3 {
     font-size: 1.25rem;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-sm);
   }
 
   .recette-summarize p {
@@ -660,49 +540,40 @@ main {
 
   .recette-meta {
     justify-content: center;
-    gap: 8px;
+    gap: var(--spacing-sm);
   }
 
   .recette-meta span {
     font-size: 0.82rem;
-    padding: 4px 8px;
+    padding: 4px var(--spacing-sm);
   }
 }
 
 /* Petit Mobile (480px et moins) */
 @media screen and (max-width: 480px) {
-  /* Ajustement général du main */
-  main {
-    padding-top: 90px;
-    min-height: calc(100vh - 90px);
-  }
-
-  /* Section Accueil */
   #accueil {
-    height: 380px;
-    padding: 40px 15px 40px;
-    margin-top: -90px;
-    padding-top: 130px;
+    padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-2xl);
+    margin-top: var(--hero-margin-top-small);
+    padding-top: calc(var(--header-height-small) + 60px);
   }
 
   #accueil h1 {
     font-size: 1.7rem;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-sm);
     line-height: 1.3;
   }
 
   #accueil p {
     font-size: 0.9rem;
-    margin-bottom: 25px;
-    padding: 0 10px;
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
   }
 
-  /* Search bar responsive petit mobile */
   #search-bar {
     flex-direction: column;
     max-width: 280px;
     padding: 6px;
-    border-radius: 15px;
+    border-radius: var(--border-radius-lg);
     gap: 6px;
   }
 
@@ -712,24 +583,23 @@ main {
   }
 
   #search-bar input[type="text"] {
-    padding: 10px 16px;
+    padding: var(--spacing-md) var(--spacing-md);
     font-size: 0.85rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     text-align: center;
     width: 100%;
   }
 
   #search-bar button {
-    padding: 10px 20px;
+    padding: var(--spacing-md) var(--spacing-xl);
     font-size: 0.85rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     width: 100%;
     margin-left: 0;
   }
 
-  /* Section Recettes */
   #recettes {
-    padding: 40px 15px;
+    padding: var(--spacing-2xl) var(--spacing-lg);
   }
 
   #recettes-title h2 {
@@ -738,7 +608,7 @@ main {
 
   #recettes-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: var(--spacing-lg);
     padding: 0;
   }
 
@@ -747,12 +617,12 @@ main {
   }
 
   .recettes-content {
-    padding: 15px;
+    padding: var(--spacing-lg);
   }
 
   .recette-summarize h3 {
     font-size: 1.2rem;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-sm);
   }
 
   .recette-summarize p {
@@ -767,12 +637,12 @@ main {
 
   .recette-meta {
     justify-content: center;
-    gap: 8px;
+    gap: var(--spacing-sm);
   }
 
   .recette-meta span {
     font-size: 0.8rem;
-    padding: 4px 8px;
+    padding: 4px var(--spacing-sm);
   }
 }
 
@@ -780,31 +650,30 @@ main {
 @media screen and (max-width: 320px) {
   #accueil {
     height: 360px;
-    padding: 35px 10px 35px;
-    padding-top: 120px;
+    padding: 35px var(--spacing-md) 35px;
+    padding-top: calc(var(--header-height-small) + 50px);
   }
 
   #accueil h1 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   #accueil p {
     font-size: 0.85rem;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-xl);
   }
 
-  /* Search bar responsive très petit mobile */
   #search-bar {
     max-width: 260px;
   }
 
   #search-bar input[type="text"] {
-    padding: 8px 14px;
+    padding: var(--spacing-sm) 14px;
     font-size: 0.8rem;
   }
 
   #search-bar button {
-    padding: 8px 16px;
+    padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.8rem;
   }
 }

@@ -1,4 +1,22 @@
+@charset "UTF-8";
+/* === FICHIER PRINCIPAL D'IMPORT CSS === */
+/* Ordre critique : Variables > Base > Composants > Pages */
+
+/* 1. Variables CSS - DOIT être importé EN PREMIER */
 @import url("variable.css");
+
+/* 2. Styles de base communs - APRÈS les variables */
 @import url("base.css");
+
+/* 3. Composants layout principaux */
 @import url("navbar.css");
 @import url("footer.css");
+
+/* 4. Pages spécifiques - Dans l'ordre de dépendance */
+@import url("accueil.css");
+@import url("liste-recettes.css");
+@import url("recettes.css");
+@import url("search.css");
+@import url("auth-pages.css");
+@import url("ajout-recette.css");
+@import url("profil.css");

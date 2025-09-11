@@ -1,47 +1,40 @@
-/* Styles spécifiques à la page de recherche - cohérent avec index.php */
-@import url("./accueil.css");
+@charset "UTF-8";
+
 /* Layout principal de la page de recherche */
 #search-section {
-    padding: 0; /* Pas de padding pour coller au header */
+    padding: 0;
 }
 
 /* Header de recherche avec le même style que la bannière d'accueil */
 .search-header {
-    /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil */
-    background: linear-gradient(135deg, var(--color-primary)0%, var(--color-secondary) 100%);
-    
-    /* ESPACEMENT */
-    padding: 80px 20px 60px;
-    
-    /* ALIGNEMENT DU CONTENU */
+    background: var(--gradient-primary);
+    padding: var(--spacing-4xl) var(--spacing-xl) var(--spacing-3xl);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    /* POSITIONNEMENT */
     position: relative;
     overflow: hidden;
-    margin-top: -120px; /* Même valeur que l'accueil */
-    padding-top: 200px; /* 100px header + 100px espace */
+    margin-top: calc(-1 * var(--header-height-desktop));
+    padding-top: calc(var(--header-height-desktop) + 100px);
 }
 
 .search-header h1 {
-    color: white; /* Texte blanc pour contraster avec le fond bleu */
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    color: var(--bg-secondary);
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xl);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: -0.5px;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
 }
 
 /* Styles spécifiques pour la barre de recherche dans search.php UNIQUEMENT */
 .search-form {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
     width: 100%;
     max-width: 500px;
     margin-left: auto;
@@ -52,14 +45,14 @@
 .search-form .search-input-container {
     display: flex;
     gap: 0;
-    background: white;
-    border-radius: 50px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-full);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    padding: 8px;
+    padding: var(--spacing-sm);
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal) var(--ease-in-out);
 }
 
 .search-form .search-input-container:hover {
@@ -71,86 +64,86 @@
     flex: 1;
     border: none;
     outline: none;
-    padding: 16px 24px;
-    font-size: 1rem;
-    border-radius: 50px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    border-radius: var(--border-radius-full);
     background: transparent;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .search-form input[type="text"]::placeholder {
-    color: #999;
-    font-weight: 400;
+    color: var(--text-muted);
+    font-weight: var(--font-weight-normal);
 }
 
 .search-form button {
-    background: linear-gradient(45deg, #f39c12, #e67e22);
-    color: white;
+    background: var(--gradient-warning);
+    color: var(--bg-secondary);
     border: none;
-    padding: 16px 40px; /* Plus d'espace comme sur index */
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
     white-space: nowrap;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-    margin-left: 8px; /* Espace entre input et bouton */
+    transition: all var(--transition-normal) var(--ease-in-out);
+    box-shadow: var(--shadow-warning);
+    margin-left: var(--spacing-sm);
 }
 
 .search-form button:hover {
-    background: linear-gradient(45deg, #e67e22, #d68910);
+    background: linear-gradient(45deg, var(--warning-color-dark), var(--warning-color-darker));
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
 }
 
 /* Section des résultats avec fond blanc */
 .search-results-section {
-    background: white;
-    padding: 60px 20px;
+    background: var(--bg-secondary);
+    padding: var(--spacing-3xl) var(--spacing-xl);
     min-height: 50vh;
 }
 
 /* Résultats de recherche */
 .search-results h2 {
-    color: #6db4c4; /* Même couleur que les titres de sections */
-    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
     text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
     letter-spacing: -0.5px;
 }
 
 .no-results {
     text-align: center;
-    padding: 2rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin: 2rem 0;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-xl) 0;
 }
 
 .no-results p {
     color: #666;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .search-suggestions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: var(--spacing-md);
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: var(--spacing-md);
 }
 
 .search-suggestions a {
     display: inline-block;
-    padding: 8px 16px;
-    background-color: #6db4c4;
-    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--bg-secondary);
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: var(--border-radius-2xl);
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-normal) var(--ease-in-out);
 }
 
 .search-suggestions a:hover {
@@ -159,16 +152,16 @@
 
 .search-placeholder {
     text-align: center;
-    padding: 3rem 2rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin: 2rem 0;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-xl) 0;
 }
 
 .search-placeholder p {
     color: #666;
     font-size: 18px;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .search-tips {
@@ -178,8 +171,8 @@
 }
 
 .search-tips h3 {
-    color: #333;
-    margin-bottom: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
     text-align: center;
 }
 
@@ -190,15 +183,15 @@
 
 .search-tips li {
     color: #666;
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
     position: relative;
 }
 
 .search-tips li:before {
     content: "•";
-    color: #6db4c4;
-    font-weight: bold;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
     position: absolute;
     left: 0;
 }
@@ -206,25 +199,25 @@
 /* Responsive pour la page de recherche uniquement */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
     .search-header {
-        padding: 70px 20px 50px;
-        margin-top: -100px;
-        padding-top: 160px; /* 80px header + 80px espace */
+        padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-3xl);
+        margin-top: calc(-1 * var(--header-height-tablet));
+        padding-top: calc(var(--header-height-tablet) + 80px);
     }
     
     .search-header h1 {
-        font-size: 2rem;
+        font-size: var(--font-size-4xl);
     }
     
     .search-results-section {
-        padding: 50px 15px;
+        padding: var(--spacing-3xl) var(--spacing-lg);
     }
 }
 
 @media screen and (max-width: 767px) {
     .search-header {
-        padding: 60px 15px 45px;
-        margin-top: -100px;
-        padding-top: 150px; /* 80px header + 70px espace */
+        padding: var(--spacing-3xl) var(--spacing-lg) 45px;
+        margin-top: calc(-1 * var(--header-height-mobile));
+        padding-top: calc(var(--header-height-mobile) + 70px);
     }
     
     .search-header h1 {
@@ -233,35 +226,35 @@
     
     .search-form .search-input-container {
         flex-direction: column;
-        gap: 6px;
+        gap: var(--spacing-xs);
         max-width: 350px;
-        border-radius: 15px;
-        padding: 6px;
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-xs);
     }
     
     .search-form input[type="text"],
     .search-form button {
-        border-radius: 12px;
+        border-radius: var(--border-radius-lg);
         width: 100%;
         margin-left: 0;
     }
     
     .search-form input[type="text"] {
         text-align: center;
-        padding: 12px 20px;
+        padding: var(--spacing-lg) var(--spacing-xl);
     }
     
     .search-form button {
-        padding: 12px 20px;
+        padding: var(--spacing-lg) var(--spacing-xl);
     }
     
     .search-results h2 {
         font-size: 1.3rem;
-        margin-bottom: 1rem;
+        margin-bottom: var(--spacing-md);
     }
     
     .search-placeholder {
-        padding: 2rem 1rem;
+        padding: var(--spacing-xl) var(--spacing-md);
     }
     
     .search-tips {
@@ -271,19 +264,19 @@
     .search-suggestions {
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--spacing-sm);
     }
     
     .search-results-section {
-        padding: 40px 15px;
+        padding: var(--spacing-2xl) var(--spacing-lg);
     }
 }
 
 @media screen and (max-width: 480px) {
     .search-header {
-        padding: 50px 15px 40px;
-        margin-top: -90px;
-        padding-top: 130px; /* 70px header + 60px espace */
+        padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-2xl);
+        margin-top: calc(-1 * var(--header-height-small));
+        padding-top: calc(var(--header-height-small) + 60px);
     }
     
     .search-header h1 {
@@ -295,27 +288,27 @@
     }
     
     .search-form input[type="text"] {
-        padding: 10px 16px;
+        padding: var(--spacing-md) var(--spacing-md);
         font-size: 0.9rem;
     }
     
     .search-form button {
-        padding: 10px 20px;
+        padding: var(--spacing-md) var(--spacing-xl);
         font-size: 0.9rem;
     }
     
     .search-results-section {
-        padding: 30px 15px;
+        padding: var(--spacing-2xl) var(--spacing-lg);
     }
 }
 
 @media screen and (max-width: 320px) {
     .search-header {
-        padding-top: 120px; /* 70px header + 50px espace */
+        padding-top: calc(var(--header-height-small) + 50px);
     }
     
     .search-header h1 {
-        font-size: 1.5rem;
+        font-size: var(--font-size-2xl);
     }
     
     .search-form .search-input-container {
@@ -323,12 +316,12 @@
     }
     
     .search-form input[type="text"] {
-        padding: 8px 14px;
+        padding: var(--spacing-sm) 14px;
         font-size: 0.85rem;
     }
     
     .search-form button {
-        padding: 8px 16px;
+        padding: var(--spacing-sm) var(--spacing-md);
         font-size: 0.85rem;
     }
 }
