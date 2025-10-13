@@ -1,9 +1,7 @@
-@charset "UTF-8";
 /* Le footer qui apparaît en bas de chaque page */
 
-/* === STRUCTURE PRINCIPALE === */
 footer {
-  /* ARRIÈRE-PLAN : Même dégradé bleu que l'accueil pour cohérence */
+  /* ARRIÈRE-PLAN */
   background: var(--gradient-primary);
 
   /* ESPACEMENT ET DIMENSIONS */
@@ -24,7 +22,7 @@ footer {
   font-weight: var(--font-weight-semibold);
 }
 
-/* === TEXTE DU FOOTER === */
+/* TEXTE DU FOOTER */
 footer p {
   color: var(--bg-secondary);
   font-size: var(--font-size-base);
@@ -34,8 +32,7 @@ footer p {
   letter-spacing: 0.025em;
 }
 
-/* Desktop Large (1200px+) */
-/* Styles par défaut ci-dessus */
+/* RESPONSIVE DESIGN */
 
 /* Desktop Standard (1024px-1199px) */
 @media screen and (max-width: 1199px) and (min-width: 1024px) {

@@ -1,12 +1,11 @@
-@charset "UTF-8";
-/* === RESET CSS === */
+/* RESET CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === STYLES GÉNÉRAUX === */
+/* STYLES GÉNÉRAUX */
 html {
   scroll-behavior: smooth;
 }
@@ -18,7 +17,7 @@ body {
   background: var(--bg-primary);
 }
 
-/* === LAYOUT PRINCIPAL === */
+/* LAYOUT PRINCIPAL */
 main {
   padding-top: var(--main-content-top);
   min-height: calc(100vh - var(--main-content-top));
@@ -30,7 +29,7 @@ main {
   padding: 0 var(--spacing-xl);
 }
 
-/* === TYPOGRAPHIE GLOBALE === */
+/* TYPOGRAPHIE GLOBALE */
 h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-tight);
   letter-spacing: -0.5px;
@@ -56,13 +55,13 @@ p {
   margin-bottom: var(--spacing-md);
 }
 
-/* === LIENS === */
+/* LIENS */
 a {
   text-decoration: none;
   transition: all var(--transition-normal) var(--ease-in-out);
 }
 
-/* === BOUTONS DE BASE === */
+/* BOUTONS DE BASE */
 .btn {
   display: inline-block;
   padding: var(--spacing-md) var(--spacing-xl);
@@ -111,7 +110,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* === FORMULAIRES === */
+/* FORMULAIRES */
 .form-group {
   margin-bottom: var(--spacing-xl);
 }
@@ -151,7 +150,7 @@ a {
   min-height: 120px;
 }
 
-/* === CARTES === */
+/* CARTES */
 .card {
   background: var(--bg-secondary);
   border-radius: var(--border-radius-2xl);
@@ -167,7 +166,7 @@ a {
   border-color: var(--border-strong);
 }
 
-/* === SECTIONS HERO === */
+/* SECTIONS HERO */
 .hero-section {
   background: var(--gradient-primary);
   color: var(--bg-secondary);
@@ -193,7 +192,7 @@ a {
   margin-right: auto;
 }
 
-/* === GRILLES === */
+/* GRILLES */
 .grid {
   display: grid;
   gap: var(--spacing-2xl);
@@ -211,7 +210,7 @@ a {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* === MESSAGES === */
+/* MESSAGES */
 .message {
   padding: var(--spacing-md) var(--spacing-xl);
   border-radius: var(--border-radius-md);
@@ -232,7 +231,7 @@ a {
   box-shadow: var(--shadow-error);
 }
 
-/* === ANIMATIONS === */
+/* ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -266,7 +265,7 @@ a {
   }
 }
 
-/* === UTILITAIRES === */
+/* UTILITAIRES */
 .text-center {
   text-align: center;
 }
@@ -293,13 +292,16 @@ a {
 .mt-4 { margin-top: var(--spacing-lg); }
 .mt-5 { margin-top: var(--spacing-xl); }
 
-/* === RESPONSIVE BREAKPOINTS === */
+/* RESPONSIVE BREAKPOINTS */
+
+/* Dekstop */
 @media screen and (max-width: 1199px) and (min-width: 1024px) {
   .container {
     padding: 0 var(--spacing-lg);
   }
 }
 
+/* Tablette */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   main {
     padding-top: var(--main-content-top-tablet);
@@ -323,6 +325,7 @@ a {
   }
 }
 
+/* Mobile */
 @media screen and (max-width: 767px) {
   main {
     padding-top: var(--main-content-top-mobile);
@@ -365,6 +368,7 @@ a {
   }
 }
 
+/* Petit Mobile */
 @media screen and (max-width: 480px) {
   main {
     padding-top: var(--main-content-top-small);
@@ -408,6 +412,7 @@ a {
   }
 }
 
+/* Très petit Mobile */
 @media screen and (max-width: 320px) {
   .container {
     padding: 0 var(--spacing-sm);
@@ -438,7 +443,7 @@ a {
   }
 }
 
-/* === ACCESSIBILITÉ === */
+/* ACCESSIBILITÉ */
 .btn:focus,
 input:focus,
 textarea:focus,
@@ -447,7 +452,7 @@ select:focus {
   outline-offset: 2px !important;
 }
 
-/* === PRÉFÉRENCES UTILISATEUR === */
+/* PRÉFÉRENCES UTILISATEUR */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

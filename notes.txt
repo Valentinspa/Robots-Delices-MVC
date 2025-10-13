@@ -5,4 +5,3 @@ Maquettage
 Pages Catégories
 page mes recettes (Utilisateurs Connectée)
 Page Favoris (Utilisateurs Connectée)
-Réorganiser Fichiers CSS

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* FEUILLE DE STYLE PRINCIPALE */
 /* Ce fichier contient tous les styles pour la page d'accueil du site Robots-Délices */
 
@@ -601,17 +600,17 @@
   }
 
   #search-bar {
-    max-width: 350px;
+    max-width: 100%;
     padding: 6px;
   }
 
   #search-bar input[type="text"] {
-    padding: 14px var(--spacing-xl);
+    padding: 16px;
     font-size: 0.9rem;
   }
 
   #search-bar button {
-    padding: 14px 26px;
+    padding: 14px 14px;
     font-size: 0.9rem;
   }
 
