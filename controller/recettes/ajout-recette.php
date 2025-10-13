@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Génération du slug (URL-friendly) à partir du titre
     // Convertit en minuscules et remplace caractères spéciaux par _
     $slug = strtolower(trim(preg_replace("/[^A-Za-z0-9à-üÀ-Ü-]+/", '_', $titre)));
+    $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $slug); // Supprime accents
 
     // Vérification de l'unicité du slug et génération d'un suffixe si nécessaire
     // Compte combien de recettes ont un slug similaire

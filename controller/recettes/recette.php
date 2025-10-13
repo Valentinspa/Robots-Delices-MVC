@@ -1,7 +1,5 @@
 <?php
 // Page de détail d'une recette - Affiche les informations complètes d'une recette
-
-
 // Inclusion du modèle de recettes pour interagir avec la base de données
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
 
@@ -27,7 +25,6 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 // - Si la recette est en favoris pour cet utilisateur (sous-requête)
 
 $recipe = getRecipe($userId, $slug);
-
 // Si la recette n'existe pas, rediriger vers l'accueil
 if (!$recipe) {
     header('Location: /');

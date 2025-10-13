@@ -103,10 +103,9 @@ function getRecipe(int $userId, string $slug): array|false
     $pdo = connexionBDD();
     // LEFT JOIN pour récupérer les informations de catégorie
     // ORDER BY created_at DESC pour afficher les plus récentes en premier
-   $stmt = $pdo->prepare("SELECT recipes.*, category.category_name, category.category_logo, (recipes.id IN (SELECT recipe_id FROM favorites WHERE user_id = ?) ) as isFavorite FROM recipes LEFT JOIN category ON recipes.category_id = category.id WHERE slug = ?");
-$stmt->execute([$userId, $slug]); // Premier ? = userId, deuxième ? = slug
-$recipe = $stmt->fetch(); // Récupère la recette ou false si pas trouvée
-
+    $stmt = $pdo->prepare("SELECT recipes.*, category.category_name, category.category_logo, (recipes.id IN (SELECT recipe_id FROM favorites WHERE user_id = ?) ) as isFavorite FROM recipes LEFT JOIN category ON recipes.category_id = category.id WHERE slug = ?");
+    $stmt->execute([$userId, $slug]); // Premier ? = userId, deuxième ? = slug
+    $recipe = $stmt->fetch(); // Récupère la recette ou false si pas trouvée
     return $recipe;   
 }
 
