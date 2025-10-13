@@ -1,7 +1,12 @@
 A faire
 
-Maquettage
-
+Maquettage responsive
 Pages Catégories
 page mes recettes (Utilisateurs Connectée)
 Page Favoris (Utilisateurs Connectée)
+Suppression recettes (Utilisateurs Connectée)
+Mise a jour recettes (Utilisateurs Connéctée)
+Systeme de commentaires (Utilisateurs Connectée)
+CSS Mot de passe reinitialiser
+Page 404
+
