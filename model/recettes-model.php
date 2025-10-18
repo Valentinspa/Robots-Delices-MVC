@@ -9,7 +9,7 @@ require_once __DIR__ . '/../service/connexionBDD.php';
  */
 function getPopularRecipes(): array
 {
-    $pdo = connexionBDD(); 
+    $pdo = connexionBDD();
     // WHERE popular = 1 : sélectionne seulement les recettes marquées comme populaires
     // ORDER BY created_at DESC : trie par date de création (plus récentes en premier)
     // LIMIT 3 : limite à 3 recettes maximum
@@ -44,7 +44,7 @@ function getRecipes(): array
  *
  * @return array Tableau de toutes les catégories
  */
-function getCategories (): array
+function getCategories(): array
 {
     $pdo = connexionBDD();
     $stmt = $pdo->prepare("SELECT * FROM category ORDER BY category_name ASC");
@@ -106,7 +106,7 @@ function getRecipe(int $userId, string $slug): array|false
     $stmt = $pdo->prepare("SELECT recipes.*, category.category_name, category.category_logo, (recipes.id IN (SELECT recipe_id FROM favorites WHERE user_id = ?) ) as isFavorite FROM recipes LEFT JOIN category ON recipes.category_id = category.id WHERE slug = ?");
     $stmt->execute([$userId, $slug]); // Premier ? = userId, deuxième ? = slug
     $recipe = $stmt->fetch(); // Récupère la recette ou false si pas trouvée
-    return $recipe;   
+    return $recipe;
 }
 
 /**
@@ -128,6 +128,4 @@ function searchRecipes(string $searchTerm): array
                            ORDER BY recipes.created_at DESC");
     $stmt->execute([$searchPattern, $searchPattern, $searchPattern]);
     return $stmt->fetchAll();
-
 }
-

@@ -22,12 +22,10 @@ if (isset($_SESSION['user_id'])) {
 // Si une recherche a été effectuée
 if (!empty($searchTerm)) {
     $searchPerformed = true;
-    
+
     // Requête de recherche dans titre, description et ingrédients
     $recipes = searchRecipes($searchTerm);
 }
 
 // Inclusion de la vue
 require_once __DIR__ . '/../../view/recettes/search.php';
-?>
-

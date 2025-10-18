@@ -48,4 +48,3 @@ $preparation = array_filter($preparation, function ($step) {
 $preparation = array_values($preparation); // Réindexe le tableau (0,1,2...)
 
 require_once __DIR__ . '/../../view/recettes/recette.php'; // Vue pour afficher la recette
-?>

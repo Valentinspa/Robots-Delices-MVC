@@ -3,7 +3,7 @@
 // Inclut validation des données, upload d'image et protection CSRF
 
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
-require_once __DIR__. "/../../service/csrf.php"; // Protection contre les attaques CSRF
+require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaques CSRF
 
 // VÉRIFICATION DE LA CONNEXION UTILISATEUR
 // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté

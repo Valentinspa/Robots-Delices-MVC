@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Préparer et envoyer le mail
             $resetLink = 'http://localhost:15050/reinitialiser-mdp?token=' . $token;
             $subject = 'Réinitialisation de votre mot de passe';
-            
+
             // Charger le template d'email
             ob_start();
             include __DIR__ . '/../../view/mail/mail-mdp-oublie.php';
@@ -43,9 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $error = "Adresse email invalide.";
     }
-
 }
 // Afficher la vue avec message
 include __DIR__ . '/../../view/mot-de-passe-oublie/mdp-oublie.php';
 exit;
-?>

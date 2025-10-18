@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // Assurez-vous d'avoir installé PHPMailer via Composer
@@ -14,7 +15,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
  * @param string $fromName Nom de l'expéditeur
  * @return bool           true si l'email a été envoyé, false sinon
  */
-function sendMail($to, $subject, $body, $from, $fromName = '') {
+function sendMail($to, $subject, $body, $from, $fromName = '')
+{
     $mail = new PHPMailer(true);
 
     try {

@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+
     <script src="./assets/js/api-favoris.js" defer></script>
     <title><?php echo $searchPerformed ? 'Recherche : ' . htmlspecialchars($searchTerm) : 'Recherche'; ?> - Robots-Délices</title>
 </head>
 
 <body>
-    <?php 
-    require_once 'view/module/header.php'; 
+    <?php
+    require_once 'view/module/header.php';
     ?>
-    
+
     <main>
         <div id="section-container">
             <section id="search-section">
                 <div class="search-header">
                     <h1>Recherche de recettes</h1>
-                    
+
                     <!-- Formulaire de recherche -->
                     <form method="GET" action="/recherche" class="search-form">
                         <div class="search-input-container">
-                            <input type="text" 
-                                   name="search" 
-                                   value="<?php echo htmlspecialchars($searchTerm); ?>" 
-                                   placeholder="Rechercher une recette, un ingrédient..." 
-                                   required />
+                            <input type="text"
+                                name="search"
+                                value="<?php echo htmlspecialchars($searchTerm); ?>"
+                                placeholder="Rechercher une recette, un ingrédient..."
+                                required />
                             <button type="submit">Rechercher</button>
                         </div>
                     </form>
@@ -46,7 +47,7 @@
                                     Aucun résultat pour "<?php echo htmlspecialchars($searchTerm); ?>"
                                 <?php endif; ?>
                             </h2>
-                            
+
                             <?php if (count($recipes) > 0): ?>
                                 <div id="recettes-grid">
                                     <?php foreach ($recipes as $recipe): ?>
@@ -60,7 +61,7 @@
                                                 <div class="recette-summarize">
                                                     <h3><?php echo htmlspecialchars($recipe['title']); ?></h3>
                                                     <p><?php echo htmlspecialchars($recipe['description']); ?></p>
-                                                    
+
                                                     <!-- Bouton favoris -->
                                                     <?php if (isset($_SESSION['user_id'])): ?>
                                                         <span class="bouton-favoris" data-id="<?php echo $recipe['id']; ?>">
@@ -95,7 +96,7 @@
                     <?php else: ?>
                         <div class="search-placeholder">
                             <p>Utilisez la barre de recherche ci-dessus pour trouver des recettes par nom, description ou ingrédients.</p>
-                            
+
                             <div class="search-tips">
                                 <h3>Conseils de recherche :</h3>
                                 <ul>
@@ -110,9 +111,10 @@
             </section>
         </div>
     </main>
-    
+
     <footer>
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

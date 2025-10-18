@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+
     <script src="/assets/js/api-favoris.js" defer></script>
     <script src="/assets/js/share.js" defer></script>
     <title><?php echo htmlspecialchars($recipe['title']); ?> - Robots-Délices</title>

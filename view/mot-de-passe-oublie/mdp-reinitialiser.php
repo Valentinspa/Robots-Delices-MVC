@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,8 @@
 <body>
     <div class="container">
         <section class="mdp-reinitialiser-hero">
-                <h1>Reinitialiser votre mot de passe</h1>
-                <p>Veuillez entrer votre nouveau mot de passe ci-dessous.</p>
+            <h1>Reinitialiser votre mot de passe</h1>
+            <p>Veuillez entrer votre nouveau mot de passe ci-dessous.</p>
         </section>
         <form class="mdp-reinitialiser-form" action="/reinitialiser-mdp?token=<?= $token ?>" method="POST">
             <label for="new_password">Nouveau mot de passe:</label>
@@ -29,4 +30,5 @@
     </div>
 
 </body>
+
 </html>

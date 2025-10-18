@@ -14,7 +14,7 @@
     <?php
     require_once 'view/module/header.php';
     ?>
-    
+
     <main>
         <div id="section-container">
             <!-- Section hero de la page -->
@@ -55,7 +55,7 @@
                                         <img src="/<?php echo htmlspecialchars($recipe['photo']); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" />
                                     </a>
                                 </div>
-                                
+
                                 <div class="recettes-content">
                                     <div class="recette-summarize">
                                         <h3><?php echo htmlspecialchars($recipe['title']); ?></h3>
@@ -66,7 +66,7 @@
                                             <?php echo in_array($recipe['id'], $favorites) ? '❤️' : '🤍'; ?>
                                         </span>
                                     </div>
-                                    
+
                                     <div class="recette-meta">
                                         <span>⏱️ <?php echo htmlspecialchars($recipe['cooking_time']); ?></span>
                                         <span>👥 <?php echo htmlspecialchars($recipe['number_persons']); ?> pers</span>

@@ -5,13 +5,13 @@
 // Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../../model/recettes-model.php'; // Modèle pour interagir avec les recettes
 require_once __DIR__ . '/../../model/favoris-model.php'; // Modèle pour interagir avec les favoris
-require_once __DIR__. "/../../service/csrf.php"; // Protection contre les attaques CSRF
+require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaques CSRF
 
 
 // Vérification si un utilisateur est connecté pour gérer les favoris
 if (isset($_SESSION['user_id'])) {
     $userId = $_SESSION['user_id'];
-    
+
     $favorites = getFavorites($userId); // Récupère les IDs des recettes favorites de l'utilisateur
 } else {
     // Si pas connecté, tableau vide pour les favoris

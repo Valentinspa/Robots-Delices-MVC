@@ -11,7 +11,7 @@ require_once __DIR__ . '/../service/connexionBDD.php';
 function getFavorites(int $userId): array
 {
     $pdo = connexionBDD(); // Établit la connexion à la base de données
-        $stmt = $pdo->prepare("SELECT recipe_id FROM favorites WHERE user_id = ?");
+    $stmt = $pdo->prepare("SELECT recipe_id FROM favorites WHERE user_id = ?");
     $stmt->execute([$userId]); // Exécute la requête avec l'ID utilisateur
 
     // Récupère tous les IDs des recettes favorites sous forme de tableau simple
@@ -30,7 +30,7 @@ function getFavorites(int $userId): array
 function getFavori($userId, $recetteId): array|false
 {
     $pdo = connexionBDD(); // Établit la connexion à la base de données
-        $stmt = $pdo->prepare("SELECT * FROM favorites WHERE user_id = ? AND recipe_id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM favorites WHERE user_id = ? AND recipe_id = ?");
     $stmt->execute([$userId, $recetteId]); // Exécute la requête avec l'ID utilisateur
 
     // Récupère tous les IDs des recettes favorites sous forme de tableau simple
@@ -48,7 +48,7 @@ function getFavori($userId, $recetteId): array|false
 function deleteFavori($userId, $recetteId): void
 {
     $pdo = connexionBDD(); // Établit la connexion à la base de données
-        $stmt = $pdo->prepare("DELETE FROM favorites WHERE user_id = ? AND recipe_id = ?");
+    $stmt = $pdo->prepare("DELETE FROM favorites WHERE user_id = ? AND recipe_id = ?");
     $stmt->execute([$userId, $recetteId]); // Exécute la requête avec l'ID utilisateur
 }
 
@@ -62,6 +62,6 @@ function deleteFavori($userId, $recetteId): void
 function addFavori($userId, $recetteId): void
 {
     $pdo = connexionBDD(); // Établit la connexion à la base de données
-        $stmt = $pdo->prepare("INSERT INTO favorites (user_id, recipe_id) VALUES (?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO favorites (user_id, recipe_id) VALUES (?, ?)");
     $stmt->execute([$userId, $recetteId]); // Exécute la requête avec l'ID utilisateur
 }

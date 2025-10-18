@@ -102,7 +102,11 @@
 }
 
 #search-bar button:hover {
-  background: linear-gradient(45deg, var(--warning-color-dark), var(--warning-color-darker));
+  background: linear-gradient(
+    45deg,
+    var(--warning-color-dark),
+    var(--warning-color-darker)
+  );
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
 }
@@ -339,12 +343,24 @@
   animation: slideInUp 0.6s ease-out;
 }
 
-.recette-card:nth-child(1) { animation-delay: 0.1s; }
-.recette-card:nth-child(2) { animation-delay: 0.2s; }
-.recette-card:nth-child(3) { animation-delay: 0.3s; }
-.recette-card:nth-child(4) { animation-delay: 0.4s; }
-.recette-card:nth-child(5) { animation-delay: 0.5s; }
-.recette-card:nth-child(6) { animation-delay: 0.6s; }
+.recette-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.recette-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.recette-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.recette-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.recette-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.recette-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* RESPONSIVE DESIGN */
 

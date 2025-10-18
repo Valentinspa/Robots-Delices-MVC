@@ -18,6 +18,7 @@ require_once __DIR__ . "/../../service/csrf.php"; // Protection contre les attaq
     <link rel="stylesheet" href="/assets/css/footer.css">
     <title>Mon Profil - Robots-Délices</title>
 </head>
+
 <body>
     <?php
     require_once 'view/module/header.php';

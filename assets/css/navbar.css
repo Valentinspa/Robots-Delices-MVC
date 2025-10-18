@@ -84,9 +84,15 @@ header {
   transition: all var(--transition-normal) var(--ease-in-out);
 }
 
-.burger-line:nth-child(1) { top: 12px; }
-.burger-line:nth-child(2) { top: 22.5px; }
-.burger-line:nth-child(3) { top: 33px; }
+.burger-line:nth-child(1) {
+  top: 12px;
+}
+.burger-line:nth-child(2) {
+  top: 22.5px;
+}
+.burger-line:nth-child(3) {
+  top: 33px;
+}
 
 #menu-toggle:checked + .burger-menu {
   background: rgba(239, 68, 68, 0.1);
@@ -180,7 +186,7 @@ input.dropdown-checkbox {
 }
 
 .dropdown.profil-dropdown .dropdown-toggle::after {
-  content: '\25BC';
+  content: "\25BC";
   font-size: 0.7rem;
   color: var(--color-primary);
   transition: transform var(--transition-normal) var(--ease-in-out);
@@ -223,7 +229,7 @@ input.dropdown-checkbox {
 }
 
 .dropdown.profil-dropdown::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: -5px;
@@ -296,7 +302,12 @@ input#dropdown-menu:checked ~ .dropdown-menu.profil-submenu {
 
 .dropdown-separator {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(109, 180, 196, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(109, 180, 196, 0.2),
+    transparent
+  );
   margin: var(--spacing-sm) var(--spacing-md);
 }
 
@@ -318,7 +329,11 @@ input#dropdown-menu:checked ~ .dropdown-menu.profil-submenu {
 }
 
 .nav-menu li.red-btn a:hover {
-  background: linear-gradient(135deg, var(--error-color-dark), var(--error-color-darker));
+  background: linear-gradient(
+    135deg,
+    var(--error-color-dark),
+    var(--error-color-darker)
+  );
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
@@ -472,9 +487,15 @@ header * {
     height: 3px;
   }
 
-  .burger-line:nth-child(1) { top: 10px; }
-  .burger-line:nth-child(2) { top: 19.5px; }
-  .burger-line:nth-child(3) { top: 29px; }
+  .burger-line:nth-child(1) {
+    top: 10px;
+  }
+  .burger-line:nth-child(2) {
+    top: 19.5px;
+  }
+  .burger-line:nth-child(3) {
+    top: 29px;
+  }
 
   #menu-toggle:checked + .burger-menu .burger-line:nth-child(1) {
     top: 19.5px;
@@ -499,7 +520,11 @@ header * {
     width: 85%;
     max-width: 380px;
     height: 100vh;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--bg-secondary) 0%,
+      var(--bg-primary) 100%
+    );
     transition: right 0.4s var(--ease-out);
     z-index: var(--z-dropdown);
     padding: 0;
@@ -543,7 +568,11 @@ header * {
 
   .nav-menu li:not(.dropdown):not(.red-btn) a:hover,
   .nav-menu li:not(.dropdown):not(.red-btn) a:active {
-    background: linear-gradient(135deg, rgba(109, 180, 196, 0.1), rgba(90, 163, 179, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(109, 180, 196, 0.1),
+      rgba(90, 163, 179, 0.1)
+    );
     color: var(--color-primary);
     border-color: var(--border-medium);
     transform: translateX(8px);
@@ -589,7 +618,11 @@ header * {
   .dropdown.profil-dropdown .dropdown-toggle:hover,
   .dropdown.profil-dropdown .dropdown-toggle:focus,
   .dropdown.profil-dropdown .dropdown-toggle:active {
-    background: linear-gradient(135deg, rgba(109, 180, 196, 0.1), rgba(90, 163, 179, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(109, 180, 196, 0.1),
+      rgba(90, 163, 179, 0.1)
+    );
     color: var(--color-primary);
     border-color: var(--border-medium);
     transform: translateX(8px);
@@ -619,13 +652,18 @@ header * {
     pointer-events: all;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-slow) var(--ease-out), padding var(--transition-slow) var(--ease-in-out);
+    transition: max-height var(--transition-slow) var(--ease-out),
+      padding var(--transition-slow) var(--ease-in-out);
   }
 
   .dropdown.profil-dropdown:hover .dropdown-menu.profil-submenu,
   .dropdown.profil-dropdown:focus-within .dropdown-menu.profil-submenu,
-  .dropdown.profil-dropdown .dropdown-toggle:focus + .dropdown-menu.profil-submenu,
-  .dropdown.profil-dropdown .dropdown-toggle:active + .dropdown-menu.profil-submenu {
+  .dropdown.profil-dropdown
+    .dropdown-toggle:focus
+    + .dropdown-menu.profil-submenu,
+  .dropdown.profil-dropdown
+    .dropdown-toggle:active
+    + .dropdown-menu.profil-submenu {
     max-height: 400px;
     padding: 0.75rem 0;
   }
@@ -649,7 +687,11 @@ header * {
   .submenu-link:hover,
   .submenu-link:focus,
   .submenu-link:active {
-    background: linear-gradient(135deg, rgba(109, 180, 196, 0.1), rgba(90, 163, 179, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(109, 180, 196, 0.1),
+      rgba(90, 163, 179, 0.1)
+    );
     color: var(--color-primary);
     border-color: var(--border-medium);
     transform: translateX(8px);
@@ -690,7 +732,11 @@ header * {
 
   .nav-menu li.red-btn a:hover,
   .nav-menu li.red-btn a:active {
-    background: linear-gradient(135deg, var(--color-secondary), var(--color-tertiary));
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary),
+      var(--color-tertiary)
+    );
     transform: translateX(8px) translateY(-2px);
     box-shadow: var(--shadow-primary-strong);
   }
@@ -705,7 +751,7 @@ header * {
   .dropdown.profil-dropdown::before {
     display: none !important;
   }
-  
+
   .dropdown.profil-dropdown:focus-within .dropdown-menu.profil-submenu {
     max-height: 400px !important;
     padding: 0.75rem 0 !important;
@@ -713,7 +759,7 @@ header * {
     visibility: visible !important;
     pointer-events: all !important;
   }
-  
+
   .dropdown.profil-dropdown .dropdown-toggle,
   .submenu-link {
     min-height: 44px;
@@ -744,7 +790,7 @@ header * {
     animation-iteration-count: 1 !important;
     transition-duration: var(--transition-fast) !important;
   }
-  
+
   .dropdown-menu.profil-submenu {
     transition: max-height var(--transition-fast) var(--ease-in-out) !important;
   }
@@ -758,7 +804,7 @@ header * {
     transform: none !important;
     width: 100% !important;
   }
-  
+
   .dropdown.profil-dropdown:focus-within .dropdown-menu.profil-submenu,
   .dropdown.profil-dropdown .dropdown-menu.profil-submenu {
     display: block !important;

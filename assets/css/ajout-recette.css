@@ -201,7 +201,11 @@ main {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--color-secondary), var(--color-tertiary));
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
   transform: translateY(-2px);
   box-shadow: var(--shadow-primary-strong);
 }
@@ -288,8 +292,12 @@ main {
 }
 
 @keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* RESPONSIVE DESIGN */

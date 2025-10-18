@@ -25,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validation complète des données reçues du formulaire
     // Chaque condition vérifie un critère différent
-   if(!empty($password))
-    {
+    if (!empty($password)) {
         // Vérification que les deux mots de passe sont identiques
         if ($password !== $confirmPassword) {
             $error = "Les mots de passe ne correspondent pas.";
@@ -56,8 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Le mot de passe doit contenir au moins un caractère spécial.";
         }
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    }
-    else {
+    } else {
         $hashedPassword = $user['password']; // Si pas de nouveau mot de passe, garder l'ancien
     }
     if (empty($prenom) || empty($nom) || empty($email)) {
@@ -99,14 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si aucune erreur de validation, procéder à la création du compte   
     if (!isset($error)) {
         try {
-            updateUser($_SESSION["user_id"],$prenom, $nom, $email, $hashedPassword); // Ajout de l'utilisateur en base
+            updateUser($_SESSION["user_id"], $prenom, $nom, $email, $hashedPassword); // Ajout de l'utilisateur en base
             $_SESSION['firstname'] = $prenom; // Prénom pour affichage navbar
             $_SESSION['lastname'] = $nom;   // Nom pour affichage navbar
             $_SESSION['email'] = $email;         // Email
 
             $success = "Profil mis à jour avec succès."; // Message de succès
             $user = getUserById($_SESSION['user_id']); // Récupération des infos utilisateur mises à jour
-                
+
         } catch (PDOException $e) {
             $error = "Erreur lors de la modification : " . $e->getMessage(); // Gestion des erreurs d'insertion en base       
         }

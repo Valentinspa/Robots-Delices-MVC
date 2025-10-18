@@ -70,4 +70,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 // Inclusion de la vue (formulaire de connexion)
 include_once __DIR__ . '/../../view/connexion-inscription/login.php';
-?>

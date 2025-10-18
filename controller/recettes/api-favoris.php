@@ -56,13 +56,13 @@ if (isset($_SESSION['user_id']) && isset($_POST['action']) && $_POST['action'] =
     try {
         // ÉTAPE 1 : Vérification si la recette est déjà en favoris
         // Cette requête cherche une entrée existante dans la table favorites
-          $favoris = getFavori($userId, $recetteId);
+        $favoris = getFavori($userId, $recetteId);
         if ($favoris) {
             deleteFavori($userId, $recetteId);
             echo json_encode(['status' => 'removed']);
         } else {
             // CAS 2 : La recette n'est pas en favoris → ON L'AJOUTE
-           addFavori($userId, $recetteId);
+            addFavori($userId, $recetteId);
             // Réponse JSON indiquant que la recette a été ajoutée aux favoris
             echo json_encode(['status' => 'added']);
         }

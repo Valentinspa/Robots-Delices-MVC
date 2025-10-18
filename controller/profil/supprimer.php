@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Page de suppression de compte
 require_once __DIR__ . '/../../model/user-model.php'; // Modèle utilisateur
 require_once __DIR__ . '/../../service/csrf.php'; // Protection CSRF

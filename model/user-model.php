@@ -92,21 +92,20 @@ function clearLoginAttempts($email): void
  * @param string $hashedPassword Le mot de passe haché (hashé avec password_hash)
  * @return string|int L'ID du nouvel utilisateur si succès, 0 si échec
  */
-function addUser($prenom, $nom, $email, $hashedPassword):string|int
+function addUser($prenom, $nom, $email, $hashedPassword): string|int
 {
     $pdo = connexionBDD(); // Établit la connexion à la base de données
     // Insertion du nouvel utilisateur dans la base de données
     $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)"); // Requête préparée pour insérer les données de façon sécurisé            
     $stmt->execute([$prenom, $nom, $email, $hashedPassword]);
-    
+
     $rowAffected = $stmt->rowCount(); // Nombre de lignes affectées par la requête (1 si succès, 0 sinon)
     if ($rowAffected > 0) {
         // retourne l'ID du nouvel utilisateur
-        return $pdo->lastInsertId(); 
+        return $pdo->lastInsertId();
     } else {
         return 0; // Retourne 0 en cas d'échec
     }
-
 }
 
 /**

@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+
     <script src="/assets/js/confirmer-suppression.js" defer></script>
     <title>Mon Profil - Robots-Délices</title>
 </head>
+
 <body class="page-profil">
     <?php
     require_once 'view/module/header.php';
     ?>
-    
+
     <main>
         <div class="container">
             <!-- Hero Section -->
@@ -48,7 +49,7 @@
                                 <label for="email">Adresse e-mail :</label>
                                 <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']); ?>" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="password">Nouveau mot de passe :</label>
                                 <input type="password" id="password" name="password" placeholder="Laissez vide pour ne pas changer">
@@ -61,17 +62,18 @@
                     </div>
                     <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
                     <div class="form-actions">
-                            <button type="submit" class="form-btn btn-modifier">Modifier</button>
-                            <!-- TODO ajouter js pour confirmer le clique sur le bouton -->
-                            <a href="/supprimer-compte?csrf_token=<?php echo $csrf_token ?>" class="form-btn btn-supprimer">Supprimer mon compte</a>
-                    </div>    
+                        <button type="submit" class="form-btn btn-modifier">Modifier</button>
+                        <!-- TODO ajouter js pour confirmer le clique sur le bouton -->
+                        <a href="/supprimer-compte?csrf_token=<?php echo $csrf_token ?>" class="form-btn btn-supprimer">Supprimer mon compte</a>
+                    </div>
                 </form>
             </div>
         </div>
     </main>
-    
+
     <footer>
         <p>© 2025 Robots-Délices. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

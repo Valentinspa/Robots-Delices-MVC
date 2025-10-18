@@ -17,53 +17,53 @@
     - Utilisation de htmlspecialchars() pour éviter les attaques XSS lors de l'affichage du nom
 -->
 
- <header>
-     <div id="section">
-         <!-- Section du logo - Cliquable pour retourner à l'accueil -->
-         <div id="header-title">
-             <a href="/">
-                 <img id="logo" alt="Logo Robots-Délices" src="/assets/img/logo_robots_delices.png">
-             </a>
-         </div>
+<header>
+    <div id="section">
+        <!-- Section du logo - Cliquable pour retourner à l'accueil -->
+        <div id="header-title">
+            <a href="/">
+                <img id="logo" alt="Logo Robots-Délices" src="/assets/img/logo_robots_delices.png">
+            </a>
+        </div>
 
-         <!-- Menu hamburger responsive - Case à cocher cachée pour gérer l'ouverture/fermeture -->
-         <input id="menu-toggle" type="checkbox" />
-         <label class="burger-menu" for="menu-toggle">
-             <span class="burger-line"></span>
-             <span class="burger-line"></span>
-             <span class="burger-line"></span>
-         </label>
+        <!-- Menu hamburger responsive - Case à cocher cachée pour gérer l'ouverture/fermeture -->
+        <input id="menu-toggle" type="checkbox" />
+        <label class="burger-menu" for="menu-toggle">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </label>
 
-         <!-- Container de la navigation principale -->
-         <div id="nav-container" class="nav-container">
-             <ul class="nav-menu">
-                 <!-- Liens de navigation communs à tous les utilisateurs -->
-                 <li class="li"><a href="/recettes">Recettes</a></li>
-                 <li class="li"><a href="/categories">Catégories</a></li>
+        <!-- Container de la navigation principale -->
+        <div id="nav-container" class="nav-container">
+            <ul class="nav-menu">
+                <!-- Liens de navigation communs à tous les utilisateurs -->
+                <li class="li"><a href="/recettes">Recettes</a></li>
+                <li class="li"><a href="/categories">Catégories</a></li>
 
-                 <?php
-                    // LOGIQUE DE NAVIGATION CONDITIONNELLE
-                    // Vérification si l'utilisateur est connecté en vérifiant la présence de 'user_id' dans la session
-                    if (isset($_SESSION['user_id'])) {
-                        // Récupération des informations utilisateur depuis la session
-                        // Les champs de la DB sont 'firstname' et 'lastname'
-                        $firstname = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
-                        $lastname = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
-                        
-                        // Construction du nom complet avec sécurisation
-                        $nomComplet = '';
-                        if (!empty($firstname) && !empty($lastname)) {
-                            $nomComplet = htmlspecialchars($firstname . ' ' . $lastname, ENT_QUOTES, 'UTF-8');
-                        } elseif (!empty($firstname)) {
-                            $nomComplet = htmlspecialchars($firstname, ENT_QUOTES, 'UTF-8');
-                        } elseif (!empty($lastname)) {
-                            $nomComplet = htmlspecialchars($lastname, ENT_QUOTES, 'UTF-8');
-                        } else {
-                            $nomComplet = 'Mon Profil'; // Fallback si aucune information n'est disponible
-                        }
+                <?php
+                // LOGIQUE DE NAVIGATION CONDITIONNELLE
+                // Vérification si l'utilisateur est connecté en vérifiant la présence de 'user_id' dans la session
+                if (isset($_SESSION['user_id'])) {
+                    // Récupération des informations utilisateur depuis la session
+                    // Les champs de la DB sont 'firstname' et 'lastname'
+                    $firstname = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
+                    $lastname = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
 
-                        // Menu pour les utilisateurs CONNECTÉS avec nom personnalisé
-                        echo '
+                    // Construction du nom complet avec sécurisation
+                    $nomComplet = '';
+                    if (!empty($firstname) && !empty($lastname)) {
+                        $nomComplet = htmlspecialchars($firstname . ' ' . $lastname, ENT_QUOTES, 'UTF-8');
+                    } elseif (!empty($firstname)) {
+                        $nomComplet = htmlspecialchars($firstname, ENT_QUOTES, 'UTF-8');
+                    } elseif (!empty($lastname)) {
+                        $nomComplet = htmlspecialchars($lastname, ENT_QUOTES, 'UTF-8');
+                    } else {
+                        $nomComplet = 'Mon Profil'; // Fallback si aucune information n'est disponible
+                    }
+
+                    // Menu pour les utilisateurs CONNECTÉS avec nom personnalisé
+                    echo '
                         <!-- MENU PROFIL AVEC SOUS-MENU COMPLET -->
                         <li class="dropdown profil-dropdown">
                             <label for="dropdown-menu" class="dropdown-toggle">👤 ' . $nomComplet . '</label>
@@ -92,17 +92,17 @@
                                 </a>
                             </div>
                         </li>';
-                    } else {
-                        // Menu pour les utilisateurs NON CONNECTÉS
-                        // Seul le lien de connexion est affiché
-                        echo '<li class="li red-btn"><a href="/connexion" class="connexion-btn">Connexion</a></li>';
-                    }
-                    ?>
-             </ul>
-         </div>
+                } else {
+                    // Menu pour les utilisateurs NON CONNECTÉS
+                    // Seul le lien de connexion est affiché
+                    echo '<li class="li red-btn"><a href="/connexion" class="connexion-btn">Connexion</a></li>';
+                }
+                ?>
+            </ul>
+        </div>
 
-         <!-- Overlay pour fermer le menu en cliquant à côté (mobile) -->
-         <div class="menu-overlay"></div>
+        <!-- Overlay pour fermer le menu en cliquant à côté (mobile) -->
+        <div class="menu-overlay"></div>
 
-     </div>
- </header>
+    </div>
+</header>
